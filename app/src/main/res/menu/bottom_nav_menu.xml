@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/actionSchool"
+            android:icon="@drawable/ic_school_black_24dp"
+            android:title="@string/bottom_title_school"/>
+    <item
+            android:id="@+id/actionCommunity"
+            android:icon="@drawable/ic_community_black_24dp"
+            android:title="@string/bottom_title_community"/>
+    <item
+            android:id="@+id/actionCalendar"
+            android:icon="@drawable/ic_calendar_black_24dp"
+            android:title="@string/bottom_title_calendar"/>
+    <item
+            android:id="@+id/actionPerson"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/bottom_title_person"/>
+</menu>

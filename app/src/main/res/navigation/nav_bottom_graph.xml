@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_bottom_graph"
+            app:startDestination="@id/actionSchool">
+
+    <fragment android:id="@+id/actionCalendar" android:name="by.itechart.android.CalendarFragment"
+              android:label="CalendarFragment"/>
+    <fragment android:id="@+id/actionCommunity" android:name="by.itechart.android.CommunityFragment"
+              android:label="CommunityFragment"/>
+    <fragment android:id="@+id/actionPerson" android:name="by.itechart.android.PersonFragment"
+              android:label="PersonFragment"/>
+    <fragment android:id="@+id/actionSchool" android:name="by.itechart.android.SchoolFragment"
+              android:label="SchoolFragment"/>
+</navigation>

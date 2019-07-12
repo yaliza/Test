@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Android</string>
+
+    <string name="bottom_title_school">School</string>
+    <string name="bottom_title_community">Community</string>
+    <string name="bottom_title_calendar">Calendar</string>
+    <string name="bottom_title_person">Person</string>
+    <string name="title_activity_swipable">SwipableActivity</string>
+
+    <string name="facebook_app_id">2395046100588955</string>
+    <string name="fb_login_protocol_scheme">fb2395046100588955</string>
+</resources>

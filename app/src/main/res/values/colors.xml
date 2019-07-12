@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="dotsSelectedColor">#FF5A1C</color>
+    <color name="dotsUnselectedColor">#A7A7A7</color>
+    <color name="bottomNavSelectedIconColor">#474747</color>
+
+</resources>
