@@ -12,6 +12,7 @@
     <fragment
             android:id="@+id/loginFragment"
             android:name="by.itechart.android.LoginFragment"
+            android:label="Hello"
             tools:layout="@layout/fragment_login">
         <action android:id="@+id/action_loginFragment_to_bottomNavFragment"
                 app:destination="@id/bottomNavFragment"
@@ -23,6 +24,7 @@
     <fragment
             android:id="@+id/bottomNavFragment"
             android:name="by.itechart.android.BottomNavFragment"
+            android:label="Bottom"
             tools:layout="@layout/fragment_bottom_nav">
         <action android:id="@+id/action_bottomNavFragment_to_swipableFragment"
                 app:destination="@id/swipableFragment"/>

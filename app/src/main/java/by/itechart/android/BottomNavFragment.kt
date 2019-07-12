@@ -7,7 +7,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.facebook.AccessToken
 import com.facebook.AccessTokenTracker
-import com.facebook.login.LoginManager
 import kotlinx.android.synthetic.main.fragment_bottom_nav.*
 
 

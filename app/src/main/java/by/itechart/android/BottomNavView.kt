@@ -2,14 +2,11 @@ package by.itechart.android
 
 import android.content.Context
 import android.graphics.Color
-import android.os.Bundle
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MenuItem
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.forEach
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.view_bottom_nav.view.*
 
