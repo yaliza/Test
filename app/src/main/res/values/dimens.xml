@@ -6,4 +6,18 @@
     <dimen name="bnv_icon_size">32dp</dimen>
     <dimen name="bnv_dot_size">4dp</dimen>
 
+    <dimen name="toolbar_height">70dp</dimen>
+
+    <!-- Swipeable screen -->
+    <dimen name="swp_view_pager_top_margin">70dp</dimen>
+    <dimen name="swp_peek_height">60dp</dimen>
+
+    <!-- Swipeable card -->
+    <dimen name="swp_card_corner_radius">8dp</dimen>
+    <dimen name="swp_card_margins">10dp</dimen>
+    <dimen name="swp_card_image_height">300dp</dimen>
+    <dimen name="swp_card_inner_horizontal_margin">10dp</dimen>
+    <dimen name="swp_card_inner_vertical_margin">13dp</dimen>
+    <dimen name="swp_card_title_text_size">17sp</dimen>
+    <dimen name="swp_card_description_text_size">16sp</dimen>
 </resources>
