@@ -4,8 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="dotsSelectedColor">#FF5A1C</color>
-    <color name="dotsUnselectedColor">#A7A7A7</color>
-    <color name="bottomNavSelectedIconColor">#474747</color>
+    <color name="grey10">#EBECED</color>
+    <color name="grey30">#CACCCE</color>
+    <color name="grey90">#2B323D</color>
+
+    <color name="orange">#F26E2F</color>
 
 </resources>

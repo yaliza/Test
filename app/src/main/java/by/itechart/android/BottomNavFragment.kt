@@ -23,7 +23,7 @@ class BottomNavFragment : Fragment(R.layout.fragment_bottom_nav) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navController = Navigation.findNavController(requireActivity(), R.id.bottomNavFragment)
-        navBottom.setupWithNavController(navController)
+        bottomNavView.setupWithNavController(navController)
     }
 
     override fun onStart() {

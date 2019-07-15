@@ -5,28 +5,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <include android:id="@+id/tool" layout="@layout/toolbar"/>
+    <include
+            android:id="@+id/tool"
+            layout="@layout/toolbar" />
 
     <fragment
             android:id="@+id/bottomNavFragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/tool"
-            app:layout_constraintBottom_toTopOf="@id/navBottom"
-            app:navGraph="@navigation/nav_bottom_graph"
             app:defaultNavHost="true"
-            app:itemHorizontalTranslationEnabled="true"/>
+            app:itemHorizontalTranslationEnabled="true"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavView"
+            app:layout_constraintTop_toBottomOf="@id/tool"
+            app:navGraph="@navigation/nav_bottom_graph" />
 
     <by.itechart.android.BottomNavView
-            android:id="@+id/navBottom"
+            android:id="@+id/bottomNavView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:dotSelectedColor="@color/dotsSelectedColor"
-            app:dotUnselectedColor="@color/dotsUnselectedColor"
-            app:iconsColor = "@color/bottom_nav_colors"
-            app:menu="@menu/bottom_nav_menu"
-            app:dotRadius="@dimen/bottom_nav_dots_radius"/>
+            app:bnv_menu="@menu/bottom_nav_menu"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

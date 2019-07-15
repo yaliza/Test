@@ -11,7 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.view_bottom_nav.view.*
 
 class BottomNavView @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private val menuIds = mutableListOf<Int>()
@@ -21,12 +21,7 @@ class BottomNavView @JvmOverloads constructor(
     init {
         inflate(context, R.layout.view_bottom_nav, this)
         initAttributes(attrs)
-        menuItemMaxWidth =
-            context.resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_max_width)
-        navBottomBar.menu.forEach { menuIds.add(it.itemId) }
-        navDotsIndicator.count = menuIds.size
-        navBottomBar.setOnNavigationItemSelectedListener { menuItem: MenuItem -> changeDotSelectedIndex(menuItem.itemId) }
-        navDotsIndicator.setOnTouchListener { _, _ -> false }
+        menuItemMaxWidth = context.resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_max_width)
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -52,12 +47,19 @@ class BottomNavView @JvmOverloads constructor(
 
         val params = navDotsIndicator.layoutParams as LayoutParams
         params.setMargins(padding, params.topMargin, padding, params.bottomMargin)
-        navDotsIndicator.layoutParams = params
-        navDotsIndicator.setPadding(dotsSpace.toFloat())
+        navDotsIndicator.apply {
+            layoutParams = params
+            setPadding(dotsSpace.toFloat())
+        }
     }
 
     fun setupWithNavController(navController: NavController) {
-        navBottomBar.setupWithNavController(navController)
+        navBottomBar.apply {
+            menu.forEach { menuIds.add(it.itemId) }
+            setOnNavigationItemSelectedListener { menuItem: MenuItem -> changeDotSelectedIndex(menuItem.itemId) }
+            setupWithNavController(navController)
+        }
+        navDotsIndicator.count = menuIds.size
         navController.addOnDestinationChangedListener { _, destination, _ -> changeDotSelectedIndex(destination.id) }
     }
 
@@ -69,22 +71,12 @@ class BottomNavView @JvmOverloads constructor(
         } else false
     }
 
-    private fun initAttributes(attrs: AttributeSet?) {
-        context.theme.obtainStyledAttributes(attrs, R.styleable.BottomNavView, 0, 0).apply {
-            navDotsIndicator.selectedColor = getColor(R.styleable.BottomNavView_dotSelectedColor, Color.BLACK)
-            navDotsIndicator.unselectedColor = getColor(R.styleable.BottomNavView_dotUnselectedColor, Color.BLACK)
-            if (hasValue(R.styleable.BottomNavView_menu)) {
-                navBottomBar.inflateMenu(getResourceId(R.styleable.BottomNavView_menu, 0))
+    private fun initAttributes(attrs: AttributeSet?) =
+            context.theme.obtainStyledAttributes(attrs, R.styleable.BottomNavView, 0, 0).apply {
+                if (hasValue(R.styleable.BottomNavView_bnv_menu)) {
+                    navBottomBar.inflateMenu(getResourceId(R.styleable.BottomNavView_bnv_menu, 0))
+                }
+                recycle()
             }
-            if (hasValue(R.styleable.BottomNavView_dotRadius)) {
-                navDotsIndicator.setRadius(getDimension(R.styleable.BottomNavView_dotRadius, 0f))
-            }
-            if (hasValue(R.styleable.BottomNavView_iconsColor)) {
-                navBottomBar.itemTextColor = getColorStateList(R.styleable.BottomNavView_iconsColor)
-                navBottomBar.itemIconTintList = getColorStateList(R.styleable.BottomNavView_iconsColor)
-            }
-            recycle()
-        }
-    }
 
 }
