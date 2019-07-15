@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="bottom_nav_dots_radius">4dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+<resources>
 
-    <!--<dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>-->
-    <!--<dimen name="design_bottom_navigation_active_item_max_width" tools:override="true">600dp</dimen>-->
+    <!-- Bottom Navigation View -->
+    <dimen name="bnv_height">72dp</dimen>
+    <dimen name="bnv_icon_size">32dp</dimen>
+    <dimen name="bnv_dot_size">4dp</dimen>
+
 </resources>
