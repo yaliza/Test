@@ -55,9 +55,7 @@ dependencies {
     implementation "com.facebook.android:facebook-login:$facebook_login_version"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-//    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
-//    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-//    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.2'
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

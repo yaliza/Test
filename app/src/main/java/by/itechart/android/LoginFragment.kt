@@ -29,6 +29,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         if (accessToken != null && !accessToken.isExpired) {
             findNavController().navigate(R.id.action_loginFragment_to_bottomNavFragment)
         }
+        loginButton.setPermissions(mutableListOf( "public_profile", "email"))
         loginButton.fragment = this
     }
 
