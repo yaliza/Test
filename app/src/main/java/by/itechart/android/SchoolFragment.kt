@@ -5,21 +5,36 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import by.itechart.android.data.NetworkCallback
 import by.itechart.android.data.entities.User
 import by.itechart.android.data.repositories.FacebookRepositoryImpl
 import by.itechart.android.data.repositories.FacebookRepositoryRetroImpl
 import com.facebook.login.LoginManager
+import io.reactivex.SingleObserver
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_school.*
 
 class SchoolFragment : Fragment(R.layout.fragment_school) {
 
-    private val userCallback = object : NetworkCallback<User> {
-        override fun onError(msg: String) = Toast.makeText(activity, msg, Toast.LENGTH_LONG).show()
+    private val compositeDisposable = CompositeDisposable()
 
-        override fun onComplete(result: User) {
-            if(schoolLabel != null) schoolLabel.text = "${result.name} ${result.email}"
+    private val userObserver = object : SingleObserver<User> {
+        override fun onSuccess(t: User) {
+            schoolLabel.text = "${t.name} ${t.email}"
         }
+
+        override fun onSubscribe(d: Disposable) {
+            compositeDisposable.add(d)
+        }
+
+        override fun onError(e: Throwable) = Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        compositeDisposable.clear()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,6 +45,11 @@ class SchoolFragment : Fragment(R.layout.fragment_school) {
                 .navigate(R.id.action_bottomNavFragment_to_swipableFragment)
         }
 
-        FacebookRepositoryRetroImpl().apply { getCurrentUserInfo(userCallback) }
+        FacebookRepositoryRetroImpl().apply {
+            getCurrentUserInfo()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(userObserver)
+        }
     }
 }

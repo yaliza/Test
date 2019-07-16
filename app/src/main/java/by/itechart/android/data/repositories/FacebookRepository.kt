@@ -1,8 +1,8 @@
 package by.itechart.android.data.repositories
 
 import by.itechart.android.data.entities.User
-import by.itechart.android.data.NetworkCallback
+import io.reactivex.Single
 
 interface FacebookRepository {
-    fun getCurrentUserInfo(callback: NetworkCallback<User>)
+    fun getCurrentUserInfo() : Single<User>
 }
