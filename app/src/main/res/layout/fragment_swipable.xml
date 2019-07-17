@@ -14,7 +14,7 @@
             android:layout_marginTop="@dimen/swp_view_pager_top_margin"
             android:layout_marginBottom="@dimen/swp_peek_height"/>
 
-    <by.itechart.android.BottomSheetView
+    <by.itechart.android.ui.view.BottomSheetView
             android:id="@+id/swipableBottomSheetView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

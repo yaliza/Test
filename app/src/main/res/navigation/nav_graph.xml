@@ -11,7 +11,7 @@
 
     <fragment
             android:id="@+id/loginFragment"
-            android:name="by.itechart.android.LoginFragment"
+            android:name="by.itechart.android.ui.screen.login.LoginFragment"
             android:label="Hello"
             tools:layout="@layout/fragment_login">
         <action android:id="@+id/action_loginFragment_to_bottomNavFragment"
@@ -23,7 +23,7 @@
 
     <fragment
             android:id="@+id/bottomNavFragment"
-            android:name="by.itechart.android.BottomNavFragment"
+            android:name="by.itechart.android.ui.screen.main.BottomNavFragment"
             android:label="Bottom"
             tools:layout="@layout/fragment_bottom_nav">
         <action android:id="@+id/action_bottomNavFragment_to_swipableFragment"
@@ -32,6 +32,6 @@
 
     <fragment
             android:id="@+id/swipableFragment"
-            android:name="by.itechart.android.SwipableFragment"
+            android:name="by.itechart.android.ui.screen.modal.ModalFragment"
             tools:layout="@layout/fragment_swipable"/>
 </navigation>

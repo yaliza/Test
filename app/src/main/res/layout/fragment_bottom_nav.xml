@@ -20,7 +20,7 @@
             app:layout_constraintTop_toBottomOf="@id/tool"
             app:navGraph="@navigation/nav_bottom_graph" />
 
-    <by.itechart.android.BottomNavView
+    <by.itechart.android.ui.view.BottomNavView
             android:id="@+id/bottomNavView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
