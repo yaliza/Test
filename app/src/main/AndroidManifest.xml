@@ -13,7 +13,8 @@
             android:name=".YaLizaApp"
             android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.screen.MainActivity">
+        <activity android:name=".ui.screen.MainActivity"/>
+        <activity android:name=".ui.screen.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

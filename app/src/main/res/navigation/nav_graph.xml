@@ -2,29 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_graph"
-            app:startDestination="@id/loginFragment">
+            app:startDestination="@id/bottomNavFragment">
 
-    <action android:id="@+id/action_toLoginFragment"
-            app:destination="@id/loginFragment"
+    <action android:id="@+id/action_toLoginActivity"
+            app:destination="@id/loginActivity"
             app:popUpTo="@id/bottomNavFragment"
             app:popUpToInclusive="true"/>
 
-    <fragment
-            android:id="@+id/loginFragment"
-            android:name="by.itechart.android.ui.screen.login.LoginFragment"
-            android:label="Hello"
-            tools:layout="@layout/fragment_login">
-        <action android:id="@+id/action_loginFragment_to_bottomNavFragment"
-                app:destination="@id/bottomNavFragment"
-                app:popUpTo="@id/loginFragment"
-                app:popUpToInclusive="true"
-                app:launchSingleTop="true"/>
-    </fragment>
+    <activity
+            android:id="@+id/loginActivity"
+            android:name="by.itechart.android.ui.screen.login.LoginActivity"
+            tools:layout="@layout/activity_login"/>
 
     <fragment
             android:id="@+id/bottomNavFragment"
             android:name="by.itechart.android.ui.screen.main.BottomNavFragment"
-            android:label="Bottom"
             tools:layout="@layout/fragment_bottom_nav">
         <action android:id="@+id/action_bottomNavFragment_to_swipableFragment"
                 app:destination="@id/swipableFragment"/>
