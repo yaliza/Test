@@ -20,4 +20,10 @@
     <dimen name="swp_card_inner_vertical_margin">13dp</dimen>
     <dimen name="swp_card_title_text_size">17sp</dimen>
     <dimen name="swp_card_description_text_size">16sp</dimen>
+
+
+    <!-- LOGIN SCREEN -->
+    <dimen name="login_button_height">64dp</dimen>
+    <dimen name="login_button_half_height">32dp</dimen>
+
 </resources>

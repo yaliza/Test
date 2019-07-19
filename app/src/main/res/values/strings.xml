@@ -11,4 +11,10 @@
     <string name="fb_login_protocol_scheme">fb2395046100588955</string>
 
     <string name="swipe_title">Swipe</string>
+
+
+    <!-- LOGIN SCREEN -->
+    <string name="continue_with_google">CONTINUE WITH GOOGLE</string>
+    <string name="continue_with_facebook">CONTINUE WITH FACEBOOK</string>
+
 </resources>

@@ -36,8 +36,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginButton.setPermissions(mutableListOf("public_profile", "email"))
-        loginButton.fragment = this
+//        loginButton.setPermissions(mutableListOf("public_profile", "email"))
+//        loginButton.fragment = this
     }
 
     override fun onStart() {
