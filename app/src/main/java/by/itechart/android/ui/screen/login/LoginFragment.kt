@@ -53,9 +53,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginFacebookButton.setPermissions(mutableListOf("public_profile", "email"))
-        loginFacebookButton.fragment = this
-        loginGoogleButton.setOnClickListener {
+
+//        facebookButton.setPermissions(mutableListOf("public_profile", "email"))
+//        facebookButton.fragment = this
+        googleButton.setOnClickListener {
             startActivityForResult(googleSignInClient.signInIntent, LOGIN_GOOGLE_REQUEST_CODE)
         }
     }
