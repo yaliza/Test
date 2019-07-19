@@ -2,17 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_graph"
-            app:startDestination="@id/bottomNavFragment">
+            app:startDestination="@id/loginFragment">
 
-    <action android:id="@+id/action_toLoginActivity"
-            app:destination="@id/loginActivity"
+    <action android:id="@+id/action_toLoginFragment"
+            app:destination="@id/loginFragment"
             app:popUpTo="@id/bottomNavFragment"
             app:popUpToInclusive="true"/>
 
-    <activity
-            android:id="@+id/loginActivity"
-            android:name="by.itechart.android.ui.screen.login.LoginActivity"
-            tools:layout="@layout/activity_login"/>
+    <fragment android:id="@+id/loginFragment"
+              android:name="by.itechart.android.ui.screen.login.LoginFragment"
+              tools:layout="@layout/fragment_login">
+        <action android:id="@+id/action_loginFragment_to_bottomNavFragment"
+                app:destination="@id/bottomNavFragment"
+                app:popUpTo="@id/loginFragment"
+                app:popUpToInclusive="true"
+                app:launchSingleTop="true"/>
+    </fragment>
 
     <fragment
             android:id="@+id/bottomNavFragment"

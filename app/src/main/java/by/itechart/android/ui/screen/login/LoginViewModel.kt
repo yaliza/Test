@@ -14,5 +14,5 @@ class LoginViewModel(private val repository: Repository) : ViewModel() {
         repository.getProfile().subscribeOn(Schedulers.io())
     )
 
-    fun setFacebookAccessToken(accessToken: AccessToken?) = repository.setAccessToken(accessToken)
+    fun setFacebookAccessToken(accessToken: AccessToken?) = repository.setFacebookAccessToken(accessToken)
 }

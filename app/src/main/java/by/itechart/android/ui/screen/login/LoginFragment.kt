@@ -2,20 +2,21 @@ package by.itechart.android.ui.screen.login
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
-import androidx.navigation.ActivityNavigator
+import androidx.navigation.Navigation.findNavController
 import by.itechart.android.R
 import by.itechart.android.data.entity.User
-import by.itechart.android.ui.screen.MainActivity
 import com.facebook.AccessToken
 import com.facebook.AccessTokenTracker
 import com.facebook.CallbackManager
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class LoginActivity : AppCompatActivity(R.layout.activity_login) {
+class LoginFragment : Fragment(R.layout.fragment_login) {
 
     val viewModel by viewModel<LoginViewModel>()
 
@@ -30,16 +31,13 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.setFacebookAccessToken(AccessToken.getCurrentAccessToken())
+        viewModel.profile.observe(this, Observer { goToBottomNavFragment(it) })
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         loginButton.setPermissions(mutableListOf("public_profile", "email"))
-        viewModel.profile.observe(this, Observer { user: User? ->
-            user?.let {
-                val activityNavigator = ActivityNavigator(this)
-                val destination =
-                    activityNavigator.createDestination().setIntent(Intent(this, MainActivity::class.java))
-                activityNavigator.navigate(destination, null, null, null)
-                finish()
-            }
-        })
+        loginButton.fragment = this
     }
 
     override fun onStart() {
@@ -55,6 +53,14 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         callbackManager.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun goToBottomNavFragment(user: User?) {
+        user?.let {
+            activity?.let { act: FragmentActivity ->
+                findNavController(act, R.id.navHostFragment).navigate(R.id.action_loginFragment_to_bottomNavFragment)
+            }
+        }
     }
 
 }

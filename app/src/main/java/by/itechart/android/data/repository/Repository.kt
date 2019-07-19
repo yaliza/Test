@@ -23,11 +23,13 @@ class Repository(private val facebookApi: FacebookApi) {
     fun getModalCards(): Flowable<List<ModalCardItem>> = modalCardsSubj.hide().toFlowable(BackpressureStrategy.LATEST)
     fun getProfile(): Flowable<User> = profileSubj.hide().toFlowable(BackpressureStrategy.LATEST)
 
-    fun setAccessToken(accessToken: AccessToken?) {
-        if (accessToken?.isExpired == false) {
+    fun setFacebookAccessToken(accessToken: AccessToken?) {
+        if (accessToken != null && !accessToken.isExpired) {
             facebookApi.getProfile(accessToken.token)
                 .subscribeOn(Schedulers.io())
-                .subscribe({ user -> profileSubj.onNext(user.body()!!) }, { error -> error.printStackTrace() })
+                .subscribe(
+                    { user -> user.body()?.let { profileSubj.onNext(it) } },
+                    { error -> error.printStackTrace() })
         }
     }
 }
