@@ -6,3 +6,5 @@ import com.bumptech.glide.Glide
 
 
 fun ImageView.load(@DrawableRes imgId: Int) = Glide.with(this).load(imgId).into(this)
+
+fun ImageView.load(url: String) = Glide.with(this).load(url).into(this)

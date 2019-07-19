@@ -1,6 +1,5 @@
 package by.itechart.android.data.api
 
-import by.itechart.android.data.entity.User
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Response
@@ -13,8 +12,8 @@ import java.util.concurrent.TimeUnit
 
 interface FacebookApi {
 
-    @GET("/me?fields=id,email,name")
-    fun getProfile(@Query(value = "access_token", encoded = true) token: String): Single<Response<User>>
+    @GET("/me?fields=id,email,name,picture.type(normal)")
+    fun getProfile(@Query(value = "access_token", encoded = true) token: String): Single<Response<FacebookResponseUser>>
 
     object Factory {
         fun create(): FacebookApi {

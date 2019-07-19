@@ -5,8 +5,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <com.google.android.gms.common.SignInButton
+            android:id="@+id/loginGoogleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/loginFacebookButton"/>
+
     <com.facebook.login.widget.LoginButton
-            android:id="@+id/loginButton"
+            android:id="@+id/loginFacebookButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
