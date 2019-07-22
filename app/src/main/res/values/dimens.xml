@@ -26,4 +26,13 @@
     <dimen name="login_button_height">64dp</dimen>
     <dimen name="login_button_half_height">32dp</dimen>
 
+    <!-- SIDE MENU -->
+    <dimen name="side_menu_width">250dp</dimen>
+    <dimen name="side_menu_padding_left">20dp</dimen>
+    <dimen name="side_menu_inner_margin">15dp</dimen>
+    <dimen name="side_menu_margin">35dp</dimen>
+
+    <!--BOTTOM NAV FRAGMENT-->
+    <dimen name="menu_bt_margin">10dp</dimen>
+
 </resources>

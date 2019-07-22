@@ -5,8 +5,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar"/>
-
+    <View
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/grey30"
+            app:layout_constraintTop_toTopOf="parent"/>
     <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/swipableViewPager"
             android:layout_width="match_parent"

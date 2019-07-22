@@ -9,5 +9,11 @@
     <color name="grey90">#2B323D</color>
 
     <color name="orange">#F26E2F</color>
+    <color name="white">#ffffffff</color>
 
+    <color name="green">#35B14A</color>
+
+
+    <color name="gradient_blue_start">#3B7DD7</color>
+    <color name="gradient_blue_end">#3F95EE</color>
 </resources>
