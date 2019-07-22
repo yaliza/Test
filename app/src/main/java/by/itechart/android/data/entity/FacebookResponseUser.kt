@@ -1,6 +1,4 @@
-package by.itechart.android.data.api
-
-import by.itechart.android.data.entity.User
+package by.itechart.android.data.entity
 
 
 class FacebookResponseUser(

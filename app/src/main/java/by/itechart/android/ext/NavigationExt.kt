@@ -6,7 +6,7 @@ import androidx.navigation.Navigation
 import by.itechart.android.R
 
 
-fun Fragment.navigateTo(actionID: Int, navHostID: Int = R.id.navHostFragment) {
+fun Fragment.navigate(actionID: Int, navHostID: Int = R.id.navHostFragment) {
     activity?.let { act: FragmentActivity ->
         Navigation.findNavController(act, navHostID).navigate(actionID)
     }

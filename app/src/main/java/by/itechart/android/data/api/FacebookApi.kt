@@ -1,5 +1,6 @@
 package by.itechart.android.data.api
 
+import by.itechart.android.data.entity.FacebookResponseUser
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Response
