@@ -1,7 +1,7 @@
 package by.itechart.android.di
 
 import by.itechart.android.data.api.FacebookApi
-import by.itechart.android.data.helper.UserHelper
+import by.itechart.android.data.repository.UserHelper
 import by.itechart.android.data.repository.Repository
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager

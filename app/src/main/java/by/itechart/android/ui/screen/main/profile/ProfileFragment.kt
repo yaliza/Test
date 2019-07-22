@@ -1,13 +1,11 @@
 package by.itechart.android.ui.screen.main.profile
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import by.itechart.android.R
 import by.itechart.android.data.entity.User
 import by.itechart.android.ext.loadCircle
-import by.itechart.android.utils.ErrorHandlingObserver
-import by.itechart.android.utils.Resource
 import kotlinx.android.synthetic.main.fragment_person.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,19 +15,12 @@ class ProfileFragment : Fragment(R.layout.fragment_person) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.profile.observe(this, object : ErrorHandlingObserver<User?>() {
-            override fun onSuccess(data: User?) = updateUserInfo(data)
-            override fun onException(error: Resource.Error<User?>) =
-                Toast.makeText(context, error.exception?.message, Toast.LENGTH_LONG).show()
-
-            override fun onLoading(loading: User?) {}
-        })
+        viewModel.profile.observe(this, Observer { updateUserInfo(it) })
     }
 
-    private fun updateUserInfo(user: User?) {
-        user?.apply {
-            photoUrl?.let { userAvatarImageView.loadCircle(photoUrl) }
-            userNameTextView.text = name
-        }
+    private fun updateUserInfo(user: User) = with(user) {
+        userNameTextView.text = name
+        photoUrl?.let { userAvatarImageView.loadCircle(photoUrl) }
     }
+
 }

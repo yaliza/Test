@@ -8,11 +8,11 @@ import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import by.itechart.android.R
 import by.itechart.android.ui.entity.ModalCardItem
-import kotlinx.android.synthetic.main.fragment_swipable.*
+import kotlinx.android.synthetic.main.fragment_modal.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class ModalFragment : Fragment(R.layout.fragment_swipable) {
+class ModalFragment : Fragment(R.layout.fragment_modal) {
 
     private val viewModel by viewModel<ModalViewModel>()
     private val modalCardsAdapter = ModalCardsAdapter()
