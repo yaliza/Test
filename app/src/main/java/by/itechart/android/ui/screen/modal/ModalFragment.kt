@@ -3,12 +3,16 @@ package by.itechart.android.ui.screen.modal
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import by.itechart.android.R
+import by.itechart.android.ext.hide
+import by.itechart.android.ext.show
+import by.itechart.android.ui.base.ResourceObserver
 import by.itechart.android.ui.entity.ModalCardItem
 import kotlinx.android.synthetic.main.fragment_modal.*
+import kotlinx.android.synthetic.main.view_progress_bar.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -30,10 +34,16 @@ class ModalFragment : Fragment(R.layout.fragment_modal) {
             })
         }
 
-        viewModel.modalCards.observe(this, Observer<List<ModalCardItem>> { modalCardsAdapter.items = it })
-
-//        TODO: crash if list is empty
-//        swipableBottomSheetView.setContentLayout(LayoutInflater.from(context).inflate(adapter.items[0].layout, null))
-
+        viewModel.modalCards.observe(viewLifecycleOwner, object : ResourceObserver<List<ModalCardItem>>() {
+            override fun onSuccess(data: List<ModalCardItem>?) {
+                progressBar.hide()
+                data?.let { modalCardsAdapter.items = data }
+            }
+            override fun onError(message: String) {
+                progressBar.hide()
+                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+            }
+            override fun onLoading() = progressBar.show()
+        })
     }
 }
