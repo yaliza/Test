@@ -49,13 +49,13 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/download_title"
+                        android:text="@string/menu_download_title"
                         android:textColor="@color/white"/>
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/side_menu_inner_margin"
-                        android:text="@string/download_description"
+                        android:text="@string/menu_download_description"
                         android:textColor="@color/white"/>
                 <Button
                         android:id="@+id/downloadButton"
@@ -64,7 +64,7 @@
                         android:background="@drawable/bg_round_button"
                         android:backgroundTint="@color/orange"
                         android:layout_marginTop="10dp"
-                        android:text="@string/download"
+                        android:text="@string/menu_download"
                         android:textColor="@color/white"/>
             </LinearLayout>
             <TextView
@@ -72,19 +72,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:text="@string/about"/>
+                    android:text="@string/menu_about"/>
             <TextView
                     android:id="@+id/shareTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:text="@string/share"/>
+                    android:text="@string/menu_share"/>
             <TextView
                     android:id="@+id/talkTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:text="@string/talk"/>
+                    android:text="@string/menu_talk"/>
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:textColor="@color/white"
-                        android:text="@string/profile_visibility"/>
+                        android:text="@string/menu_profile_visibility"/>
                 <Switch
                         android:id="@+id/profileSwitch"
                         android:layout_width="wrap_content"

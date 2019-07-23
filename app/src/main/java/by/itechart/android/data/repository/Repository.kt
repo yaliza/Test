@@ -52,4 +52,8 @@ class Repository(
                 }
             }.doOnSuccess { userHelper.user = User(it) }
 
+    fun getGoogleUser(user: GoogleSignInAccount): Single<GoogleSignInAccount> =
+            Single.just(user)
+                .doOnSuccess { userHelper.user = User(it) }
+                .delay(1, TimeUnit.SECONDS)
 }

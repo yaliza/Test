@@ -19,11 +19,11 @@
 
     <!-- SIDE MENU -->
     <string name="menu">Menu</string>
-    <string name="download_title">Download FXTM Trader</string>
-    <string name="download_description">Download our trading app to start your investing journey:</string>
-    <string name="download">download</string>
-    <string name="about">About FXTM</string>
-    <string name="share">Share FXTM Academy</string>
-    <string name="talk">Talk to Us</string>
-    <string name="profile_visibility">Profile visible</string>
+    <string name="menu_download_title">Download FXTM Trader</string>
+    <string name="menu_download_description">Download our trading app to start your investing journey:</string>
+    <string name="menu_download">download</string>
+    <string name="menu_about">About FXTM</string>
+    <string name="menu_share">Share FXTM Academy</string>
+    <string name="menu_talk">Talk to Us</string>
+    <string name="menu_profile_visibility">Profile visible</string>
 </resources>
