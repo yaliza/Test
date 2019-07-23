@@ -1,4 +1,4 @@
-package by.itechart.android.data.helper
+package by.itechart.android.data.repository
 
 import by.itechart.android.data.entity.User
 

@@ -11,17 +11,20 @@
             android:layout_height="@dimen/toolbar_height"
             android:background="@color/grey30"
             app:layout_constraintTop_toTopOf="parent"/>
+
+    <include layout="@layout/view_progress_bar" />
+
     <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/swipableViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/swp_view_pager_top_margin"
-            android:layout_marginBottom="@dimen/swp_peek_height"/>
+            android:layout_marginBottom="@dimen/swp_peek_height" />
 
     <by.itechart.android.ui.view.BottomSheetView
             android:id="@+id/swipableBottomSheetView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-            app:behavior_peekHeight="@dimen/swp_peek_height"/>
+            app:behavior_peekHeight="@dimen/swp_peek_height"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
