@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import by.itechart.android.R
 import kotlinx.android.synthetic.main.fragment_bottom_nav.*
-import kotlinx.android.synthetic.main.side_menu.*
+import kotlinx.android.synthetic.main.view_navigation_drawer.*
 
 
 class BottomNavFragment : Fragment(R.layout.fragment_bottom_nav) {

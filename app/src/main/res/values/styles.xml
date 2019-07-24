@@ -7,11 +7,47 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AppTheme.Text"></style>
+
+    <style name="AppTheme.Text.NavigationDrawer">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.Text.NavigationDrawer.Small">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppTheme.Text.NavigationDrawer.Item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/nav_drawer_item_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AppTheme.Text.NavigationDrawer.Item.Clickable">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="AppTheme.LoginButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/login_button_height</item>
+        <item name="android:layout_margin">32dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackgroundBorderless</item>
+    </style>
 
 </resources>

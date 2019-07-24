@@ -5,9 +5,11 @@
         android:id="@+id/bottomNavFragmentDrawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
         <View
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -23,7 +25,7 @@
                 app:layout_constraintTop_toTopOf="@id/toolbar"
                 app:layout_constraintBottom_toBottomOf="@id/toolbar"
                 android:layout_marginStart="@dimen/menu_bt_margin"
-                android:src="@drawable/ic_menu_black_24dp"/>
+                android:src="@drawable/ic_menu"/>
 
         <fragment
                 android:id="@+id/bottomNavFragment"
@@ -44,5 +46,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <include layout="@layout/side_menu"/>
+
+    <include layout="@layout/view_navigation_drawer"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>
