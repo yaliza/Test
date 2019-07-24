@@ -26,4 +26,9 @@
     <string name="menu_share">Share FXTM Academy</string>
     <string name="menu_talk">Talk to Us</string>
     <string name="menu_profile_visibility">Profile visible</string>
+
+    <!--Levels list-->
+    <string name="level_passed">Passed %d%%</string>
+    <string name="level_not_passed">Take Exam</string>
+    <string name="level_topics">%d TOPICS</string>
 </resources>

@@ -1,6 +1,8 @@
 package by.itechart.android.ext
 
 import android.view.View
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 
 fun View.show() {
     this.visibility = View.VISIBLE
@@ -8,4 +10,8 @@ fun View.show() {
 
 fun View.hide() {
     this.visibility = View.GONE
+}
+
+fun View.setBackColor(@ColorRes colorId: Int) {
+    setBackgroundColor(ContextCompat.getColor(this.context, colorId))
 }

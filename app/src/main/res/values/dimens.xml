@@ -35,4 +35,17 @@
     <!--BOTTOM NAV FRAGMENT-->
     <dimen name="menu_bt_margin">10dp</dimen>
 
+    <!--SECTION -->
+    <dimen name="section_height">170dp</dimen>
+    <dimen name="section_padding">10dp</dimen>
+    <dimen name="section_radius">10dp</dimen>
+    <dimen name="section_elevation">6dp</dimen>
+    <dimen name="section_margin">20dp</dimen>
+
+    <!--LEVEL HEADER-->
+    <dimen name="lvl_header_margin_top">25dp</dimen>
+    <dimen name="lvl_header_horizontal_margin">20dp</dimen>
+
+    <!--LEVEL BUTTON-->
+    <dimen name="lvl_button_margin">20dp</dimen>
 </resources>
