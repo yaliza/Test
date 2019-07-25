@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- STANDARD MARGINS -->
+    <!-- DO NOT CHANGE -->
+    <dimen name="XS">4dp</dimen>
+    <dimen name="S">8dp</dimen>
+    <dimen name="M">16dp</dimen>
+    <dimen name="L">24dp</dimen>
+    <dimen name="XL">32dp</dimen>
+
     <!-- Bottom Navigation View -->
     <dimen name="bnv_height">72dp</dimen>
     <dimen name="bnv_icon_size">32dp</dimen>
@@ -25,12 +33,11 @@
     <!-- LOGIN SCREEN -->
     <dimen name="login_button_height">64dp</dimen>
     <dimen name="login_button_half_height">32dp</dimen>
+    <dimen name="login_button_icon_size">32dp</dimen>
 
-    <!-- SIDE MENU -->
-    <dimen name="side_menu_width">250dp</dimen>
-    <dimen name="side_menu_padding_left">20dp</dimen>
-    <dimen name="side_menu_inner_margin">15dp</dimen>
-    <dimen name="side_menu_margin">35dp</dimen>
+    <!-- NAVIGATION DRAWER -->
+    <dimen name="nav_drawer_width">320dp</dimen>
+    <dimen name="nav_drawer_item_height">72dp</dimen>
 
     <!--BOTTOM NAV FRAGMENT-->
     <dimen name="menu_bt_margin">10dp</dimen>

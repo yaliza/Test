@@ -7,57 +7,26 @@
 
     <include layout="@layout/view_progress_bar" />
 
-    <Button
+    <by.itechart.android.ui.view.LoginButton
             android:id="@+id/googleButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/login_button_height"
-            android:layout_margin="32dp"
-            android:background="@drawable/bg_round_button"
-            android:elevation="6dp"
-            android:text="@string/continue_with_google"
+            style="@style/AppTheme.LoginButton"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="@dimen/login_button_half_height"
             app:layout_constraintBottom_toTopOf="@id/facebookButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:lb_image="@drawable/ic_google_logo"
+            app:lb_text="@string/continue_with_google" />
 
-    <ImageView
-            android:layout_width="@dimen/login_button_half_height"
-            android:layout_height="@dimen/login_button_half_height"
-            android:layout_marginStart="24dp"
-            android:elevation="10dp"
-            android:src="@drawable/ic_google_logo"
-            app:layout_constraintBottom_toBottomOf="@id/googleButton"
-            app:layout_constraintStart_toStartOf="@id/googleButton"
-            app:layout_constraintTop_toTopOf="@id/googleButton" />
-
-    <androidx.cardview.widget.CardView
+    <by.itechart.android.ui.view.LoginButton
             android:id="@+id/facebookButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/login_button_height"
-            android:layout_margin="32dp"
-            android:clickable="true"
-            android:elevation="4dp"
-            android:focusable="true"
-            android:foreground="?selectableItemBackgroundBorderless"
+            style="@style/AppTheme.LoginButton"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="@dimen/login_button_half_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-                android:layout_width="@dimen/login_button_half_height"
-                android:layout_height="@dimen/login_button_half_height"
-                android:layout_gravity="center_vertical|start"
-                android:layout_marginStart="24dp"
-                android:src="@drawable/ic_facebook_logo" />
-
-        <TextView
-                style="@android:style/TextAppearance.Material.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/continue_with_facebook" />
-
-    </androidx.cardview.widget.CardView>
+            app:layout_constraintStart_toStartOf="parent"
+            app:lb_image="@drawable/ic_facebook_logo"
+            app:lb_text="@string/continue_with_facebook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

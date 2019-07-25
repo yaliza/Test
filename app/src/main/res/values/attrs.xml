@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="BottomNavView">
         <attr name="bnv_menu" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="LoginButton">
+        <attr name="lb_text" format="string" />
+        <attr name="lb_image" format="reference" />
+    </declare-styleable>
+
 </resources>

@@ -17,17 +17,17 @@
     <string name="continue_with_facebook">CONTINUE WITH FACEBOOK</string>
 
 
-    <!-- SIDE MENU -->
-    <string name="menu">Menu</string>
-    <string name="menu_download_title">Download FXTM Trader</string>
-    <string name="menu_download_description">Download our trading app to start your investing journey:</string>
-    <string name="menu_download">download</string>
-    <string name="menu_about">About FXTM</string>
-    <string name="menu_share">Share FXTM Academy</string>
-    <string name="menu_talk">Talk to Us</string>
-    <string name="menu_profile_visibility">Profile visible</string>
+    <!-- NAVIGATION DRAWER -->
+    <string name="nav_drawer_menu">Menu</string>
+    <string name="nav_drawer_download_title">Download FXTM Trader</string>
+    <string name="nav_drawer_download_message">Download our trading app\nto start your investing journey:</string>
+    <string name="nav_drawer_download_button">Download</string>
+    <string name="nav_drawer_item_about_fxtm">About FXTM</string>
+    <string name="nav_drawer_item_share_academy">Share FXTM Academy</string>
+    <string name="nav_drawer_item_talk_to_us">Talk to Us</string>
+    <string name="nav_drawer_item_profile_visibility">Profile visible</string>
 
-    <!--Levels list-->
+    <!--LEVEL-->
     <string name="level_passed">Passed %d%%</string>
     <string name="level_not_passed">Take Exam</string>
     <string name="level_topics">%d TOPICS</string>

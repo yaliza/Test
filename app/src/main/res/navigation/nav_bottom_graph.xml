@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/nav_bottom_graph"
-            app:startDestination="@id/actionSchool">
+            app:startDestination="@id/actionLearning">
 
-    <fragment android:id="@+id/actionCalendar" android:name="by.itechart.android.ui.screen.main.events.EventsFragment"
+    <fragment android:id="@+id/actionEvents" android:name="by.itechart.android.ui.screen.main.events.EventsFragment"
               android:label="CalendarFragment"/>
     <fragment android:id="@+id/actionCommunity" android:name="by.itechart.android.ui.screen.main.community.CommunityFragment"
               android:label="CommunityFragment"/>
-    <fragment android:id="@+id/actionPerson" android:name="by.itechart.android.ui.screen.main.profile.ProfileFragment"
+    <fragment android:id="@+id/actionProfile" android:name="by.itechart.android.ui.screen.main.profile.ProfileFragment"
               android:label="PersonFragment"/>
-    <fragment android:id="@+id/actionSchool" android:name="by.itechart.android.ui.screen.main.learning.LearningFragment"
+    <fragment android:id="@+id/actionLearning" android:name="by.itechart.android.ui.screen.main.learning.LearningFragment"
               android:label="SchoolFragment"/>
 </navigation>

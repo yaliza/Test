@@ -6,14 +6,15 @@
 
     <color name="grey10">#EBECED</color>
     <color name="grey30">#CACCCE</color>
-    <color name="grey50">#7E7E7E</color>
     <color name="grey90">#2B323D</color>
 
     <color name="orange">#F26E2F</color>
-    <color name="white">#ffffffff</color>
+
     <color name="green">#35B14A</color>
+
     <color name="blue">#42A8FF</color>
 
+    <!-- GRADIENTS -->
     <color name="gradient_blue_start">#3B7DD7</color>
     <color name="gradient_blue_end">#3F95EE</color>
 </resources>
