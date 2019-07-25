@@ -16,15 +16,15 @@ class LearningViewModel(repository: Repository) : BaseViewModel() {
 
     init {
         repository.getLevels()
-            .doOnSubscribe { levelCards.postValue(Resource.Loading()) }
-            .map { levels: List<Level> -> levels.toLevelCardItems() }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { cards -> levelCards.value = Resource.Success(cards) },
-                { error -> levelCards.value = Resource.Error(error) }
-            )
-            .addToDisposables()
+                .doOnSubscribe { levelCards.postValue(Resource.Loading()) }
+                .map { levels: List<Level> -> levels.toLevelCardItems() }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        { cards -> levelCards.value = Resource.Success(cards) },
+                        { error -> levelCards.value = Resource.Error(error) }
+                )
+                .addToDisposables()
     }
 
     private fun List<Level>.toLevelCardItems(): List<LevelCardItem> {

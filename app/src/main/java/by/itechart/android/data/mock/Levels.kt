@@ -6,6 +6,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
+import java.util.concurrent.TimeUnit
 
 object Levels {
     private const val mockJson = "{\n" +
@@ -65,10 +66,10 @@ object Levels {
             "}\n"
 
     private val gson = GsonBuilder()
-        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-        .create()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create()
 
-    fun getCards(): Single<List<Level>> = Single.create { emitter: SingleEmitter<List<Level>> ->
+    fun getLevels(): Single<List<Level>> = Single.create { emitter: SingleEmitter<List<Level>> ->
         try {
             val levelsResponse = gson.fromJson(mockJson, LevelsResponse::class.java)
             emitter.onSuccess(levelsResponse.levels)

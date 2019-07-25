@@ -9,24 +9,25 @@
             android:id="@+id/sectionLeftGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.25"
-            android:orientation="vertical"/>
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
             android:id="@+id/sectionRightGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.75"
-            android:orientation="vertical"/>
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
 
     <include
-            layout="@layout/item_lvl_section"
+            layout="@layout/item_level_section"
             android:layout_width="0dp"
             android:layout_height="@dimen/section_height"
-            android:layout_margin="@dimen/section_margin"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/level_item_spacing"
+            android:layout_marginBottom="@dimen/level_item_spacing"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/sectionLeftGuideline"
             app:layout_constraintRight_toRightOf="@id/sectionRightGuideline"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

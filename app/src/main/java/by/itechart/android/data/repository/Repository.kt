@@ -34,12 +34,12 @@ class Repository(
 
     init {
         modalCardsSubj.onNext(ModalCards.mock)
-        Levels.getCards()
-            .subscribeOn(Schedulers.io())
-            .subscribe(
-                { cards -> levelsSubj.onNext(cards) },
-                { error -> levelsSubj.onError(error) }
-            )
+        Levels.getLevels()
+                .subscribeOn(Schedulers.io())
+                .subscribe(
+                        { cards -> levelsSubj.onNext(cards) },
+                        { error -> levelsSubj.onError(error) }
+                )
     }
 
     fun getLevels(): Flowable<List<Level>> = levelsSubj.hide()
@@ -68,6 +68,6 @@ class Repository(
 
     fun getGoogleUser(user: GoogleSignInAccount): Single<GoogleSignInAccount> =
             Single.just(user)
-                .doOnSuccess { userHelper.user = User(it) }
-                .delay(1, TimeUnit.SECONDS)
+                    .doOnSuccess { userHelper.user = User(it) }
+                    .delay(1, TimeUnit.SECONDS)
 }

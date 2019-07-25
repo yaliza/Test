@@ -3,13 +3,14 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/lvl_header_margin_top">
+        android:layout_marginTop="@dimen/L"
+        android:layout_marginBottom="@dimen/level_item_spacing">
 
     <TextView
-            android:id="@+id/lvlHeaderTextView"
+            android:id="@+id/levelHeaderTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textAllCaps="true"/>
+            android:textAllCaps="true" />
 
 </FrameLayout>
