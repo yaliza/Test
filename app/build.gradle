@@ -4,11 +4,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "by.itechart.android"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -33,7 +33,7 @@ dependencies {
 
     // Views
     implementation "androidx.constraintlayout:constraintlayout:1.1.3"
-    implementation "androidx.viewpager2:viewpager2:1.0.0-beta01"
+    implementation "androidx.viewpager2:viewpager2:1.0.0-beta02"
     implementation "com.romandanylyk:pageindicatorview:1.0.3"
 
     // Navigation
