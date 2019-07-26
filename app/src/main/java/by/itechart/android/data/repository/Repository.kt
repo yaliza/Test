@@ -2,7 +2,9 @@ package by.itechart.android.data.repository
 
 import by.itechart.android.data.api.FacebookApi
 import by.itechart.android.data.entity.FacebookResponseUser
+import by.itechart.android.data.entity.Level
 import by.itechart.android.data.entity.User
+import by.itechart.android.data.mock.Levels
 import by.itechart.android.data.mock.ModalCards
 import by.itechart.android.ui.entity.ModalCardItem
 import com.facebook.AccessToken
@@ -20,17 +22,24 @@ import java.util.concurrent.TimeUnit
 
 class Repository(
         private val facebookApi: FacebookApi,
-        private val userHelper: UserHelper
+        private val userHelper: UserHelper,
+        levels: Levels
 ) {
 
     val user: User
         get() = userHelper.user ?: throw IllegalArgumentException("No user detected")
 
     private val modalCardsSubj: BehaviorSubject<List<ModalCardItem>> = BehaviorSubject.create()
+    private val levelsSubj: BehaviorSubject<List<Level>> = BehaviorSubject.create()
 
     init {
         modalCardsSubj.onNext(ModalCards.mock)
+        levelsSubj.onNext(levels.getLevels())
     }
+
+    fun getLevels(): Flowable<List<Level>> = levelsSubj.hide()
+            .toFlowable(BackpressureStrategy.LATEST)
+            .delay(1, TimeUnit.SECONDS)
 
     fun getModalCards(): Flowable<List<ModalCardItem>> = modalCardsSubj.hide()
             .toFlowable(BackpressureStrategy.LATEST)
@@ -54,6 +63,6 @@ class Repository(
 
     fun getGoogleUser(user: GoogleSignInAccount): Single<GoogleSignInAccount> =
             Single.just(user)
-                .doOnSuccess { userHelper.user = User(it) }
-                .delay(1, TimeUnit.SECONDS)
+                    .doOnSuccess { userHelper.user = User(it) }
+                    .delay(1, TimeUnit.SECONDS)
 }

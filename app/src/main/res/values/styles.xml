@@ -13,9 +13,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.Text"></style>
 
@@ -48,6 +48,23 @@
         <item name="android:elevation">4dp</item>
         <item name="android:focusable">true</item>
         <item name="android:foreground">?selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="AppTheme.Text.LevelSection">
+        <item name="android:padding">@dimen/level_item_spacing</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppTheme.Text.LevelSection.Small">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="AppTheme.RatingBar">
+        <item name="android:isIndicator">true</item>
+        <item name="android:stepSize">1</item>
+        <item name="android:numStars">3</item>
+        <item name="android:progressTint">@color/orange</item>
+        <item name="android:progressBackgroundTint">@color/grey30</item>
     </style>
 
 </resources>

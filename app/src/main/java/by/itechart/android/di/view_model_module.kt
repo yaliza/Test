@@ -1,6 +1,7 @@
 package by.itechart.android.di
 
 import by.itechart.android.ui.screen.login.LoginViewModel
+import by.itechart.android.ui.screen.main.learning.LearningViewModel
 import by.itechart.android.ui.screen.main.profile.ProfileViewModel
 import by.itechart.android.ui.screen.modal.ModalViewModel
 import by.itechart.android.ui.screen.splash.SplashViewModel
@@ -14,4 +15,5 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
     viewModel { SplashViewModel(get()) }
+    viewModel { LearningViewModel(get()) }
 }

@@ -27,4 +27,8 @@
     <string name="nav_drawer_item_talk_to_us">Talk to Us</string>
     <string name="nav_drawer_item_profile_visibility">Profile visible</string>
 
+    <!--LEVEL-->
+    <string name="level_passed">Passed %d%%</string>
+    <string name="level_not_passed">Take Exam</string>
+    <string name="level_topics">%d TOPICS</string>
 </resources>

@@ -1,5 +1,6 @@
 package by.itechart.android.ext
 
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.Navigation
@@ -11,3 +12,5 @@ fun Fragment.navigate(actionID: Int, navHostID: Int = R.id.navHostFragment) {
         Navigation.findNavController(act, navHostID).navigate(actionID)
     }
 }
+
+fun Fragment.showMessage(msg: String) = Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()

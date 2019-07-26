@@ -2,7 +2,6 @@ package by.itechart.android.ui.view
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.MenuItem
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.forEach
 import androidx.navigation.NavController
@@ -56,7 +55,6 @@ class BottomNavView @JvmOverloads constructor(
     fun setupWithNavController(navController: NavController) {
         navBottomBar.apply {
             menu.forEach { menuIds.add(it.itemId) }
-            setOnNavigationItemSelectedListener { menuItem: MenuItem -> changeDotSelectedIndex(menuItem.itemId) }
             setupWithNavController(navController)
         }
         navDotsIndicator.count = menuIds.size
@@ -66,7 +64,7 @@ class BottomNavView @JvmOverloads constructor(
     private fun changeDotSelectedIndex(itemId: Int): Boolean {
         val index = menuIds.indexOf(itemId)
         return if (index != -1) {
-            navDotsIndicator.selection = index
+            post { navDotsIndicator.selection = index }
             true
         } else false
     }

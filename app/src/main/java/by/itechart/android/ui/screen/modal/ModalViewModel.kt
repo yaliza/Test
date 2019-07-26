@@ -1,18 +1,28 @@
 package by.itechart.android.ui.screen.modal
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataReactiveStreams
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
 import by.itechart.android.data.repository.Repository
+import by.itechart.android.ui.base.BaseViewModel
+import by.itechart.android.ui.base.Resource
 import by.itechart.android.ui.entity.ModalCardItem
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
-class ModalViewModel(repository: Repository) : ViewModel() {
+class ModalViewModel(repository: Repository) : BaseViewModel() {
 
-    val modalCards: LiveData<List<ModalCardItem>> = LiveDataReactiveStreams.fromPublisher(
+    val modalCards = MutableLiveData<Resource<List<ModalCardItem>>>()
+
+    init {
         repository.getModalCards()
+            .doOnSubscribe { modalCards.postValue(Resource.Loading()) }
             .subscribeOn(Schedulers.io())
-    )
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { cards -> modalCards.value = Resource.Success(cards)},
+                { error ->  modalCards.value = Resource.Error(error) }
+            )
+            .addToDisposables()
+    }
 
 }

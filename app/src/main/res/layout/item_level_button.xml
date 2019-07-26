@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <Button
+            android:id="@+id/levelExaminationButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/level_item_spacing"
+            android:background="@drawable/bg_round_ripple"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Passed 90%" />
+
+    <ImageView
+            android:id="@+id/lockImageView"
+            android:layout_width="@dimen/level_examination_icon_size"
+            android:layout_height="@dimen/level_examination_icon_size"
+            android:layout_marginStart="@dimen/M"
+            android:elevation="10dp"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintBottom_toBottomOf="@id/levelExaminationButton"
+            app:layout_constraintStart_toStartOf="@id/levelExaminationButton"
+            app:layout_constraintTop_toTopOf="@id/levelExaminationButton" />
+
+    <ImageView
+            android:id="@+id/medalImageView"
+            android:layout_width="@dimen/level_examination_icon_size"
+            android:layout_height="@dimen/level_examination_icon_size"
+            android:layout_marginEnd="@dimen/M"
+            android:elevation="10dp"
+            android:src="@drawable/medal"
+            app:layout_constraintBottom_toBottomOf="@id/levelExaminationButton"
+            app:layout_constraintEnd_toEndOf="@id/levelExaminationButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,4 +42,14 @@
     <!--BOTTOM NAV FRAGMENT-->
     <dimen name="menu_bt_margin">10dp</dimen>
 
+    <!--LEVEL SECTION -->
+    <dimen name="section_height">180dp</dimen>
+    <dimen name="section_radius">10dp</dimen>
+    <dimen name="section_elevation">5dp</dimen>
+
+    <!--LEVEL BUTTON-->
+    <dimen name="level_examination_icon_size">32dp</dimen>
+
+    <!--LEVEL ITEM-->
+    <dimen name="level_item_spacing">@dimen/S</dimen>
 </resources>
