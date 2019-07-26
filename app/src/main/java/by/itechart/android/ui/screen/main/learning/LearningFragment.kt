@@ -10,10 +10,7 @@ import by.itechart.android.ext.show
 import by.itechart.android.ext.showMessage
 import by.itechart.android.ui.base.ResourceObserver
 import by.itechart.android.ui.entity.LevelItem
-import by.itechart.android.ui.entity.LevelItem.Companion.TYPE_BUTTON
-import by.itechart.android.ui.entity.LevelItem.Companion.TYPE_HEADER
 import by.itechart.android.ui.entity.LevelItem.Companion.TYPE_SECTION_DOUBLE
-import by.itechart.android.ui.entity.LevelItem.Companion.TYPE_SECTION_SINGLE
 import by.itechart.android.ui.screen.main.learning.recycler.LevelCardsAdapter
 import kotlinx.android.synthetic.main.fragment_learning.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
@@ -30,19 +27,19 @@ class LearningFragment : Fragment(R.layout.fragment_learning) {
         setupLevelsRecyclerView()
 
         viewModel.levelCards.observe(
-            viewLifecycleOwner,
-            object : ResourceObserver<List<LevelItem>>() {
-                override fun onSuccess(data: List<LevelItem>?) {
-                    progressBar.hide()
-                    data?.let { levelCardsAdapter.items = data }
-                }
+                viewLifecycleOwner,
+                object : ResourceObserver<List<LevelItem>>() {
+                    override fun onSuccess(data: List<LevelItem>?) {
+                        progressBar.hide()
+                        data?.let { levelCardsAdapter.items = data }
+                    }
 
-                override fun onLoading() = progressBar.show()
-                override fun onError(message: String) {
-                    showMessage(message)
-                    progressBar.hide()
-                }
-            })
+                    override fun onLoading() = progressBar.show()
+                    override fun onError(message: String) {
+                        showMessage(message)
+                        progressBar.hide()
+                    }
+                })
     }
 
     private fun setupLevelsRecyclerView() {
@@ -54,13 +51,7 @@ class LearningFragment : Fragment(R.layout.fragment_learning) {
 
         val gridLayoutManager = GridLayoutManager(activity, 2)
         gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                return when (levelCardsAdapter.getItemViewType(position)) {
-                    TYPE_SECTION_DOUBLE -> 1
-                    TYPE_HEADER, TYPE_BUTTON, TYPE_SECTION_SINGLE -> 2
-                    else -> throw IllegalArgumentException("Unknown view type")
-                }
-            }
+            override fun getSpanSize(position: Int) = if (levelCardsAdapter.getItemViewType(position) == TYPE_SECTION_DOUBLE) 1 else 2
         }
 
         levelsRecyclerView.apply {
