@@ -15,7 +15,6 @@ import com.google.android.gms.tasks.Task
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
 import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
 import retrofit2.Response
 import java.util.concurrent.TimeUnit
@@ -23,7 +22,8 @@ import java.util.concurrent.TimeUnit
 
 class Repository(
         private val facebookApi: FacebookApi,
-        private val userHelper: UserHelper
+        private val userHelper: UserHelper,
+        levels: Levels
 ) {
 
     val user: User
@@ -34,12 +34,7 @@ class Repository(
 
     init {
         modalCardsSubj.onNext(ModalCards.mock)
-        Levels.getLevels()
-                .subscribeOn(Schedulers.io())
-                .subscribe(
-                        { cards -> levelsSubj.onNext(cards) },
-                        { error -> levelsSubj.onError(error) }
-                )
+        levelsSubj.onNext(levels.getLevels())
     }
 
     fun getLevels(): Flowable<List<Level>> = levelsSubj.hide()

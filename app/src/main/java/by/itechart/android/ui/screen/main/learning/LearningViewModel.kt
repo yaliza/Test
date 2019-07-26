@@ -6,18 +6,19 @@ import by.itechart.android.data.repository.Repository
 import by.itechart.android.ui.base.BaseViewModel
 import by.itechart.android.ui.base.Resource
 import by.itechart.android.ui.entity.*
+import by.itechart.android.ui.mapper.LevelMapper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
 class LearningViewModel(repository: Repository) : BaseViewModel() {
 
-    val levelCards = MutableLiveData<Resource<List<LevelCardItem>>>()
+    val levelCards = MutableLiveData<Resource<List<LevelItem>>>()
 
     init {
         repository.getLevels()
                 .doOnSubscribe { levelCards.postValue(Resource.Loading()) }
-                .map { levels: List<Level> -> levels.toLevelCardItems() }
+                .map { levels: List<Level> -> LevelMapper.mapToUiModel(levels) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -27,20 +28,4 @@ class LearningViewModel(repository: Repository) : BaseViewModel() {
                 .addToDisposables()
     }
 
-    private fun List<Level>.toLevelCardItems(): List<LevelCardItem> {
-        val result = mutableListOf<LevelCardItem>()
-        forEach { level: Level ->
-            result.add(LevelHeaderItem(level.title))
-            var startIndex = 0
-            if (level.sections.isNotEmpty() && level.sections.size % 2 != 0) {
-                startIndex = 1
-                result.add(SectionSingleItem(level.sections[0], level.color))
-            }
-            for (i in startIndex until level.sections.size) {
-                result.add(SectionDoubleItem(level.sections[i], level.color))
-            }
-            result.add(LevelButtonItem(level.passRate))
-        }
-        return result
-    }
 }

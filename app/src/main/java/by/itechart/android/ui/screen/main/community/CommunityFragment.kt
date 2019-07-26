@@ -21,8 +21,8 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btLogout.setOnClickListener { logout() }
-        btSwipable.setOnClickListener { navigate(R.id.action_bottomNavFragment_to_swipableFragment) }
+        logoutButton.setOnClickListener { logout() }
+        goToModularButton.setOnClickListener { navigate(R.id.action_bottomNavFragment_to_swipableFragment) }
     }
 
     private fun logout() {

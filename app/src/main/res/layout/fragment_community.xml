@@ -6,17 +6,17 @@
         android:layout_height="match_parent">
 
     <Button
-            android:id="@+id/btSwipable"
+            android:id="@+id/goToModularButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="open swipable"
             app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-            android:id="@+id/btLogout"
+            android:id="@+id/logoutButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="logout"
-            app:layout_constraintTop_toBottomOf="@id/btSwipable" />
+            app:layout_constraintTop_toBottomOf="@id/goToModularButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
