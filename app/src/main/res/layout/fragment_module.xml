@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/view_progress_bar" />
+
+    <View
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/grey30"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/backImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/S"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/sectionNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/S"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toEndOf="@id/toolbar"
+            app:layout_constraintStart_toEndOf="@id/backImageView"
+            app:layout_constraintTop_toTopOf="@id/toolbar"
+            tools:text="What is FX?" />
+
+    <ImageView
+            android:id="@+id/learningImageView"
+            android:layout_width="@dimen/learning_icon_size"
+            android:layout_height="@dimen/learning_icon_size"
+            android:layout_margin="@dimen/M"
+            android:background="@drawable/bg_circle_gradient"
+            android:elevation="10dp"
+            android:src="@drawable/ic_learning"
+            android:tint="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/sectionHeaderCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/XL"
+            android:layout_marginTop="@dimen/XS"
+            android:layout_marginEnd="@dimen/M"
+            android:layout_marginBottom="@dimen/XS"
+            app:layout_constraintBottom_toBottomOf="@id/learningImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/learningImageView"
+            app:layout_constraintTop_toTopOf="@id/learningImageView">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/XL"
+                android:gravity="center|left"
+                android:text="@string/section_title"
+                android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topicsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/S"
+            app:layout_constraintBottom_toTopOf="@id/takeQuizTextView"
+            app:layout_constraintTop_toBottomOf="@id/sectionHeaderCardView" />
+
+    <TextView
+            android:id="@+id/takeQuizTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:padding="@dimen/M"
+            android:text="@string/take_quiz"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

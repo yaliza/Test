@@ -39,9 +39,6 @@
     <dimen name="nav_drawer_width">320dp</dimen>
     <dimen name="nav_drawer_item_height">72dp</dimen>
 
-    <!--BOTTOM NAV FRAGMENT-->
-    <dimen name="menu_bt_margin">10dp</dimen>
-
     <!--LEVEL SECTION -->
     <dimen name="section_height">180dp</dimen>
     <dimen name="section_radius">10dp</dimen>
@@ -52,4 +49,7 @@
 
     <!--LEVEL ITEM-->
     <dimen name="level_item_spacing">@dimen/S</dimen>
+
+    <dimen name="learning_icon_size">56dp</dimen>
+    <dimen name="topic_icon_size">32dp</dimen>
 </resources>

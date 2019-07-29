@@ -28,6 +28,9 @@
 
         <action android:id="@+id/action_bottomNavFragment_to_swipableFragment"
                 app:destination="@id/swipableFragment"/>
+        <action
+                android:id="@+id/action_bottomNavFragment_to_moduleFragment"
+                app:destination="@+id/moduleFragment"/>
 
     </fragment>
 
@@ -47,6 +50,15 @@
                 app:destination="@id/bottomNavFragment"
                 app:popUpTo="@id/splashFragment"
                 app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/moduleFragment"
+            android:name="by.itechart.android.ui.screen.module.ModuleFragment"
+            tools:layout="@layout/fragment_module">
+        <argument
+                android:name="sectionName"
+                app:argType="string"/>
     </fragment>
 
 </navigation>

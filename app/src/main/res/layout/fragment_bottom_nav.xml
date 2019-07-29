@@ -24,7 +24,7 @@
                 app:layout_constraintLeft_toLeftOf="@id/toolbar"
                 app:layout_constraintTop_toTopOf="@id/toolbar"
                 app:layout_constraintBottom_toBottomOf="@id/toolbar"
-                android:layout_marginStart="@dimen/menu_bt_margin"
+                android:layout_marginStart="@dimen/S"
                 android:src="@drawable/ic_menu"/>
 
         <fragment
