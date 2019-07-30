@@ -8,13 +8,19 @@
     <dimen name="M">16dp</dimen>
     <dimen name="L">24dp</dimen>
     <dimen name="XL">32dp</dimen>
+    <dimen name="XXL">64dp</dimen>
+
+    <!-- STANDARD ICONS SIZE -->
+    <!-- DO NOT CHANGE -->
+    <dimen name="icon_M">32dp</dimen>
+    <dimen name="icon_L">56dp</dimen>
 
     <!-- Bottom Navigation View -->
     <dimen name="bnv_height">72dp</dimen>
-    <dimen name="bnv_icon_size">32dp</dimen>
+    <dimen name="bnv_icon_size">@dimen/icon_M</dimen>
     <dimen name="bnv_dot_size">4dp</dimen>
 
-    <dimen name="toolbar_height">70dp</dimen>
+    <dimen name="toolbar_height">120dp</dimen>
 
     <!-- Swipeable screen -->
     <dimen name="swp_view_pager_top_margin">70dp</dimen>
@@ -33,7 +39,7 @@
     <!-- LOGIN SCREEN -->
     <dimen name="login_button_height">64dp</dimen>
     <dimen name="login_button_half_height">32dp</dimen>
-    <dimen name="login_button_icon_size">32dp</dimen>
+    <dimen name="login_button_icon_size">@dimen/icon_M</dimen>
 
     <!-- NAVIGATION DRAWER -->
     <dimen name="nav_drawer_width">320dp</dimen>
@@ -44,12 +50,9 @@
     <dimen name="section_radius">10dp</dimen>
     <dimen name="section_elevation">5dp</dimen>
 
-    <!--LEVEL BUTTON-->
-    <dimen name="level_examination_icon_size">32dp</dimen>
-
     <!--LEVEL ITEM-->
     <dimen name="level_item_spacing">@dimen/S</dimen>
 
-    <dimen name="learning_icon_size">56dp</dimen>
-    <dimen name="topic_icon_size">32dp</dimen>
+    <dimen name="switch_thumb_size">16dp</dimen>
+    <dimen name="switch_track_radius">10dp</dimen>
 </resources>

@@ -20,7 +20,7 @@ fun View.setBackgroundColorRes(@ColorRes colorId: Int) {
 fun View.setBackgroundColor(color: String) {
     when (color) {
         "green" -> setBackgroundColorRes(R.color.green)
-        "blue" -> setBackgroundColorRes(R.color.blue)
+        "blue" -> setBackgroundColorRes(R.color.blue10)
         else -> setBackgroundColorRes(R.color.grey50)
     }
 }

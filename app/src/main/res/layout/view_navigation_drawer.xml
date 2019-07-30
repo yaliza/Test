@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/sideMenuNavigation"
         android:layout_width="@dimen/nav_drawer_width"
         android:layout_height="match_parent"
@@ -51,11 +52,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/L"
                 android:layout_marginBottom="@dimen/L"
-                android:background="@drawable/bg_round_button"
                 android:backgroundTint="@color/orange"
                 android:text="@string/nav_drawer_download_button"
                 android:textAllCaps="true"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:cornerRadius="32dp" />
 
         <include layout="@layout/view_divider" />
 
@@ -93,10 +94,10 @@
 
             <Switch
                     android:id="@+id/profileVisibitilySwitch"
+                    style="@style/AppTheme.Switch"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/L"
-                    android:thumbTint="@color/green" />
+                    android:layout_marginEnd="@dimen/L" />
 
         </LinearLayout>
 

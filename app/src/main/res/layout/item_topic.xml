@@ -26,8 +26,8 @@
 
         <ImageView
                 android:id="@+id/passedImageView"
-                android:layout_width="@dimen/topic_icon_size"
-                android:layout_height="@dimen/topic_icon_size"
+                android:layout_width="@dimen/icon_M"
+                android:layout_height="@dimen/icon_M"
                 android:layout_margin="@dimen/S"
                 android:background="@drawable/bg_circle"
                 android:backgroundTint="@color/green"
@@ -39,8 +39,8 @@
 
         <ImageView
                 android:id="@+id/playImageView"
-                android:layout_width="@dimen/topic_icon_size"
-                android:layout_height="@dimen/topic_icon_size"
+                android:layout_width="@dimen/icon_M"
+                android:layout_height="@dimen/icon_M"
                 android:layout_margin="@dimen/S"
                 android:background="@drawable/bg_circle"
                 android:backgroundTint="@color/grey30"
