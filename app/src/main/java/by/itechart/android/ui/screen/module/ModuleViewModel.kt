@@ -4,14 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import by.itechart.android.data.repository.Repository
 import by.itechart.android.ui.base.BaseViewModel
 import by.itechart.android.ui.base.Resource
-import by.itechart.android.ui.entity.TopicItem
+import by.itechart.android.ui.entity.TopicUIModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
 class ModuleViewModel(repository: Repository) : BaseViewModel() {
 
-    val topicItems = MutableLiveData<Resource<List<TopicItem>>>()
+    val topicItems = MutableLiveData<Resource<List<TopicUIModel>>>()
 
     init {
         repository.getTopics()

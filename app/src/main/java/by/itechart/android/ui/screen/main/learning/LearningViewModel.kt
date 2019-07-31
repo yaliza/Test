@@ -13,12 +13,12 @@ import io.reactivex.schedulers.Schedulers
 
 class LearningViewModel(repository: Repository) : BaseViewModel() {
 
-    val levelCards = MutableLiveData<Resource<List<LevelItem>>>()
+    val levelCards = MutableLiveData<Resource<List<LevelUIModel>>>()
 
     init {
         repository.getLevels()
                 .doOnSubscribe { levelCards.postValue(Resource.Loading()) }
-                .map { levels: List<Level> -> LevelMapper.mapToUiModel(levels) }
+                .map { levels: List<Level> -> LevelMapper.map(levels) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

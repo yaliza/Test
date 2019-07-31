@@ -7,7 +7,7 @@
 
     <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/view_toolbar" />
 
     <include layout="@layout/view_progress_bar" />
 
@@ -24,4 +24,5 @@
             android:layout_height="match_parent"
             app:behavior_peekHeight="@dimen/swp_peek_height"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

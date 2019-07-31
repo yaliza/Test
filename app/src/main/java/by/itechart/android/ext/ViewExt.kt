@@ -17,6 +17,7 @@ fun View.setBackgroundColorRes(@ColorRes colorId: Int) {
     setBackgroundColor(ContextCompat.getColor(this.context, colorId))
 }
 
+// TODO: remove
 fun View.setBackgroundColor(color: String) {
     when (color) {
         "green" -> setBackgroundColorRes(R.color.green)

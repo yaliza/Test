@@ -1,7 +1,7 @@
 package by.itechart.android.ui.entity
 
 
-class TopicItem(
+class TopicUIModel(
     val title: String,
     val isPassed: Boolean
 )

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.itechart.android.R
 import by.itechart.android.ext.hide
 import by.itechart.android.ext.show
-import by.itechart.android.ui.entity.TopicItem
+import by.itechart.android.ui.entity.TopicUIModel
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_topic.*
 
@@ -16,32 +16,27 @@ class TopicCardsAdapter : RecyclerView.Adapter<TopicCardsAdapter.TopicViewHolder
 
     var topicClickListener: ((String) -> Unit)? = null
 
-    var items: List<TopicItem> = emptyList()
+    var items: List<TopicUIModel> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        LayoutInflater.from(parent.context).inflate(
-            R.layout.item_topic, parent, false
-        ).let { view: View ->
-            TopicViewHolder(view).apply {
-                view.setOnClickListener {
-                    topicClickListener?.invoke(items[adapterPosition].title)
-                }
-            }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_topic, parent, false)
+        return TopicViewHolder(view).apply {
+            view.setOnClickListener { topicClickListener?.invoke(items[adapterPosition].title) }
         }
+    }
 
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: TopicViewHolder, position: Int) =
         holder.bind(items[position])
 
-    class TopicViewHolder(override val containerView: View) :
-        RecyclerView.ViewHolder(containerView), LayoutContainer {
+    class TopicViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-        fun bind(topicItem: TopicItem) {
+        fun bind(topicItem: TopicUIModel) {
             topicNameTextView.text = topicItem.title
             if (topicItem.isPassed) {
                 passedImageView.show()

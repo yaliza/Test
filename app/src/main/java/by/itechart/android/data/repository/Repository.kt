@@ -7,8 +7,8 @@ import by.itechart.android.data.entity.User
 import by.itechart.android.data.mock.Levels
 import by.itechart.android.data.mock.ModalCards
 import by.itechart.android.data.mock.Topics
-import by.itechart.android.ui.entity.ModalCardItem
-import by.itechart.android.ui.entity.TopicItem
+import by.itechart.android.ui.entity.ModalCardUIModel
+import by.itechart.android.ui.entity.TopicUIModel
 import com.facebook.AccessToken
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInStatusCodes
@@ -31,8 +31,8 @@ class Repository(
     val user: User
         get() = userHelper.user ?: throw IllegalArgumentException("No user detected")
 
-    private val modalCardsSubj: BehaviorSubject<List<ModalCardItem>> = BehaviorSubject.create()
-    private val topicsSubj: BehaviorSubject<List<TopicItem>> = BehaviorSubject.create()
+    private val modalCardsSubj: BehaviorSubject<List<ModalCardUIModel>> = BehaviorSubject.create()
+    private val topicsSubj: BehaviorSubject<List<TopicUIModel>> = BehaviorSubject.create()
     private val levelsSubj: BehaviorSubject<List<Level>> = BehaviorSubject.create()
 
     init {
@@ -45,11 +45,11 @@ class Repository(
             .toFlowable(BackpressureStrategy.LATEST)
             .delay(1, TimeUnit.SECONDS)
 
-    fun getModalCards(): Flowable<List<ModalCardItem>> = modalCardsSubj.hide()
+    fun getModalCards(): Flowable<List<ModalCardUIModel>> = modalCardsSubj.hide()
             .toFlowable(BackpressureStrategy.LATEST)
             .delay(1, TimeUnit.SECONDS)
 
-    fun getTopics(): Flowable<List<TopicItem>> = topicsSubj.hide()
+    fun getTopics(): Flowable<List<TopicUIModel>> = topicsSubj.hide()
             .toFlowable(BackpressureStrategy.LATEST)
             .delay(1, TimeUnit.SECONDS)
 

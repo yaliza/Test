@@ -40,7 +40,7 @@
             android:layout_height="@dimen/icon_M"
             android:layout_marginEnd="@dimen/M"
             android:elevation="10dp"
-            android:src="@drawable/medal"
+            android:src="@drawable/ic_medal"
             app:layout_constraintBottom_toBottomOf="@id/levelExaminationButton"
             app:layout_constraintEnd_toEndOf="@id/levelExaminationButton" />
 

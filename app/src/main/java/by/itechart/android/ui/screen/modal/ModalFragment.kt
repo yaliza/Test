@@ -10,7 +10,7 @@ import by.itechart.android.R
 import by.itechart.android.ext.hide
 import by.itechart.android.ext.show
 import by.itechart.android.ui.base.ResourceObserver
-import by.itechart.android.ui.entity.ModalCardItem
+import by.itechart.android.ui.entity.ModalCardUIModel
 import kotlinx.android.synthetic.main.fragment_modal.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,8 +34,9 @@ class ModalFragment : Fragment(R.layout.fragment_modal) {
             })
         }
 
-        viewModel.modalCards.observe(viewLifecycleOwner, object : ResourceObserver<List<ModalCardItem>>() {
-            override fun onSuccess(data: List<ModalCardItem>?) {
+        viewModel.modalCards.observe(viewLifecycleOwner, object : ResourceObserver<List<ModalCardUIModel>>() {
+            override fun onLoading() = progressBar.show()
+            override fun onSuccess(data: List<ModalCardUIModel>?) {
                 progressBar.hide()
                 data?.let { modalCardsAdapter.items = data }
             }
@@ -43,7 +44,7 @@ class ModalFragment : Fragment(R.layout.fragment_modal) {
                 progressBar.hide()
                 Toast.makeText(context, message, Toast.LENGTH_LONG).show()
             }
-            override fun onLoading() = progressBar.show()
         })
     }
+
 }

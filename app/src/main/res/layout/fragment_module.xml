@@ -10,7 +10,7 @@
 
     <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/view_toolbar" />
 
     <ImageView
             android:id="@+id/backImageView"
@@ -71,9 +71,11 @@
             android:id="@+id/topicsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:clipToPadding="false"
             android:padding="@dimen/S"
             app:layout_constraintBottom_toTopOf="@id/takeQuizTextView"
-            app:layout_constraintTop_toBottomOf="@id/sectionHeaderCardView" />
+            app:layout_constraintTop_toBottomOf="@id/sectionHeaderCardView"
+            tools:listitem="@layout/item_topic" />
 
     <TextView
             android:id="@+id/takeQuizTextView"

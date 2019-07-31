@@ -11,7 +11,7 @@ import by.itechart.android.ext.hide
 import by.itechart.android.ext.show
 import by.itechart.android.ext.showMessage
 import by.itechart.android.ui.base.ResourceObserver
-import by.itechart.android.ui.entity.TopicItem
+import by.itechart.android.ui.entity.TopicUIModel
 import kotlinx.android.synthetic.main.fragment_module.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -24,9 +24,7 @@ class ModuleFragment : Fragment(R.layout.fragment_module) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        backImageView.setOnClickListener {
-            activity?.let { findNavController(it, R.id.navHostFragment).navigateUp() }
-        }
+        backImageView.setOnClickListener { activity?.let { findNavController(it, R.id.primaryNavHostFragment).navigateUp() } }
         sectionNameTextView.text = args.sectionName
         setupTopicsRecyclerView()
     }
@@ -40,20 +38,17 @@ class ModuleFragment : Fragment(R.layout.fragment_module) {
             layoutManager = LinearLayoutManager(activity)
         }
 
-        viewModel.topicItems.observe(
-            viewLifecycleOwner,
-            object : ResourceObserver<List<TopicItem>>() {
-                override fun onSuccess(data: List<TopicItem>?) {
-                    progressBar.hide()
-                    data?.let { topicsAdapter.items = it }
-                }
-
-                override fun onLoading() = progressBar.show()
-
-                override fun onError(message: String) {
-                    showMessage(message)
-                    progressBar.hide()
-                }
-            })
+        viewModel.topicItems.observe(viewLifecycleOwner, object : ResourceObserver<List<TopicUIModel>>() {
+            override fun onLoading() = progressBar.show()
+            override fun onSuccess(data: List<TopicUIModel>?) {
+                progressBar.hide()
+                data?.let { topicsAdapter.items = it }
+            }
+            override fun onError(message: String) {
+                showMessage(message)
+                progressBar.hide()
+            }
+        })
     }
+
 }

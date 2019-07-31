@@ -1,28 +1,28 @@
 package by.itechart.android.data.mock
 
-import by.itechart.android.ui.entity.TopicItem
+import by.itechart.android.ui.entity.TopicUIModel
 
 
 object Topics {
 
     val mock = listOf(
-        TopicItem(
+        TopicUIModel(
             "Introduction",
             true
         ),
-        TopicItem(
+        TopicUIModel(
             "Ask Price, Bid Price",
             true
         ),
-        TopicItem(
+        TopicUIModel(
             "Pip, Points, Ticks",
             true
         ),
-        TopicItem(
+        TopicUIModel(
             "Lot, Margin",
             true
         ),
-        TopicItem(
+        TopicUIModel(
             "Pip Price",
             false
         )

@@ -6,14 +6,16 @@ import androidx.recyclerview.widget.RecyclerView
 import by.itechart.android.R
 import by.itechart.android.ext.hide
 import by.itechart.android.ext.show
-import by.itechart.android.ui.entity.LevelButtonItem
+import by.itechart.android.ui.entity.LevelButtonUIModel
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_level_button.*
+
 
 class LevelButtonViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-    fun bind(item: LevelButtonItem) =
+    // TODO: remove ctx.getString(), use mapper to resolve strings
+    fun bind(item: LevelButtonUIModel) =
             containerView.context.let { ctx: Context ->
                 if (item.isPassed) {
                     medalImageView.show()

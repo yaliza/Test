@@ -30,4 +30,5 @@
             android:text="Person"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profileView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
