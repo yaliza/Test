@@ -1,9 +1,7 @@
 package by.itechart.android.ui.screen.main.learning.recycler.viewholder
 
-import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import by.itechart.android.R
 import by.itechart.android.ext.hide
 import by.itechart.android.ext.show
 import by.itechart.android.ui.entity.LevelButtonUIModel
@@ -12,21 +10,18 @@ import kotlinx.android.synthetic.main.item_level_button.*
 
 
 class LevelButtonViewHolder(override val containerView: View) :
-        RecyclerView.ViewHolder(containerView), LayoutContainer {
+    RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-    // TODO: remove ctx.getString(), use mapper to resolve strings
     fun bind(item: LevelButtonUIModel) =
-            containerView.context.let { ctx: Context ->
-                if (item.isPassed) {
-                    medalImageView.show()
-                    lockImageView.hide()
-                    levelExaminationButton.text = ctx.getString(R.string.level_passed, item.passRate)
-                } else {
-                    medalImageView.hide()
-                    lockImageView.show()
-                    levelExaminationButton.isClickable = false
-                    levelExaminationButton.text = ctx.getString(R.string.level_not_passed)
-                }
-            }
+        if (item.isPassed) {
+            medalImageView.show()
+            lockImageView.hide()
+            levelExaminationButton.text = item.title
+        } else {
+            medalImageView.hide()
+            lockImageView.show()
+            levelExaminationButton.isClickable = false
+            levelExaminationButton.text = item.title
+        }
 
 }

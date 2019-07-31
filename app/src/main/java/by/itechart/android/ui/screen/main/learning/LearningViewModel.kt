@@ -11,21 +11,24 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
-class LearningViewModel(repository: Repository) : BaseViewModel() {
+class LearningViewModel(
+    private val mapper: LevelMapper,
+    repository: Repository
+) : BaseViewModel() {
 
     val levelCards = MutableLiveData<Resource<List<LevelUIModel>>>()
 
     init {
         repository.getLevels()
-                .doOnSubscribe { levelCards.postValue(Resource.Loading()) }
-                .map { levels: List<Level> -> LevelMapper.map(levels) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { cards -> levelCards.value = Resource.Success(cards) },
-                        { error -> levelCards.value = Resource.Error(error) }
-                )
-                .addToDisposables()
+            .doOnSubscribe { levelCards.postValue(Resource.Loading()) }
+            .map { levels: List<Level> -> mapper.map(levels) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { cards -> levelCards.value = Resource.Success(cards) },
+                { error -> levelCards.value = Resource.Error(error) }
+            )
+            .addToDisposables()
     }
 
 }

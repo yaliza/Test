@@ -39,7 +39,7 @@ class LevelsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             TYPE_BUTTON ->
                 LevelButtonViewHolder(view).apply {
                     view.levelExaminationButton.setOnClickListener {
-                        buttonClickListener?.invoke((items[adapterPosition] as LevelButtonUIModel).passRate.toString())
+                        buttonClickListener?.invoke((items[adapterPosition] as LevelButtonUIModel).title)
                     }
                 }
             else -> throw IllegalArgumentException("Unknown view type")

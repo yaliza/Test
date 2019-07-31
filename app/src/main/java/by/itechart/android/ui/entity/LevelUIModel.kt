@@ -16,30 +16,16 @@ sealed class LevelUIModel {
 
 class LevelSectionUIModel(
     val title: String,
-    val topicCount: Int,
+    val topicTitle: String,
     val starCount: Int,
-    val color: String,
-    override val viewType: Int
-) : LevelUIModel() {
-
-    constructor(topic: Section, color: String, viewType: Int = TYPE_SECTION) : this(
-        topic.title,
-        topic.topicCount,
-        topic.starCount,
-        color,
-        viewType
-    )
-
-    val isStarted
-        get() = starCount != 0
-}
+    val color: Int,
+    override val viewType: Int = TYPE_SECTION
+) : LevelUIModel()
 
 class LevelHeaderUIModel(val title: String) : LevelUIModel() {
     override val viewType: Int = TYPE_HEADER
 }
 
-class LevelButtonUIModel(val passRate: Int) : LevelUIModel() {
+class LevelButtonUIModel(val title : String, val isPassed : Boolean) : LevelUIModel() {
     override val viewType: Int = TYPE_BUTTON
-    val isPassed
-        get() = passRate != 0
 }
