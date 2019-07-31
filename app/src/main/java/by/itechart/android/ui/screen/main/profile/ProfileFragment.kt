@@ -6,10 +6,10 @@ import androidx.lifecycle.Observer
 import by.itechart.android.R
 import by.itechart.android.data.entity.User
 import by.itechart.android.ext.loadCircle
-import kotlinx.android.synthetic.main.fragment_person.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ProfileFragment : Fragment(R.layout.fragment_person) {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private val viewModel by viewModel<ProfileViewModel>()
 

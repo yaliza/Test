@@ -4,14 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import by.itechart.android.data.repository.Repository
 import by.itechart.android.ui.base.BaseViewModel
 import by.itechart.android.ui.base.Resource
-import by.itechart.android.ui.entity.ModalCardItem
+import by.itechart.android.ui.entity.ModalCardUIModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
 class ModalViewModel(repository: Repository) : BaseViewModel() {
 
-    val modalCards = MutableLiveData<Resource<List<ModalCardItem>>>()
+    val modalCards = MutableLiveData<Resource<List<ModalCardUIModel>>>()
 
     init {
         repository.getModalCards()

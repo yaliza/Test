@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.view_navigation_drawer.*
 class BottomNavFragment : Fragment(R.layout.fragment_bottom_nav) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val navController = Navigation.findNavController(requireActivity(), R.id.bottomNavFragment)
+        val navController = Navigation.findNavController(requireActivity(), R.id.secondaryNavHostFragment)
         bottomNavView.setupWithNavController(navController)
 
         menuOpenImageView.setOnClickListener { bottomNavFragmentDrawerLayout.openDrawer(sideMenuNavigation) }

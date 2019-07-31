@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import by.itechart.android.R
-import by.itechart.android.ui.entity.ModalCardItem
+import by.itechart.android.ui.entity.ModalCardUIModel
 import by.itechart.android.ext.load
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_swipable_card.*
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_swipable_card.*
 
 class ModalCardsAdapter : RecyclerView.Adapter<ModalCardsAdapter.CardViewHolder>() {
 
-    var items: List<ModalCardItem> = emptyList()
+    var items: List<ModalCardUIModel> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -29,7 +29,7 @@ class ModalCardsAdapter : RecyclerView.Adapter<ModalCardsAdapter.CardViewHolder>
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) = holder.bind(items[position])
 
     class CardViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun bind(cardItem: ModalCardItem) {
+        fun bind(cardItem: ModalCardUIModel) {
             swipableCardTitleTextView.text = cardItem.title
             swipableCardDescriptionTextView.text = cardItem.description
             swipableCardImageView.load(cardItem.image)

@@ -13,9 +13,13 @@
 
     <color name="green">#35B14A</color>
 
-    <color name="blue">#42A8FF</color>
+    <color name="blue10">#42A8FF</color>
+    <color name="blue30">#3764C0</color>
 
     <!-- GRADIENTS -->
     <color name="gradient_blue_start">#3B7DD7</color>
     <color name="gradient_blue_end">#3F95EE</color>
+
+    <color name="gradient_green_start">#86DF44</color>
+    <color name="gradient_green_end">#2ADE70</color>
 </resources>

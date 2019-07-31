@@ -11,19 +11,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/level_item_spacing"
-            android:background="@drawable/bg_round_ripple"
+            android:backgroundTint="@android:color/white"
             android:textAllCaps="false"
+            android:textColor="@color/grey90"
             android:textStyle="bold"
+            app:cornerRadius="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/grey30"
             tools:text="Passed 90%" />
 
     <ImageView
             android:id="@+id/lockImageView"
-            android:layout_width="@dimen/level_examination_icon_size"
-            android:layout_height="@dimen/level_examination_icon_size"
+            android:layout_width="@dimen/icon_M"
+            android:layout_height="@dimen/icon_M"
             android:layout_marginStart="@dimen/M"
             android:elevation="10dp"
             android:src="@drawable/ic_lock"
@@ -33,11 +36,11 @@
 
     <ImageView
             android:id="@+id/medalImageView"
-            android:layout_width="@dimen/level_examination_icon_size"
-            android:layout_height="@dimen/level_examination_icon_size"
+            android:layout_width="@dimen/icon_M"
+            android:layout_height="@dimen/icon_M"
             android:layout_marginEnd="@dimen/M"
             android:elevation="10dp"
-            android:src="@drawable/medal"
+            android:src="@drawable/ic_medal"
             app:layout_constraintBottom_toBottomOf="@id/levelExaminationButton"
             app:layout_constraintEnd_toEndOf="@id/levelExaminationButton" />
 
