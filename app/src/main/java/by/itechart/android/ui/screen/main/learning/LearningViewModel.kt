@@ -11,10 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
-class LearningViewModel(
-    private val mapper: LevelMapper,
-    repository: Repository
-) : BaseViewModel() {
+class LearningViewModel(repository: Repository, mapper: LevelMapper) : BaseViewModel() {
 
     val levelCards = MutableLiveData<Resource<List<LevelUIModel>>>()
 
