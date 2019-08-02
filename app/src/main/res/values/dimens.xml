@@ -14,6 +14,7 @@
     <!-- DO NOT CHANGE -->
     <dimen name="icon_M">32dp</dimen>
     <dimen name="icon_L">56dp</dimen>
+    <dimen name="icon_XL">72dp</dimen>
 
     <!-- Bottom Navigation View -->
     <dimen name="bnv_height">72dp</dimen>
@@ -53,6 +54,24 @@
     <!--LEVEL ITEM-->
     <dimen name="level_item_spacing">@dimen/S</dimen>
 
+    <!--CERTIFICATE ITEM-->
+    <dimen name="certificate_height">180dp</dimen>
+    <dimen name="certificate_width">300dp</dimen>
+    <dimen name="certificate_divider_width">60dp</dimen>
+    <dimen name="certificate_divider_height">2dp</dimen>
+    <dimen name="certificate_corner_radius">6dp</dimen>
+
+    <!--SCORE ITEM-->
+    <dimen name="score_height">100dp</dimen>
+    <dimen name="score_width">90dp</dimen>
+
+    <!--SWITCH-->
     <dimen name="switch_thumb_size">16dp</dimen>
     <dimen name="switch_track_radius">10dp</dimen>
+
+    <!--MAIN AVATAR-->
+    <dimen name="avatar_size">200dp</dimen>
+    <dimen name="avatar_border_width">10dp</dimen>
+    <dimen name="avatar_background_height">300dp</dimen>
+
 </resources>

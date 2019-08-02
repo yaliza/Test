@@ -81,7 +81,7 @@
             android:id="@+id/takeQuizTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/green"
+            android:background="@color/green20"
             android:padding="@dimen/M"
             android:text="@string/take_quiz"
             android:textAlignment="center"

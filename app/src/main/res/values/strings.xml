@@ -35,4 +35,21 @@
     <!--MODULE-->
     <string name="take_quiz">TAKE QUIZ</string>
     <string name="section_title">In this section you will learn to…</string>
+
+    <string name="certificates">CERTIFICATES</string>
+    <string name="scores">SCORES</string>
+    <string name="see_all">SEE ALL</string>
+    <string name="accept">accept</string>
+    <string name="decline">decline</string>
+
+    <!--CERTIFICATE-->
+    <string name="certificate_date">DATE</string>
+    <string name="certificate_name">NAME</string>
+    <string name="certificate">CERTIFICATE</string>
+
+    <!--SOCIABLE TAB LAYOUT-->
+    <string name="tab_followers">FOLLOWERS(%d)</string>
+    <string name="tab_following">FOLLOWING(%d)</string>
+    <string name="tab_invite">INVITE</string>
+
 </resources>

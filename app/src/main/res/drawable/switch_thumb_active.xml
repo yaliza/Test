@@ -6,7 +6,7 @@
             android:right="2dp"
             android:top="2dp">
         <shape android:shape="oval">
-            <solid android:color="@color/green" />
+            <solid android:color="@color/green20" />
             <size
                     android:width="@dimen/switch_thumb_size"
                     android:height="@dimen/switch_thumb_size" />

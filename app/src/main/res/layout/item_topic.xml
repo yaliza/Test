@@ -30,7 +30,7 @@
                 android:layout_height="@dimen/icon_M"
                 android:layout_margin="@dimen/S"
                 android:background="@drawable/bg_circle"
-                android:backgroundTint="@color/green"
+                android:backgroundTint="@color/green20"
                 android:src="@drawable/ic_check"
                 android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"

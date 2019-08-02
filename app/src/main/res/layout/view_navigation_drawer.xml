@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/L"
                 android:layout_marginBottom="@dimen/L"
-                android:backgroundTint="@color/orange"
+                android:backgroundTint="@color/orange50"
                 android:text="@string/nav_drawer_download_button"
                 android:textAllCaps="true"
                 android:textSize="14sp"

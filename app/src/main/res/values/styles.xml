@@ -50,11 +50,49 @@
         <item name="android:textSize">13sp</item>
     </style>
 
+    <style name="AppTheme.Text.Certificate">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AppTheme.Text.Certificate.Header">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppTheme.Text.Certificate.Header.Small">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AppTheme.Text.Certificate.Label">
+        <item name="android:layout_margin">@dimen/XS</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/grey50</item>
+    </style>
+
+    <style name="AppTheme.Text.Certificate.Value">
+        <item name="android:layout_margin">@dimen/XS</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/blue90</item>
+    </style>
+
+    <style name="AppTheme.Text.Profile" />
+
+    <style name="AppTheme.Text.Profile.Section">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/grey50</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginStart">@dimen/M</item>
+        <item name="android:layout_marginEnd">@dimen/M</item>
+    </style>
+
     <style name="AppTheme.RatingBar">
         <item name="android:isIndicator">true</item>
         <item name="android:stepSize">1</item>
         <item name="android:numStars">3</item>
-        <item name="android:progressTint">@color/orange</item>
+        <item name="android:progressTint">@color/orange50</item>
         <item name="android:progressBackgroundTint">@color/grey30</item>
     </style>
 
@@ -69,6 +107,18 @@
         <item name="android:background">@null</item>
         <item name="android:thumb">@drawable/switch_thumb</item>
         <item name="android:track">@drawable/switch_track</item>
+    </style>
+
+    <style name="AppTheme.Text.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextAppearance">@style/AppTheme.Text.TabLayout.TabItem</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="tabTextColor">@color/grey50</item>
+    </style>
+
+    <style name="AppTheme.Text.TabLayout.TabItem">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/grey50</item>
     </style>
 
 </resources>

@@ -9,12 +9,16 @@
     <color name="grey50">#7E7E7E</color>
     <color name="grey90">#2B323D</color>
 
-    <color name="orange">#F26E2F</color>
+    <color name="orange10">#E99968</color>
+    <color name="orange20">#E09A4C</color>
+    <color name="orange50">#F26E2F</color>
 
-    <color name="green">#35B14A</color>
+    <color name="green10">#A6BF22</color>
+    <color name="green20">#35B14A</color>
 
     <color name="blue10">#42A8FF</color>
     <color name="blue30">#3764C0</color>
+    <color name="blue90">#21243A</color>
 
     <!-- GRADIENTS -->
     <color name="gradient_blue_start">#3B7DD7</color>

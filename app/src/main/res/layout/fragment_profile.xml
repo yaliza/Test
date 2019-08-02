@@ -2,33 +2,146 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/avatar_background_height"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/userNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/M"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Jake Wharton" />
+
+            <TextView
+                    android:id="@+id/certificatesTextView"
+                    style="@style/AppTheme.Text.Profile.Section"
+                    android:layout_marginTop="@dimen/L"
+                    android:gravity="center"
+                    android:text="@string/certificates"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/userNameTextView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/certificatesRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/XS"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:layout_constraintTop_toBottomOf="@id/certificatesTextView" />
+
+            <TextView
+                    android:id="@+id/seeAllButton"
+                    style="@style/AppTheme.Text.Profile.Section"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="@dimen/S"
+                    android:text="@string/see_all"
+                    android:textColor="@color/orange50"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/certificatesRecyclerView" />
+
+            <TextView
+                    android:id="@+id/scoresTextView"
+                    style="@style/AppTheme.Text.Profile.Section"
+                    android:layout_marginStart="@dimen/M"
+                    android:layout_marginTop="@dimen/M"
+                    android:gravity="center"
+                    android:text="@string/scores"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seeAllButton" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/scoresRecyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/XS"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scoresTextView" />
+
+            <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/sociableTabLayout"
+                    style="@style/AppTheme.Text.TabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/M"
+                    app:layout_constraintTop_toBottomOf="@id/scoresRecyclerView">
+
+                <com.google.android.material.tabs.TabItem
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                <com.google.android.material.tabs.TabItem
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                <com.google.android.material.tabs.TabItem
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout="@layout/tab_invite" />
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/usersRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginLeft="@dimen/M"
+                    android:layout_marginRight="@dimen/M"
+                    android:clipToPadding="false"
+                    android:paddingTop="@dimen/M"
+                    app:layout_constraintTop_toBottomOf="@id/sociableTabLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <View
             android:id="@+id/profileView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="@dimen/avatar_background_height"
             android:background="@drawable/bg_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
             android:id="@+id/userAvatarImageView"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_marginTop="@dimen/L"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:layout_marginBottom="@dimen/S"
+            android:background="@drawable/bg_avatar_border"
+            android:padding="@dimen/avatar_border_width"
+            app:layout_constraintBottom_toBottomOf="@id/medalImageView"
             app:layout_constraintLeft_toLeftOf="@id/profileView"
             app:layout_constraintRight_toRightOf="@id/profileView"
             app:layout_constraintTop_toTopOf="@id/profileView" />
 
-    <TextView
-            android:id="@+id/userNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/M"
-            android:gravity="center"
-            android:text="Person"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileView" />
+    <ImageView
+            android:id="@+id/medalImageView"
+            android:layout_width="@dimen/icon_XL"
+            android:layout_height="@dimen/icon_XL"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/blue90"
+            android:padding="@dimen/M"
+            android:src="@drawable/ic_medal"
+            app:layout_constraintBottom_toBottomOf="@id/profileView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="@color/green">
-    <item>
-        <shape android:shape="oval">
-            <gradient
-                    android:angle="0"
-                    android:endColor="@color/gradient_green_end"
-                    android:startColor="@color/gradient_green_start"
-                    android:type="linear" />
-            <padding
-                android:left="@dimen/S"
-                android:right="@dimen/S"
-                android:top="@dimen/S"
-                android:bottom="@dimen/S"/>
-        </shape>
-    </item>
-</ripple>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="oval">
+    <gradient
+            android:angle="0"
+            android:endColor="@color/gradient_green_end"
+            android:startColor="@color/gradient_green_start"
+            android:type="linear" />
+    <padding
+            android:bottom="@dimen/S"
+            android:left="@dimen/S"
+            android:right="@dimen/S"
+            android:top="@dimen/S" />
+</shape>
