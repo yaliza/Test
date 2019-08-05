@@ -19,6 +19,7 @@ import by.itechart.android.ui.screen.main.profile.recycler.SociableAdapter
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.lang.IllegalArgumentException
 
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
@@ -35,35 +36,37 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         setupScoreRecyclerView()
         setupUsersRecycler()
 
-        viewModel.profile.observe(viewLifecycleOwner, Observer { updateUserInfo(it) })
-        viewModel.certificates.observe(viewLifecycleOwner, Observer { certificatesAdapter.items = it })
-        viewModel.scores.observe(viewLifecycleOwner, Observer { scoresAdapter.items = it })
-        viewModel.sociableLiveData.observe(viewLifecycleOwner, Observer { sociableAdapter.items = it })
-        viewModel.followers.observe(
-            viewLifecycleOwner,
-            Observer { sociableTabLayout.getTabAt(1)?.text = getString(R.string.tab_followers, it.size) })
-        viewModel.following.observe(
-            viewLifecycleOwner,
-            Observer { sociableTabLayout.getTabAt(0)?.text = getString(R.string.tab_following, it.size) })
+        with(viewModel) {
+            profile.observe(viewLifecycleOwner, Observer { updateUserInfo(it) })
+            certificates.observe(viewLifecycleOwner, Observer { certificatesAdapter.items = it })
+            scores.observe(viewLifecycleOwner, Observer { scoresAdapter.items = it })
+            sociableLiveData.observe(viewLifecycleOwner, Observer { sociableAdapter.items = it })
+            followers.observe(
+                viewLifecycleOwner,
+                Observer { sociableTabLayout.getTabAt(1)?.text = getString(R.string.tab_followers, it.size) })
+            following.observe(
+                viewLifecycleOwner,
+                Observer { sociableTabLayout.getTabAt(0)?.text = getString(R.string.tab_following, it.size) })
+        }
 
         seeAllButton.setOnClickListener { showMessage("See all") }
 
         sociableTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(p0: TabLayout.Tab?) {}
             override fun onTabUnselected(p0: TabLayout.Tab?) {}
-            override fun onTabSelected(p0: TabLayout.Tab?) {
-                when (p0?.position) {
+            override fun onTabSelected(tab: TabLayout.Tab?): Unit =
+                when (tab?.position) {
                     0 -> viewModel.observeFollowing()
                     1 -> viewModel.observeFollowers()
                     2 -> viewModel.observeInvitations()
+                    else -> throw IllegalArgumentException("Unknown tab position")
                 }
-            }
         })
     }
 
     private fun setupCertificatesRecycler() {
         certificatesAdapter = CertificatesAdapter()
-        certificatesRecyclerView.apply {
+        with(certificatesRecyclerView) {
             adapter = certificatesAdapter
             layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
             addItemDecoration(
@@ -75,21 +78,20 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun setupScoreRecyclerView() {
         scoresAdapter = ScoresAdapter()
-        scoresRecyclerView?.apply {
+        with(scoresRecyclerView) {
             layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
             adapter = scoresAdapter
         }
     }
 
     private fun setupUsersRecycler() {
-        sociableAdapter = SociableAdapter()
-        sociableAdapter.apply {
+        sociableAdapter = SociableAdapter().apply {
             userClickListener = { showMessage(it.name) }
             invitationClickListener = { invitation: InvitationUiModel, accepted: Boolean ->
                 showMessage("${invitation.name} invitation was accepted -  $accepted")
             }
         }
-        usersRecyclerView.apply {
+        with(usersRecyclerView) {
             layoutManager = LinearLayoutManager(activity)
             adapter = sociableAdapter
         }
@@ -99,4 +101,5 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         userNameTextView.text = name
         userAvatarImageView.loadCircle(photoUrl)
     }
+
 }

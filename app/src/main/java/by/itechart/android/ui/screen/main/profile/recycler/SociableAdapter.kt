@@ -27,13 +27,12 @@ class SociableAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
         return when (viewType) {
-            SociableUIModel.TYPE_MAN ->
-                UserViewHolder(view).apply {
-                    view.setOnClickListener { userClickListener?.invoke(items[adapterPosition]) }
-                }
-            SociableUIModel.TYPE_INVITATION -> InvitationViewHolder(view).apply {
+            SociableUIModel.TYPE_MAN -> UserViewHolder(view).apply {
                 view.setOnClickListener { userClickListener?.invoke(items[adapterPosition]) }
-                view.apply {
+            }
+            SociableUIModel.TYPE_INVITATION -> InvitationViewHolder(view).apply {
+                with(view) {
+                    setOnClickListener { userClickListener?.invoke(items[adapterPosition]) }
                     acceptButton.setOnClickListener {
                         invitationClickListener?.invoke(items[adapterPosition] as InvitationUiModel, true)
                     }

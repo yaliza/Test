@@ -12,7 +12,6 @@ import by.itechart.android.ui.screen.main.learning.recycler.viewholder.LevelButt
 import by.itechart.android.ui.screen.main.learning.recycler.viewholder.LevelHeaderViewHolder
 import by.itechart.android.ui.screen.main.learning.recycler.viewholder.LevelSectionViewHolder
 import kotlinx.android.synthetic.main.item_level_button.view.*
-import kotlinx.android.synthetic.main.item_level_section.view.*
 
 
 class LevelsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -34,7 +33,7 @@ class LevelsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             TYPE_HEADER -> LevelHeaderViewHolder(view)
             TYPE_SECTION_WIDE, TYPE_SECTION ->
                 LevelSectionViewHolder(view).apply {
-                    view.setOnClickListener { sectionClickListener?.invoke(view.sectionTitleTextView.text.toString()) }
+                    view.setOnClickListener { sectionClickListener?.invoke((items[adapterPosition] as LevelSectionUIModel).title) }
                 }
             TYPE_BUTTON ->
                 LevelButtonViewHolder(view).apply {

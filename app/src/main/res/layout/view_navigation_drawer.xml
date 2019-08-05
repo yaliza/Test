@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/XL"
                 android:text="@string/nav_drawer_download_title"
-                android:textSize="19sp" />
+                android:textSize="@dimen/text_XXXL" />
 
         <TextView
                 style="@style/AppTheme.Text.NavigationDrawer.Small"
@@ -55,7 +55,7 @@
                 android:backgroundTint="@color/orange50"
                 android:text="@string/nav_drawer_download_button"
                 android:textAllCaps="true"
-                android:textSize="14sp"
+                android:textSize="@dimen/text_S"
                 app:cornerRadius="32dp" />
 
         <include layout="@layout/view_divider" />

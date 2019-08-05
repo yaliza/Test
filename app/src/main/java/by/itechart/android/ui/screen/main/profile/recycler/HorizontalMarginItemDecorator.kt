@@ -11,7 +11,7 @@ class HorizontalMarginItemDecorator(private val outerMargin: Float, private val 
         super.getItemOffsets(outRect, view, parent, state)
         val index = parent.getChildAdapterPosition(view)
         val leftInset = if (index == 0) outerMargin else innerMargin
-        val rightInset = if (index == parent.adapter!!.itemCount - 1) outerMargin else innerMargin
+        val rightInset = if (index == (parent.adapter?.itemCount ?: 0 - 1)) outerMargin else innerMargin
         outRect.set(leftInset.toInt(), 0, rightInset.toInt(), 0)
     }
 }

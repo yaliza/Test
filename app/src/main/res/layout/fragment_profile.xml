@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:clipToPadding="false"
-            android:paddingTop="@dimen/avatar_background_height"
+            android:paddingTop="@dimen/profile_avatar_background_height"
             android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -21,29 +21,52 @@
 
             <TextView
                     android:id="@+id/userNameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/M"
-                    android:gravity="center"
+                    style="@style/AppTheme.Text.Profile"
+                    android:textSize="@dimen/text_XL"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Jake Wharton" />
 
             <TextView
+                    android:id="@+id/userNicknameTextView"
+                    style="@style/AppTheme.Text.Profile"
+                    android:text="nickname"
+                    app:layout_constraintBottom_toBottomOf="@id/achievementImageView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/userNameTextView" />
+
+            <ImageView
+                    android:id="@+id/achievementImageView"
+                    android:layout_width="@dimen/icon_M"
+                    android:layout_height="@dimen/icon_M"
+                    android:layout_marginStart="@dimen/S"
+                    android:src="@drawable/ic_fire"
+                    app:layout_constraintStart_toEndOf="@id/userNicknameTextView"
+                    app:layout_constraintTop_toBottomOf="@id/userNameTextView" />
+
+            <TextView
+                    android:id="@+id/achievementTextView"
+                    style="@style/AppTheme.Text.Profile"
+                    android:layout_marginStart="@dimen/XS"
+                    android:text="3 days streak"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@id/achievementImageView"
+                    app:layout_constraintStart_toEndOf="@id/achievementImageView"
+                    app:layout_constraintTop_toBottomOf="@id/userNameTextView" />
+
+            <TextView
                     android:id="@+id/certificatesTextView"
                     style="@style/AppTheme.Text.Profile.Section"
                     android:layout_marginTop="@dimen/L"
-                    android:gravity="center"
                     android:text="@string/certificates"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/userNameTextView" />
+                    app:layout_constraintTop_toBottomOf="@id/userNicknameTextView" />
 
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/certificatesRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/XS"
-                    android:clipChildren="false"
                     android:clipToPadding="false"
                     app:layout_constraintTop_toBottomOf="@id/certificatesTextView" />
 
@@ -60,9 +83,7 @@
             <TextView
                     android:id="@+id/scoresTextView"
                     style="@style/AppTheme.Text.Profile.Section"
-                    android:layout_marginStart="@dimen/M"
                     android:layout_marginTop="@dimen/M"
-                    android:gravity="center"
                     android:text="@string/scores"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/seeAllButton" />
@@ -101,7 +122,7 @@
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/usersRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="@dimen/profile_sociable_height"
                     android:layout_marginLeft="@dimen/M"
                     android:layout_marginRight="@dimen/M"
                     android:clipToPadding="false"
@@ -115,17 +136,17 @@
     <View
             android:id="@+id/profileView"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/avatar_background_height"
+            android:layout_height="@dimen/profile_avatar_background_height"
             android:background="@drawable/bg_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
             android:id="@+id/userAvatarImageView"
-            android:layout_width="@dimen/avatar_size"
-            android:layout_height="@dimen/avatar_size"
+            android:layout_width="@dimen/profile_avatar_size"
+            android:layout_height="@dimen/profile_avatar_size"
             android:layout_marginBottom="@dimen/S"
             android:background="@drawable/bg_avatar_border"
-            android:padding="@dimen/avatar_border_width"
+            android:padding="@dimen/profile_avatar_border_width"
             app:layout_constraintBottom_toBottomOf="@id/medalImageView"
             app:layout_constraintLeft_toLeftOf="@id/profileView"
             app:layout_constraintRight_toRightOf="@id/profileView"
@@ -142,6 +163,5 @@
             app:layout_constraintBottom_toBottomOf="@id/profileView"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
