@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/toolbar_height"
             android:background="@drawable/bg_toolbar"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/orange50"
             app:layout_constraintTop_toTopOf="parent" />
 
     <Button

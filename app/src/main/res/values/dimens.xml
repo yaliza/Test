@@ -14,6 +14,17 @@
     <!-- DO NOT CHANGE -->
     <dimen name="icon_M">32dp</dimen>
     <dimen name="icon_L">56dp</dimen>
+    <dimen name="icon_XL">72dp</dimen>
+
+    <!-- STANDARD TEXT SIZE -->
+    <!-- DO NOT CHANGE -->
+    <dimen name="text_XS">13sp</dimen>
+    <dimen name="text_S">14sp</dimen>
+    <dimen name="text_M">15sp</dimen>
+    <dimen name="text_L">16sp</dimen>
+    <dimen name="text_XL">17sp</dimen>
+    <dimen name="text_XXL">18sp</dimen>
+    <dimen name="text_XXXL">19sp</dimen>
 
     <!-- Bottom Navigation View -->
     <dimen name="bnv_height">72dp</dimen>
@@ -32,9 +43,6 @@
     <dimen name="swp_card_image_height">300dp</dimen>
     <dimen name="swp_card_inner_horizontal_margin">10dp</dimen>
     <dimen name="swp_card_inner_vertical_margin">13dp</dimen>
-    <dimen name="swp_card_title_text_size">17sp</dimen>
-    <dimen name="swp_card_description_text_size">16sp</dimen>
-
 
     <!-- LOGIN SCREEN -->
     <dimen name="login_button_height">64dp</dimen>
@@ -53,6 +61,25 @@
     <!--LEVEL ITEM-->
     <dimen name="level_item_spacing">@dimen/S</dimen>
 
+    <!--CERTIFICATE ITEM-->
+    <dimen name="certificate_height">180dp</dimen>
+    <dimen name="certificate_width">300dp</dimen>
+    <dimen name="certificate_divider_width">60dp</dimen>
+    <dimen name="certificate_divider_height">2dp</dimen>
+    <dimen name="certificate_corner_radius">6dp</dimen>
+
+    <!--SCORE ITEM-->
+    <dimen name="score_height">100dp</dimen>
+    <dimen name="score_width">90dp</dimen>
+
+    <!--SWITCH-->
     <dimen name="switch_thumb_size">16dp</dimen>
     <dimen name="switch_track_radius">10dp</dimen>
+
+    <!--PROFILE SCREEN-->
+    <dimen name="profile_avatar_size">200dp</dimen>
+    <dimen name="profile_avatar_border_width">10dp</dimen>
+    <dimen name="profile_avatar_background_height">300dp</dimen>
+    <dimen name="profile_sociable_height">250dp</dimen>
+
 </resources>

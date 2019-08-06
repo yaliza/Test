@@ -6,15 +6,14 @@
         android:viewportHeight="24.0">
     <group>
         <path
-                android:fillColor="@color/orange"
-                android:pathData="M0,0 V20 C0,20 6,24 12,20 C12,20 18,16 24,20 V0 Z" />
+                android:fillColor="@color/orange50"
+                android:pathData="M0,0 V21 C0,21 6,24 12,21 C12,21 18,17 24,21 V0 Z" />
         <path
-                android:fillColor="@color/green"
-                android:pathData="M0,20 V21 C0,21 6,24 12,21 L12,20 C12,20 9,22 0,20Z" />
+                android:fillColor="@color/green10"
+                android:pathData="M0,21 V22 C0,22 6,24 12,22 L12,21 C12,21 9,23 0,21Z" />
         <path
-                android:fillAlpha="0.3"
-                android:fillColor="@color/orange"
-                android:pathData="M12,21 V20 C12,20 18,14 24,20 V21 C24,21 18,17 12,21Z" />
+                android:fillColor="@color/orange10"
+                android:pathData="M12,22 V21 C12,21 18,17 24,21 V22 C24,22 18,18 12,22Z" />
     </group>
 
 </vector>

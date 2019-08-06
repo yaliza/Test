@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/M"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:padding="@dimen/XS">
+
+    <ImageView
+            android:id="@+id/userAvatarImageView"
+            android:layout_width="@dimen/icon_L"
+            android:layout_height="@dimen/icon_L"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+    <TextView
+            android:id="@+id/userNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/S"
+            app:layout_constraintStart_toEndOf="@id/userAvatarImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Chris Banes" />
+
+    <Button
+            android:id="@+id/acceptButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/S"
+            android:backgroundTint="@color/orange50"
+            android:text="@string/accept"
+            app:layout_constraintEnd_toStartOf="@id/declineButton"
+            app:layout_constraintStart_toEndOf="@id/userAvatarImageView"
+            app:layout_constraintTop_toBottomOf="@id/userNameTextView" />
+
+    <Button
+            android:id="@+id/declineButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/S"
+            android:text="@string/decline"
+            android:textColor="@color/orange50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/acceptButton"
+            app:layout_constraintTop_toBottomOf="@id/userNameTextView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

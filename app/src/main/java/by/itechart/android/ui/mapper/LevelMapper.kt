@@ -49,7 +49,7 @@ class LevelMapper(private val context: Context) {
 
     private fun mapColor(color: String) =
         when (color) {
-            "green" -> R.color.green
+            "green" -> R.color.green20
             "blue" -> R.color.blue10
             else -> R.color.grey50
         }
