@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+                android:id="@+id/messageTextView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/L"
+                android:layout_marginTop="@dimen/XL"
+                android:layout_marginRight="@dimen/L"
+                android:layout_marginBottom="@dimen/S"
+                app:layout_constraintBottom_toTopOf="@id/acceptButton"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Test text" />
+
+        <Button
+                android:id="@+id/acceptButton"
+                style="@style/AppTheme.Button.Text"
+                android:layout_margin="@dimen/XS"
+                android:text="@string/dialog_accept_ok_default"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+            android:id="@+id/learningImageView"
+            style="@style/AppTheme.Icon.Circle.Gradient"
+            android:layout_marginStart="@dimen/M"
+            android:src="@drawable/ic_learning"
+            app:layout_constraintBottom_toTopOf="@id/mainView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mainView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

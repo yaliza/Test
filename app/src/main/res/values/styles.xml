@@ -90,6 +90,17 @@
         <item name="android:textSize">@dimen/text_S</item>
     </style>
 
+    <style name="AppTheme.Text.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextAppearance">@style/AppTheme.Text.TabLayout.TabItem</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="tabTextColor">@color/grey50</item>
+    </style>
+
+    <style name="AppTheme.Text.TabLayout.TabItem">
+        <item name="android:textSize">@dimen/text_XS</item>
+        <item name="android:textColor">@color/grey50</item>
+    </style>
+
     <style name="AppTheme.RatingBar">
         <item name="android:isIndicator">true</item>
         <item name="android:stepSize">1</item>
@@ -98,9 +109,19 @@
         <item name="android:progressBackgroundTint">@color/grey30</item>
     </style>
 
-    <style name="AppTheme.GradientIcon">
-        <item name="android:background">@drawable/bg_circle_gradient</item>
+    <style name="AppTheme.Icon"/>
+
+    <style name="AppTheme.Icon.Circle">
+        <item name="android:background">@drawable/bg_circle</item>
         <item name="android:tint">@android:color/white</item>
+        <item name="android:backgroundTint">@color/green20</item>
+        <item name="android:layout_width">@dimen/icon_M</item>
+        <item name="android:layout_height">@dimen/icon_M</item>
+    </style>
+
+    <style name="AppTheme.Icon.Circle.Gradient">
+        <item name="android:background">@drawable/bg_circle_gradient</item>
+        <item name="android:backgroundTint">@null</item>
         <item name="android:layout_width">@dimen/icon_L</item>
         <item name="android:layout_height">@dimen/icon_L</item>
     </style>
@@ -111,15 +132,29 @@
         <item name="android:track">@drawable/switch_track</item>
     </style>
 
-    <style name="AppTheme.Text.TabLayout" parent="Widget.MaterialComponents.TabLayout">
-        <item name="tabTextAppearance">@style/AppTheme.Text.TabLayout.TabItem</item>
-        <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="tabTextColor">@color/grey50</item>
+    <style name="AppTheme.Dialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert"/>
+
+    <style name="AppTheme.Dialog.FullWidth">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
     </style>
 
-    <style name="AppTheme.Text.TabLayout.TabItem">
-        <item name="android:textSize">@dimen/text_XS</item>
-        <item name="android:textColor">@color/grey50</item>
+    <style name="AppTheme.Dialog.SlideUpAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <style name="AppTheme.Dialog.SlideRightAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_left</item>
+    </style>
+
+    <style name="AppTheme.Button"/>
+
+    <style name="AppTheme.Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/orange50</item>
     </style>
 
 </resources>

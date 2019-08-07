@@ -70,13 +70,11 @@
                     android:clipToPadding="false"
                     app:layout_constraintTop_toBottomOf="@id/certificatesTextView" />
 
-            <TextView
+            <Button
                     android:id="@+id/seeAllButton"
-                    style="@style/AppTheme.Text.Profile.Section"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:padding="@dimen/S"
+                    style="@style/AppTheme.Button.Text"
+                    android:layout_margin="@dimen/XS"
                     android:text="@string/see_all"
-                    android:textColor="@color/orange50"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/certificatesRecyclerView" />
 

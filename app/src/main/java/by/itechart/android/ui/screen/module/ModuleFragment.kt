@@ -13,6 +13,7 @@ import by.itechart.android.ext.showMessage
 import by.itechart.android.ui.base.ResourceObserver
 import by.itechart.android.ui.entity.TopicUIModel
 import kotlinx.android.synthetic.main.fragment_module.*
+import kotlinx.android.synthetic.main.view_back_button.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

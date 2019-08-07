@@ -7,14 +7,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/peek"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/swp_peek_height"
-            android:background="@color/colorAccent"
-            android:gravity="center"
-            android:text="@string/swipe_title"
-            android:textColor="@android:color/white" />
+            android:layout_height="@dimen/bottom_sheet_peek_height"
+            android:background="@android:color/white">
+
+        <ImageView
+                android:id="@+id/statImageView"
+                style="@style/AppTheme.Icon.Circle"
+                android:layout_marginStart="@dimen/XXL"
+                android:src="@drawable/ic_statistics"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/peekTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/M"
+                android:text="@string/swipe_title"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/statImageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+                android:layout_width="@dimen/icon_M"
+                android:layout_height="@dimen/icon_M"
+                android:layout_marginStart="@dimen/S"
+                android:src="@drawable/ic_arrow"
+                android:tint="@color/green20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/peekTextView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
             android:id="@+id/cardView"

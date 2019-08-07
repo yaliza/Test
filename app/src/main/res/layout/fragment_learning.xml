@@ -23,7 +23,7 @@
 
     <ImageView
             android:id="@+id/learningImageView"
-            style="@style/AppTheme.GradientIcon"
+            style="@style/AppTheme.Icon.Circle.Gradient"
             android:layout_marginTop="@dimen/XXL"
             android:layout_marginEnd="@dimen/M"
             android:src="@drawable/ic_learning"
