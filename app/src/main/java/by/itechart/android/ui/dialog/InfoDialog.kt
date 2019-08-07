@@ -13,12 +13,8 @@ class InfoDialog(
 ) : Dialog(context, uiModel, R.layout.dialog_info) {
 
     override fun onDialogCreated() {
-        with(acceptButton) {
-            setOnClickListener { acceptClickListener?.invoke() }
-            uiModel.acceptText?.let { text = uiModel.acceptText }
-        }
+        super.onDialogCreated()
         titleTextView.text = uiModel.title
-        messageTextView.text = uiModel.message
         uiModel.icon?.let { awardImageView.load(it) }
     }
 

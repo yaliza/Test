@@ -12,11 +12,7 @@ class AcceptDialog(
 ) : Dialog(context, uiModel, R.layout.dialog_accept) {
 
     override fun onDialogCreated() {
-        messageTextView.text = uiModel.message
-        with(acceptButton) {
-            uiModel.acceptText?.let { text = uiModel.acceptText }
-            setOnClickListener { acceptClickListener?.invoke() }
-        }
+        super.onDialogCreated()
         with(declineButton) {
             uiModel.declineText?.let { text = uiModel.declineText }
             setOnClickListener { declineClickListener?.invoke() }
