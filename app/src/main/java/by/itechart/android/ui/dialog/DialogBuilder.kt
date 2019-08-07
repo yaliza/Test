@@ -11,6 +11,7 @@ class DialogBuilder {
     var animation: Dialog.Animation? = null
     var acceptClickListener: (() -> Unit)? = null
     var declineClickListener: (() -> Unit)? = null
+    var dismissListener: (() -> Unit)? = null
 
     fun build() =
         when (uiModel.dialogType) {
@@ -20,6 +21,7 @@ class DialogBuilder {
         }.apply {
             acceptClickListener = this@DialogBuilder.acceptClickListener
             declineClickListener = this@DialogBuilder.declineClickListener
+            dismissListener = this@DialogBuilder.dismissListener
             animation = this@DialogBuilder.animation
         }
 

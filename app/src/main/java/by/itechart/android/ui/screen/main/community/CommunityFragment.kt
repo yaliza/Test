@@ -55,14 +55,14 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
     private fun showDialog(dialogUIModel: DialogUIModel) =
         context?.let { ctx: Context ->
             dialog?.dismiss()
-            var acceptListener = { dismiss(); }
+            var acceptListener = { dismissDialog(); }
             var declineListener: (() -> Unit)? = null
             var anim: Dialog.Animation? = null
 
             when (dialogUIModel.dialogType) {
                 ACCEPT -> {
-                    acceptListener = { dismiss(); logout() }
-                    declineListener = { dismiss() }
+                    acceptListener = { dismissDialog(); logout() }
+                    declineListener = { dismissDialog() }
                 }
                 INFO -> anim = Dialog.Animation.RIGHT
                 BOTTOM -> anim = Dialog.Animation.BOTTOM
@@ -73,16 +73,15 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
                 uiModel = dialogUIModel
                 acceptClickListener = acceptListener
                 declineClickListener = declineListener
+                dismissListener = { viewModel.setupDialog(null); dialog = null }
                 animation = anim
             }
             dialog?.show()
         }
 
-    private fun dismiss() {
-        showMessage("dismiss")
+    private fun dismissDialog() {
+        showMessage("dismissDialog")
         dialog?.dismiss()
-        viewModel.setupDialog(null)
-        dialog = null
     }
 
     private fun logout() {

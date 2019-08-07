@@ -13,7 +13,7 @@ import by.itechart.android.ui.entity.DialogUIModel
 import kotlinx.android.extensions.LayoutContainer
 
 
-abstract class  Dialog(
+abstract class Dialog(
     private val context: Context,
     protected val uiModel: DialogUIModel,
     @LayoutRes layoutID: Int,
@@ -24,6 +24,7 @@ abstract class  Dialog(
     protected var dialog: AlertDialog? = null
     var acceptClickListener: (() -> Unit)? = null
     var declineClickListener: (() -> Unit)? = null
+    var dismissListener: (() -> Unit)? = null
     var animation: Animation? = null
 
     fun show() {
@@ -39,15 +40,18 @@ abstract class  Dialog(
     }
 
     private fun createDialog() =
-        AlertDialog.Builder(context, styleID).setView(containerView).create().apply {
-            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            window?.attributes?.windowAnimations =
-                when (animation) {
-                    Animation.BOTTOM -> R.style.AppTheme_Dialog_SlideUpAnimation
-                    Animation.RIGHT -> R.style.AppTheme_Dialog_SlideRightAnimation
-                    else -> window?.attributes?.windowAnimations
-                }
-        }
+        AlertDialog.Builder(context, styleID)
+            .setView(containerView)
+            .setOnDismissListener { dismissListener?.invoke() }
+            .create().apply {
+                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                window?.attributes?.windowAnimations =
+                    when (animation) {
+                        Animation.BOTTOM -> R.style.AppTheme_Dialog_SlideUpAnimation
+                        Animation.RIGHT -> R.style.AppTheme_Dialog_SlideRightAnimation
+                        else -> window?.attributes?.windowAnimations
+                    }
+            }
 
     abstract fun onDialogCreated()
 
