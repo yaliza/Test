@@ -12,16 +12,7 @@
             android:id="@+id/toolbar"
             layout="@layout/view_toolbar" />
 
-    <ImageView
-            android:id="@+id/backImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/S"
-            android:src="@drawable/ic_back"
-            android:tint="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="@id/toolbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <include layout="@layout/view_back_button" />
 
     <TextView
             android:id="@+id/sectionNameTextView"
@@ -37,7 +28,7 @@
 
     <ImageView
             android:id="@+id/learningImageView"
-            style="@style/AppTheme.GradientIcon"
+            style="@style/AppTheme.Icon.Circle.Gradient"
             android:layout_margin="@dimen/M"
             android:elevation="3dp"
             android:src="@drawable/ic_learning"

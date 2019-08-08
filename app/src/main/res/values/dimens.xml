@@ -33,16 +33,12 @@
 
     <dimen name="toolbar_height">120dp</dimen>
 
-    <!-- Swipeable screen -->
-    <dimen name="swp_view_pager_top_margin">70dp</dimen>
-    <dimen name="swp_peek_height">60dp</dimen>
+    <!-- BOTTOM SHEET VIEW -->
+    <dimen name="bottom_sheet_peek_height">60dp</dimen>
 
     <!-- Swipeable card -->
-    <dimen name="swp_card_corner_radius">8dp</dimen>
-    <dimen name="swp_card_margins">10dp</dimen>
-    <dimen name="swp_card_image_height">300dp</dimen>
-    <dimen name="swp_card_inner_horizontal_margin">10dp</dimen>
-    <dimen name="swp_card_inner_vertical_margin">13dp</dimen>
+    <dimen name="swipeable_card_corner_radius">8dp</dimen>
+    <dimen name="swipeable_card_image_height">300dp</dimen>
 
     <!-- LOGIN SCREEN -->
     <dimen name="login_button_height">64dp</dimen>
@@ -82,4 +78,6 @@
     <dimen name="profile_avatar_background_height">300dp</dimen>
     <dimen name="profile_sociable_height">250dp</dimen>
 
+    <!--DIALOGS-->
+    <dimen name="dialog_corner_radius">10dp</dimen>
 </resources>

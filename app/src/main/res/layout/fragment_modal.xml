@@ -5,24 +5,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <include
-            android:id="@+id/toolbar"
-            layout="@layout/view_toolbar" />
-
-    <include layout="@layout/view_progress_bar" />
-
-    <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/swipableViewPager"
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/swp_view_pager_top_margin"
-            android:layout_marginBottom="@dimen/swp_peek_height" />
+            android:layout_marginBottom="@dimen/bottom_sheet_peek_height">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/view_toolbar" />
+
+        <include layout="@layout/view_progress_bar" />
+
+        <include layout="@layout/view_back_button" />
+
+        <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/swipableViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/XXL"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:paddingLeft="@dimen/M"
+                android:paddingRight="@dimen/M"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <by.itechart.android.ui.view.BottomSheetView
             android:id="@+id/swipableBottomSheetView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:behavior_peekHeight="@dimen/swp_peek_height"
+            app:behavior_peekHeight="@dimen/bottom_sheet_peek_height"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

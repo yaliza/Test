@@ -7,7 +7,7 @@
         android:orientation="horizontal">
 
     <ImageView
-            style="@style/AppTheme.GradientIcon"
+            style="@style/AppTheme.Icon.Circle.Gradient"
             android:layout_width="@dimen/icon_M"
             android:layout_height="@dimen/icon_M"
             android:src="@drawable/ic_mail" />

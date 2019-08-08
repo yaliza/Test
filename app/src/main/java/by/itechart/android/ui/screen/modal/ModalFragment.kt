@@ -5,13 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
 import by.itechart.android.R
 import by.itechart.android.ext.hide
 import by.itechart.android.ext.show
+import by.itechart.android.ui.base.CarouselPagerTransformer
 import by.itechart.android.ui.base.ResourceObserver
 import by.itechart.android.ui.entity.ModalCardUIModel
 import kotlinx.android.synthetic.main.fragment_modal.*
+import kotlinx.android.synthetic.main.view_back_button.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -24,14 +27,16 @@ class ModalFragment : Fragment(R.layout.fragment_modal) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        swipableViewPager.apply {
+        with(swipableViewPager) {
             adapter = modalCardsAdapter
+            offscreenPageLimit = 3
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) =
                     swipableBottomSheetView.setContentLayout(
                         LayoutInflater.from(context).inflate(modalCardsAdapter.items[position].layout, null)
                     )
             })
+            setPageTransformer(CarouselPagerTransformer(resources.getDimension(R.dimen.M)))
         }
 
         viewModel.modalCards.observe(viewLifecycleOwner, object : ResourceObserver<List<ModalCardUIModel>>() {
@@ -45,6 +50,10 @@ class ModalFragment : Fragment(R.layout.fragment_modal) {
                 Toast.makeText(context, message, Toast.LENGTH_LONG).show()
             }
         })
+
+        backImageView.setOnClickListener {
+            activity?.let { Navigation.findNavController(it, R.id.primaryNavHostFragment).navigateUp() }
+        }
     }
 
 }

@@ -9,8 +9,7 @@
     <string name="facebook_app_id">2395046100588955</string>
     <string name="fb_login_protocol_scheme">fb2395046100588955</string>
 
-    <string name="swipe_title">Swipe</string>
-
+    <string name="swipe_title">Swipe up to give it a go</string>
 
     <!-- LOGIN SCREEN -->
     <string name="continue_with_google">CONTINUE WITH GOOGLE</string>
@@ -52,4 +51,7 @@
     <string name="tab_following">FOLLOWING(%d)</string>
     <string name="tab_invite">INVITE</string>
 
+    <string name="dialog_accept_ok_default">OK</string>
+    <string name="dialog_accept_default">yes</string>
+    <string name="dialog_decline_default">no</string>
 </resources>

@@ -26,26 +26,19 @@
 
         <ImageView
                 android:id="@+id/passedImageView"
-                android:layout_width="@dimen/icon_M"
-                android:layout_height="@dimen/icon_M"
+                style="@style/AppTheme.Icon.Circle"
                 android:layout_margin="@dimen/S"
-                android:background="@drawable/bg_circle"
-                android:backgroundTint="@color/green20"
                 android:src="@drawable/ic_check"
-                android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
                 android:id="@+id/playImageView"
-                android:layout_width="@dimen/icon_M"
-                android:layout_height="@dimen/icon_M"
+                style="@style/AppTheme.Icon.Circle"
                 android:layout_margin="@dimen/S"
-                android:background="@drawable/bg_circle"
                 android:backgroundTint="@color/grey30"
                 android:src="@drawable/ic_play"
-                android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
