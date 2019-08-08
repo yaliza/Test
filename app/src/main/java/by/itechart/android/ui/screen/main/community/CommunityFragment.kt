@@ -1,6 +1,5 @@
 package by.itechart.android.ui.screen.main.community
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -52,10 +51,10 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
         goToModularButton.setOnClickListener { navigate(R.id.action_bottomNavFragment_to_swipableFragment) }
     }
 
-    private fun showDialog(dialogUIModel: DialogUIModel) =
-        context?.let { ctx: Context ->
+    private fun showDialog(dialogUIModel: DialogUIModel) = context?.let {
+
             dialog?.dismiss()
-            var acceptListener = { dismissDialog(); }
+            var acceptListener = { dismissDialog() }
             var declineListener: (() -> Unit)? = null
             var anim: Dialog.Animation? = null
 
@@ -69,13 +68,14 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
             }
 
             dialog = dialog {
-                context = ctx
+                context = it
                 uiModel = dialogUIModel
                 acceptClickListener = acceptListener
                 declineClickListener = declineListener
                 dismissListener = { viewModel.setupDialog(null); dialog = null }
                 animation = anim
             }
+
             dialog?.show()
         }
 

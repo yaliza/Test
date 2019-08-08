@@ -37,15 +37,12 @@ abstract class Dialog(
         dialog?.show()
     }
 
-    fun dismiss() {
-        dialog?.dismiss()
-    }
+    fun dismiss() = dialog?.dismiss()
 
-    private fun createDialog() =
-        AlertDialog.Builder(context, styleID)
-            .setView(containerView)
-            .setOnDismissListener { dismissListener?.invoke() }
-            .create()
+    private fun createDialog() = AlertDialog.Builder(context, styleID)
+        .setView(containerView)
+        .setOnDismissListener { dismissListener?.invoke() }
+        .create()
 
     open fun onDialogCreated() {
         dialog?.apply {
@@ -65,8 +62,6 @@ abstract class Dialog(
         messageTextView.text = uiModel.message
     }
 
-    enum class Animation {
-        BOTTOM, RIGHT
-    }
+    enum class Animation { BOTTOM, RIGHT }
 
 }
