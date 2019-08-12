@@ -2,32 +2,56 @@ package by.itechart.android.ui.screen.main.profile
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
+import by.itechart.android.data.entity.Score
 import by.itechart.android.data.entity.User
 import by.itechart.android.data.repository.Repository
 import by.itechart.android.ui.base.BaseViewModel
-import by.itechart.android.ui.entity.*
+import by.itechart.android.ui.base.Resource
+import by.itechart.android.ui.entity.CertificateUIModel
+import by.itechart.android.ui.entity.SociableUIModel
+import by.itechart.android.ui.mapper.CertificateMapper
+import by.itechart.android.ui.mapper.SociableMapper
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
-class ProfileViewModel(repository: Repository) : BaseViewModel() {
+class ProfileViewModel(
+    private val sociableMapper: SociableMapper,
+    private val certificateMapper: CertificateMapper,
+    repository: Repository
+) : BaseViewModel() {
 
-    private val invitations = MutableLiveData<List<InvitationUiModel>>()
+    private val invitations = MutableLiveData<Resource<List<SociableUIModel>>>()
     val profile = MutableLiveData<User>().apply { value = repository.user }
-    val certificates = MutableLiveData<List<CertificateUIModel>>()
-    val scores = MutableLiveData<List<ScoreUIModel>>()
-    val followers = MutableLiveData<List<UserUIModel>>()
-    val following = MutableLiveData<List<UserUIModel>>()
-    val sociableLiveData = MediatorLiveData<List<SociableUIModel>>()
+    val certificates = MutableLiveData<Resource<List<CertificateUIModel>>>()
+    val scores = MutableLiveData<Resource<List<Score>>>()
+    val followers = MutableLiveData<Resource<List<SociableUIModel>>>()
+    val following = MutableLiveData<Resource<List<SociableUIModel>>>()
+    val sociableLiveData = MediatorLiveData<Resource<List<SociableUIModel>>>()
 
     init {
         with(repository) {
-            getCertificates().observe { cards -> certificates.value = cards }
-            getScores().observe { cards -> scores.value = cards }
-            getFollowers().observe { persons -> followers.value = persons }
-            getFollowing().observe { persons -> following.value = persons }
-            getInvitations().observe { items -> invitations.value = items }
+            getCertificates().observe(
+                { items -> certificates.value = Resource.Success(certificateMapper.map(items)) },
+                { error -> certificates.value = Resource.Error(error) }
+            )
+            getScores().observe(
+                { items -> scores.value = Resource.Success(items) },
+                { error -> scores.value = Resource.Error(error) }
+            )
+            getFollowers().observe(
+                { persons -> followers.value = Resource.Success(sociableMapper.map(persons)) },
+                { error -> followers.value = Resource.Error(error) }
+            )
+            getFollowing().observe(
+                { persons -> following.value = Resource.Success(sociableMapper.map(persons)) },
+                { error -> following.value = Resource.Error(error) }
+            )
+            getInvitations().observe(
+                { items -> invitations.value = Resource.Success(sociableMapper.map(items)) },
+                { error -> invitations.value = Resource.Error(error) }
+            )
         }
         sociableLiveData.addSource(following) { sociableLiveData.value = it }
     }
@@ -53,9 +77,9 @@ class ProfileViewModel(repository: Repository) : BaseViewModel() {
             addSource(invitations) { sociableLiveData.value = it }
         }
 
-    private fun <T> Flowable<T>.observe(func: (T) -> Unit) =
+    private fun <T> Flowable<T>.observe(onNext: (T) -> Unit, onError: (Throwable) -> Unit) =
         subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(func)
+            .subscribe(onNext, onError)
             .addToDisposables()
 }

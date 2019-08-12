@@ -7,11 +7,11 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.itechart.android.R
+import by.itechart.android.data.entity.Topic
 import by.itechart.android.ext.hide
 import by.itechart.android.ext.show
 import by.itechart.android.ext.showMessage
 import by.itechart.android.ui.base.ResourceObserver
-import by.itechart.android.ui.entity.TopicUIModel
 import kotlinx.android.synthetic.main.fragment_module.*
 import kotlinx.android.synthetic.main.view_back_button.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
@@ -39,9 +39,9 @@ class ModuleFragment : Fragment(R.layout.fragment_module) {
             layoutManager = LinearLayoutManager(activity)
         }
 
-        viewModel.topicItems.observe(viewLifecycleOwner, object : ResourceObserver<List<TopicUIModel>>() {
+        viewModel.topicItems.observe(viewLifecycleOwner, object : ResourceObserver<List<Topic>>() {
             override fun onLoading() = progressBar.show()
-            override fun onSuccess(data: List<TopicUIModel>?) {
+            override fun onSuccess(data: List<Topic>?) {
                 progressBar.hide()
                 data?.let { topicsAdapter.items = it }
             }

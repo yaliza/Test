@@ -1,7 +1,7 @@
 package by.itechart.android.ui.entity
 
 
-class CertificateUIModel(
+data class CertificateUIModel(
     val title: String,
     val name: String,
     val date: String,

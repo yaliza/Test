@@ -2,6 +2,7 @@ package by.itechart.android.ui.screen.main.learning.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import by.itechart.android.ui.entity.*
 import by.itechart.android.ui.entity.LevelUIModel.Companion.TYPE_BUTTON
@@ -21,8 +22,9 @@ class LevelsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var items: List<LevelUIModel> = emptyList()
         set(value) {
+            val diffResult = DiffUtil.calculateDiff(LevelDiffUtilCallback(field, value))
+            diffResult.dispatchUpdatesTo(this)
             field = value
-            notifyDataSetChanged()
         }
 
     override fun getItemViewType(position: Int) = items[position].viewType

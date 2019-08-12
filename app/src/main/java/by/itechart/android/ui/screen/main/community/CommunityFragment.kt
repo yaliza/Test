@@ -42,7 +42,7 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
                 DialogUIModel(
                     dialogType = BOTTOM,
                     message = "You have opened bottom info dialog",
-                    icon = R.drawable.ic_award3
+                    icon = R.drawable.ic_award
                 )
             )
         }
