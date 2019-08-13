@@ -1,11 +1,10 @@
 package by.itechart.android.ui.entity
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
 
-class ModalCardUIModel(
+data class ModalCardUIModel(
     val title: String,
     val description: String,
-    @DrawableRes val image: Int,
+    val image: String,
     @LayoutRes val layout: Int
 )

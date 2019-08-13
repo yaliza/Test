@@ -1,7 +1,7 @@
 package by.itechart.android.ui.entity
 
 
-class DialogUIModel(
+data class DialogUIModel(
     val dialogType: DialogType,
     val message: String,
     val title: String? = null,
@@ -9,5 +9,3 @@ class DialogUIModel(
     val declineText: String? = null,
     val icon: Int? = null
 )
-
-enum class DialogType { ACCEPT, INFO, BOTTOM }

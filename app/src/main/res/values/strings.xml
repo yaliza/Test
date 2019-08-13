@@ -30,6 +30,7 @@
     <string name="level_passed">Passed %d%%</string>
     <string name="level_not_passed">Take Exam</string>
     <string name="level_topics">%d TOPICS</string>
+    <string name="level_title">Level %d - %s</string>
 
     <!--MODULE-->
     <string name="take_quiz">TAKE QUIZ</string>

@@ -2,10 +2,12 @@ package by.itechart.android.ui.screen.main.profile.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import by.itechart.android.ui.entity.InvitationUiModel
 import by.itechart.android.ui.entity.SociableUIModel
 import by.itechart.android.ui.entity.UserUIModel
+import by.itechart.android.ui.screen.main.profile.recycler.diffutil.SociableDiffUtilCallback
 import by.itechart.android.ui.screen.main.profile.recycler.viewholder.InvitationViewHolder
 import by.itechart.android.ui.screen.main.profile.recycler.viewholder.UserViewHolder
 import kotlinx.android.synthetic.main.item_invitation.view.*
@@ -15,8 +17,9 @@ class SociableAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var items: List<SociableUIModel> = emptyList()
         set(value) {
+            val diffResult = DiffUtil.calculateDiff(SociableDiffUtilCallback(field, value))
             field = value
-            notifyDataSetChanged()
+            diffResult.dispatchUpdatesTo(this)
         }
 
     var userClickListener: ((SociableUIModel) -> Unit)? = null

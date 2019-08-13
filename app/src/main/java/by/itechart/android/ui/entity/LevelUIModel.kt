@@ -14,7 +14,7 @@ sealed class LevelUIModel {
     }
 }
 
-class LevelSectionUIModel(
+data class LevelSectionUIModel(
     val title: String,
     val topicTitle: String,
     val starCount: Int,
@@ -22,10 +22,10 @@ class LevelSectionUIModel(
     override val viewType: Int = TYPE_SECTION
 ) : LevelUIModel()
 
-class LevelHeaderUIModel(val title: String) : LevelUIModel() {
+data class LevelHeaderUIModel(val title: String) : LevelUIModel() {
     override val viewType: Int = TYPE_HEADER
 }
 
-class LevelButtonUIModel(val title : String, val isPassed : Boolean) : LevelUIModel() {
+data class LevelButtonUIModel(val title : String, val isPassed : Boolean) : LevelUIModel() {
     override val viewType: Int = TYPE_BUTTON
 }

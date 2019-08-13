@@ -13,7 +13,7 @@ class LevelMapper(private val context: Context) {
 
     fun map(levels: List<Level>) = mutableListOf<LevelUIModel>().apply {
         levels.forEach { level: Level ->
-            add(LevelHeaderUIModel(level.title))
+            add(LevelHeaderUIModel(context.getString(R.string.level_title, level.level, level.title)))
             var startIndex = 0
             if (level.sections.isNotEmpty() && level.sections.size % 2 != 0) {
                 startIndex = 1

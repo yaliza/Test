@@ -5,11 +5,15 @@ import by.itechart.android.data.repository.Repository
 import by.itechart.android.ui.base.BaseViewModel
 import by.itechart.android.ui.base.Resource
 import by.itechart.android.ui.entity.ModalCardUIModel
+import by.itechart.android.ui.mapper.ModalCardMapper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
-class ModalViewModel(repository: Repository) : BaseViewModel() {
+class ModalViewModel(
+    repository: Repository,
+    modalCardMapper: ModalCardMapper
+) : BaseViewModel() {
 
     val modalCards = MutableLiveData<Resource<List<ModalCardUIModel>>>()
 
@@ -19,8 +23,8 @@ class ModalViewModel(repository: Repository) : BaseViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { cards -> modalCards.value = Resource.Success(cards)},
-                { error ->  modalCards.value = Resource.Error(error) }
+                { cards -> modalCards.value = Resource.Success(modalCardMapper.map(cards)) },
+                { error -> modalCards.value = Resource.Error(error) }
             )
             .addToDisposables()
     }

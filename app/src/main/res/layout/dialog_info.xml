@@ -29,7 +29,7 @@
                 android:layout_width="@dimen/icon_XL"
                 android:layout_height="@dimen/icon_XL"
                 android:layout_marginTop="@dimen/S"
-                android:src="@drawable/ic_award4"
+                android:src="@drawable/ic_award"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/titleTextView" />
