@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pyramidColors">
+        <item>@color/red</item>
+        <item>@color/orange60</item>
+        <item>@color/green20</item>
+        <item>@color/green30</item>
+        <item>@color/blue20</item>
+        <item>@color/blue80</item>
+    </array>
+</resources>

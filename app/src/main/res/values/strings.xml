@@ -32,6 +32,11 @@
     <string name="level_topics">%d TOPICS</string>
     <string name="level_title">Level %d - %s</string>
 
+    <!--COMMUNITY-->
+    <string name="community_level">LEVEL</string>
+    <string name="community_progress">Progress</string>
+    <string name="community_where_you_are">See where you are compared to other FXTM users </string>
+
     <!--MODULE-->
     <string name="take_quiz">TAKE QUIZ</string>
     <string name="section_title">In this section you will learn to…</string>

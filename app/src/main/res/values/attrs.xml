@@ -10,4 +10,10 @@
         <attr name="lb_image" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="PyramidView">
+        <attr name="levels" format="integer" />
+        <attr name="colors" format="reference" />
+        <attr name="text_size" format="dimension"/>
+    </declare-styleable>
+
 </resources>
