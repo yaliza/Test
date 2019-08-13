@@ -9,5 +9,3 @@ data class DialogUIModel(
     val declineText: String? = null,
     val icon: Int? = null
 )
-
-enum class DialogType { ACCEPT, INFO, BOTTOM }

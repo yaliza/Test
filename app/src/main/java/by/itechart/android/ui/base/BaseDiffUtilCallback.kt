@@ -3,7 +3,7 @@ package by.itechart.android.ui.base
 import androidx.recyclerview.widget.DiffUtil
 
 
-open class BaseDiffUtilCallback<T>(
+abstract class BaseDiffUtilCallback<T>(
     protected val old: List<T>,
     protected val new: List<T>
 ) : DiffUtil.Callback() {
