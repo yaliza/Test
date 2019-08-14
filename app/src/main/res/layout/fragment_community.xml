@@ -79,12 +79,12 @@
                         android:layout_width="@dimen/pyramid_view_width"
                         android:layout_height="@dimen/pyramid_view_height"
                         android:layout_marginTop="@dimen/M"
-                        app:colors="@array/pyramidColors"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:levels="6"
-                        app:text_size="@dimen/text_M" />
+                        app:pv_colors="@array/pyramidColors"
+                        app:pv_level_count="6"
+                        app:pv_text_size="@dimen/text_M" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

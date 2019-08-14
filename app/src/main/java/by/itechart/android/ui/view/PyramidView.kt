@@ -22,28 +22,41 @@ class PyramidView @JvmOverloads constructor(
 
     private val path = Path()
     private val paint = Paint()
+    private val textPaint = Paint().apply {
+        isAntiAlias = true
+        color = Color.WHITE
+    }
 
     private val levelString: String
+
+    private var levelCount: Int = 6
 
     private var textSize: Float = 0f
 
     private var blockHeight: Float = 0f
     private var fillBlockHeight: Float = 0f
     private var photoSize: Float = 0f
+    private var pyramidCenterX = 0f
 
-    var levels: Int = 6
-        set(value) {
-            if (value < 0) throw IllegalArgumentException("Level count must be positive number")
-            field = value
-            invalidate()
-        }
+    // y = kx + b
+    // left pyramid side
+    private var kLeft: Float = 0f
+    private var bLeft: Float = 0f
+    // right pyramid side
+    private var kRight: Float = 0f
+    private var bRight: Float = 0f
 
     var userLevel: Int = 3
         set(value) {
-            if (value > levels) throw IllegalArgumentException("User level must be less or equal than level numbers")
-            if (value < 0) throw IllegalArgumentException("User level must be positive number")
+            if (userLevel !in 1..levelCount) throw IllegalArgumentException("Incorrect user level")
             field = value
             pyramidImageView.updateVerticalPosition()
+        }
+
+    var photoUrl: String? = null
+        set(value) {
+            field = value
+            pyramidImageView.loadCircle(value)
         }
 
     init {
@@ -51,56 +64,57 @@ class PyramidView @JvmOverloads constructor(
         inflate(context, R.layout.view_pyramid, this)
         initAttributes(context, attrs)
         levelString = context.resources.getString(R.string.community_level)
-        paint.textSize = textSize
+        textPaint.textSize = textSize
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        blockHeight = height.toFloat() / levels
+        blockHeight = height.toFloat() / levelCount
         fillBlockHeight = blockHeight * 9f / 10
         photoSize = fillBlockHeight * 4f / 5f
+        pyramidCenterX = (width.toFloat() * 5f / 7f)
+
+        kLeft = -height.toFloat() / pyramidCenterX
+        bLeft = height.toFloat()
+        kRight = -kLeft
+        bRight = -kRight * pyramidCenterX
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas?.let {
-            val pyramidCenterX = (width.toFloat() * 5f / 7f)
-            val kLeft = -height.toFloat() / pyramidCenterX
-            val bLeft = height.toFloat()
-            val kRight = -kLeft
-            val bRight = -kRight * pyramidCenterX
-
-            var y = height.toFloat()
-            for (i in 0 until levels) {
-                val currentHeight = if (i == levels - 1) blockHeight else fillBlockHeight
-                path.drawBlock(y, kLeft, bLeft, kRight, bRight, currentHeight)
-                paint.color = colors[i % colors.size]
-                canvas.drawPath(path, paint)
-                paint.color = Color.WHITE
-                canvas.drawText("${i + 1}", pyramidCenterX - paint.textSize / 4, y - currentHeight / 3, paint)
-                if (i == 0) canvas.drawText(levelString, pyramidCenterX / 4, y - currentHeight / 3, paint)
-                y -= blockHeight
-            }
-
-            with(pyramidImageView) {
-                if (layoutParams.height != photoSize.toInt()) {
-                    layoutParams.height = photoSize.toInt()
-                    layoutParams.width = photoSize.toInt()
-                    requestLayout()
-                }
-                this.x = pyramidCenterX * 5f / 8f
-                updateVerticalPosition()
-            }
-        }
+        drawBlocks(canvas)
+        setupAvatar()
     }
 
-    fun setImage(photoUrl: String?) = pyramidImageView.loadCircle(photoUrl)
+    private fun setupAvatar() =
+        with(pyramidImageView) {
+            if (layoutParams.height != photoSize.toInt()) {
+                layoutParams.height = photoSize.toInt()
+                layoutParams.width = photoSize.toInt()
+                requestLayout()
+            }
+            x = pyramidCenterX * 5f / 8f
+            updateVerticalPosition()
+        }
 
     private fun ImageView.updateVerticalPosition() {
-        y = if (userLevel == levels) {
+        y = if (userLevel == levelCount) {
             this@PyramidView.height - blockHeight * userLevel + (blockHeight - photoSize) / 2
         } else {
             this@PyramidView.height - blockHeight * userLevel + (fillBlockHeight - photoSize) / 2 + blockHeight - fillBlockHeight
+        }
+    }
+
+    private fun drawBlocks(canvas: Canvas) {
+        var y = height.toFloat()
+        for (i in 0 until levelCount) {
+            val currentHeight = if (i == levelCount - 1) blockHeight else fillBlockHeight
+            path.drawBlock(y, kLeft, bLeft, kRight, bRight, currentHeight)
+            canvas.drawPath(path, paint.apply { color = colors[i % colors.size] })
+            val textY = if (i == levelCount - 1) y - currentHeight / 4 else y - currentHeight / 3
+            canvas.drawText("${i + 1}", pyramidCenterX - textPaint.textSize / 4, textY, textPaint)
+            if (i == 0) canvas.drawText(levelString, pyramidCenterX / 4, y - currentHeight / 3, textPaint)
+            y -= blockHeight
         }
     }
 
@@ -115,9 +129,11 @@ class PyramidView @JvmOverloads constructor(
 
     private fun initAttributes(context: Context, attrs: AttributeSet?) =
         context.theme.obtainStyledAttributes(attrs, R.styleable.PyramidView, 0, 0).apply {
-            levels = getInteger(R.styleable.PyramidView_levels, levels)
-            colors = context.resources.getIntArray(getResourceId(R.styleable.PyramidView_colors, R.array.pyramidColors))
-            textSize = context.resources.getDimension(getResourceId(R.styleable.PyramidView_text_size, R.dimen.text_M))
+            levelCount = getInteger(R.styleable.PyramidView_pv_level_count, levelCount)
+            colors =
+                context.resources.getIntArray(getResourceId(R.styleable.PyramidView_pv_colors, R.array.pyramidColors))
+            textSize =
+                context.resources.getDimension(getResourceId(R.styleable.PyramidView_pv_text_size, R.dimen.text_M))
             recycle()
         }
 }
