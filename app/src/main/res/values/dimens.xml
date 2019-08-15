@@ -80,4 +80,8 @@
 
     <!--DIALOGS-->
     <dimen name="dialog_corner_radius">10dp</dimen>
+
+    <!--PYRAMID-->
+    <dimen name="pyramid_view_width">250dp</dimen>
+    <dimen name="pyramid_view_height">270dp</dimen>
 </resources>

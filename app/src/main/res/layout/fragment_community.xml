@@ -5,6 +5,93 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/toolbar_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <Button
+                    android:id="@+id/goToModularButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="open swipable"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                    android:id="@+id/infoDialogButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="info dialog"
+                    app:layout_constraintTop_toBottomOf="@id/goToModularButton" />
+
+            <Button
+                    android:id="@+id/bottomInfoDialogButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="bottom info dialog"
+                    app:layout_constraintTop_toBottomOf="@id/infoDialogButton" />
+
+            <Button
+                    android:id="@+id/logoutButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="logout"
+                    app:layout_constraintTop_toBottomOf="@id/bottomInfoDialogButton" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blue70"
+                    app:layout_constraintTop_toBottomOf="@id/logoutButton">
+
+                <TextView
+                        android:id="@+id/progressTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/M"
+                        android:layout_marginTop="@dimen/M"
+                        android:text="@string/community_progress"
+                        android:textColor="@color/grey40"
+                        android:textSize="@dimen/text_L"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/M"
+                        android:layout_marginTop="@dimen/M"
+                        android:text="@string/community_where_you_are"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_XL"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/progressTextView" />
+
+                <by.itechart.android.ui.view.PyramidView
+                        android:id="@+id/pyramidView"
+                        android:layout_width="@dimen/pyramid_view_width"
+                        android:layout_height="@dimen/pyramid_view_height"
+                        android:layout_marginTop="@dimen/M"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:pv_colors="@array/pyramidColors"
+                        app:pv_level_count="6"
+                        app:pv_text_size="@dimen/text_M" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
     <View
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -12,33 +99,5 @@
             android:background="@drawable/bg_toolbar"
             android:backgroundTint="@color/orange50"
             app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-            android:id="@+id/goToModularButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="open swipable"
-            app:layout_constraintTop_toBottomOf="@id/toolbar" />
-
-    <Button
-            android:id="@+id/infoDialogButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="info dialog"
-            app:layout_constraintTop_toBottomOf="@id/goToModularButton" />
-
-    <Button
-            android:id="@+id/bottomInfoDialogButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="bottom info dialog"
-            app:layout_constraintTop_toBottomOf="@id/infoDialogButton" />
-
-    <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="logout"
-            app:layout_constraintTop_toBottomOf="@id/bottomInfoDialogButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
