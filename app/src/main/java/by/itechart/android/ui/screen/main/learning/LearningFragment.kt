@@ -44,7 +44,7 @@ class LearningFragment : Fragment(R.layout.fragment_learning) {
     private fun setupLevelsRecyclerView() {
         levelsAdapter = LevelsAdapter()
         levelsAdapter.apply {
-            buttonClickListener = { showMessage(it) }
+            buttonClickListener = { navigate(BottomNavFragmentDirections.actionBottomNavFragmentToQuizFragment(it)) }
             sectionClickListener = { navigate(BottomNavFragmentDirections.actionBottomNavFragmentToModuleFragment(it)) }
         }
 

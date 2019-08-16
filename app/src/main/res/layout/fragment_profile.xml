@@ -11,7 +11,6 @@
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:paddingTop="@dimen/profile_avatar_background_height"
-            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 

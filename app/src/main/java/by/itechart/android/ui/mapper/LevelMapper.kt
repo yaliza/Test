@@ -13,12 +13,14 @@ class LevelMapper(private val context: Context) {
 
     fun map(levels: List<Level>) = mutableListOf<LevelUIModel>().apply {
         levels.forEach { level: Level ->
-            add(LevelHeaderUIModel(context.getString(R.string.level_title, level.level, level.title)))
+            add(LevelHeaderUIModel(level.id, context.getString(R.string.level_title, level.level, level.title)))
             var startIndex = 0
             if (level.sections.isNotEmpty() && level.sections.size % 2 != 0) {
                 startIndex = 1
                 add(
                     LevelSectionUIModel(
+                        level.id,
+                        level.sections[0].id,
                         level.sections[0].title,
                         context.getString(R.string.level_topics, level.sections[0].topicCount),
                         level.sections[0].starCount,
@@ -30,6 +32,8 @@ class LevelMapper(private val context: Context) {
             for (i in startIndex until level.sections.size) {
                 add(
                     LevelSectionUIModel(
+                        level.id,
+                        level.sections[i].id,
                         level.sections[i].title,
                         context.getString(R.string.level_topics, level.sections[i].topicCount),
                         level.sections[i].starCount,
@@ -39,9 +43,9 @@ class LevelMapper(private val context: Context) {
             }
 
             if (level.passRate != 0) {
-                add(LevelButtonUIModel(context.getString(R.string.level_passed, level.passRate), true))
+                add(LevelButtonUIModel(level.id, context.getString(R.string.level_passed, level.passRate), true))
             } else {
-                add(LevelButtonUIModel(context.getString(R.string.level_not_passed), false))
+                add(LevelButtonUIModel(level.id, context.getString(R.string.level_not_passed), false))
             }
 
         }

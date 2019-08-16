@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="@dimen/certificate_width"
         android:layout_height="@dimen/certificate_height"
         android:layout_marginTop="@dimen/M"
-        android:layout_marginBottom="@dimen/M"
-        app:cardCornerRadius="@dimen/certificate_corner_radius"
-        app:cardElevation="6dp">
+        android:layout_marginBottom="@dimen/M">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -116,4 +114,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

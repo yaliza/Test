@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include
+            android:id="@+id/toolbar"
+            layout="@layout/view_toolbar" />
+
+    <include layout="@layout/view_back_button" />
+
+    <TextView
+            android:id="@+id/progressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quiz_complete"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_L"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintLeft_toLeftOf="@id/toolbar"
+            app:layout_constraintRight_toRightOf="@id/toolbar"
+            app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+    <include
+            android:id="@+id/certificateView"
+            layout="@layout/item_certificate"
+            android:layout_width="@dimen/certificate_width"
+            android:layout_height="@dimen/certificate_height"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/M"
+            android:textSize="@dimen/text_M"
+            app:layout_constraintEnd_toStartOf="@id/resultRatingBar"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/certificateView"
+            tools:text="2/3 Correct" />
+
+    <RatingBar
+            android:id="@+id/resultRatingBar"
+            style="@style/AppTheme.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/resultTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/resultTextView"
+            app:layout_constraintTop_toTopOf="@id/resultTextView" />
+
+    <ImageView
+            android:id="@+id/achievementImageView"
+            android:layout_width="@dimen/icon_L"
+            android:layout_height="@dimen/icon_L"
+            android:layout_margin="@dimen/L"
+            android:src="@drawable/ic_award"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/resultTextView" />
+
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/XXL"
+            android:layout_marginTop="@dimen/M"
+            android:layout_marginRight="@dimen/XXL"
+            android:gravity="center"
+            android:text="@string/quiz_ending_info"
+            android:textSize="@dimen/text_L"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/achievementImageView" />
+
+    <Button
+            android:id="@+id/learningButton"
+            style="@style/AppTheme.Button.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quiz_continue_learning"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/profileButton"
+            style="@style/AppTheme.Button.Rounded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/M"
+            android:text="@string/quiz_view_profile"
+            app:layout_constraintBottom_toTopOf="@id/learningButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
