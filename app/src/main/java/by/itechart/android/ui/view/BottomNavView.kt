@@ -27,8 +27,7 @@ class BottomNavView @JvmOverloads constructor(
     init {
         inflate(context, R.layout.view_bottom_nav, this)
         initAttributes(attrs)
-        menuItemMaxWidth =
-            context.resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_max_width)
+        menuItemMaxWidth = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_max_width)
         setupBottomNavBar()
     }
 

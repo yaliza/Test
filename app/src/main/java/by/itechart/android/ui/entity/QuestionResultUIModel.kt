@@ -2,12 +2,12 @@ package by.itechart.android.ui.entity
 
 
 data class QuestionResultUIModel(
-    val rightIndex: Int,
+    val correctAnswerIndex: Int,
     val answerComment: String,
-    val choosedIndex: Int
+    val selectedAnswerIndex: Int
 ) {
 
-    val isRight: Boolean
-        get() = rightIndex == choosedIndex
+    val isAnswerCorrect: Boolean
+        get() = correctAnswerIndex == selectedAnswerIndex
 
 }

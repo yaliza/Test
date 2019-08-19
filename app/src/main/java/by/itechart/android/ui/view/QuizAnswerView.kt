@@ -5,17 +5,17 @@ import android.util.AttributeSet
 import by.itechart.android.R
 import by.itechart.android.ext.dpToPx
 import com.google.android.material.card.MaterialCardView
-import kotlinx.android.synthetic.main.view_option.view.*
+import kotlinx.android.synthetic.main.view_quiz_answer.view.*
 
 
-class ViewOption @JvmOverloads constructor(
+class QuizAnswerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : MaterialCardView(context, attrs, defStyleAttr) {
 
     private var borderSize = 1.dpToPx()
 
     init {
-        inflate(context, R.layout.view_option, this)
+        inflate(context, R.layout.view_quiz_answer, this)
     }
 
     var isBordered: Boolean = false

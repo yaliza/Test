@@ -85,8 +85,8 @@
             android:id="@+id/transparentView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.5"
             android:background="@color/grey90"
+            android:stateListAnimator="@drawable/states_background_quiz"
             android:translationZ="@dimen/quiz_translation_z_background"
             android:visibility="gone" />
 
@@ -120,7 +120,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.5" />
 
-    <by.itechart.android.ui.view.ViewOption
+    <by.itechart.android.ui.view.QuizAnswerView
             android:id="@+id/option1"
             style="@style/AppTheme.MaterialCard.Option"
             android:layout_marginStart="@dimen/M"
@@ -129,7 +129,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline" />
 
-    <by.itechart.android.ui.view.ViewOption
+    <by.itechart.android.ui.view.QuizAnswerView
             android:id="@+id/option2"
             style="@style/AppTheme.MaterialCard.Option"
             android:layout_marginStart="@dimen/S"
@@ -138,7 +138,7 @@
             app:layout_constraintStart_toEndOf="@id/option1"
             app:layout_constraintTop_toTopOf="@id/guideline" />
 
-    <by.itechart.android.ui.view.ViewOption
+    <by.itechart.android.ui.view.QuizAnswerView
             android:id="@+id/option3"
             style="@style/AppTheme.MaterialCard.Option"
             android:layout_marginStart="@dimen/M"
@@ -147,7 +147,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/option1" />
 
-    <by.itechart.android.ui.view.ViewOption
+    <by.itechart.android.ui.view.QuizAnswerView
             android:id="@+id/option4"
             style="@style/AppTheme.MaterialCard.Option"
             android:layout_marginStart="@dimen/S"

@@ -6,5 +6,5 @@ class QuizQuestion(
     val answers: List<String> = emptyList(),
     val answerComment: String = "",
     val photoUrl: String? = null,
-    val indexOfCorrect: Int = 0
+    val correctAnswerIndex: Int = 0
 )

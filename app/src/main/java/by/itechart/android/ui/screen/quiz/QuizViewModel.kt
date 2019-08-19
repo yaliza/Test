@@ -15,7 +15,7 @@ class QuizViewModel(private val repository: Repository) : BaseViewModel() {
 
     private lateinit var questions: List<QuizQuestion>
     private var currentQuestionIndex = 0
-    private var correctNumber = 0
+    private var correctAnswersCount = 0
     private val isQuestionSubmitted: Boolean
         get() = questionResult.value != null
 
@@ -51,14 +51,14 @@ class QuizViewModel(private val repository: Repository) : BaseViewModel() {
         } else {
             selected?.let {
                 computeQuestionResult(it)
-                selected = questions[currentQuestionIndex].indexOfCorrect
+                selected = questions[currentQuestionIndex].correctAnswerIndex
             }
         }
 
     private fun computeQuestionResult(userOption: Int) =
         with(questions[currentQuestionIndex]) {
-            if (userOption == indexOfCorrect) correctNumber++
-            questionResult.value = QuestionResultUIModel(indexOfCorrect, answerComment, userOption)
+            if (userOption == correctAnswerIndex) correctAnswersCount++
+            questionResult.value = QuestionResultUIModel(correctAnswerIndex, answerComment, userOption)
         }
 
     private fun nextQuestion() {
@@ -69,7 +69,7 @@ class QuizViewModel(private val repository: Repository) : BaseViewModel() {
             questionResult.value = null
             question.value = Resource.Success(questions[currentQuestionIndex])
         } else {
-            quizResult.value = QuizResultUIModel(correctNumber, questions.size, levelId)
+            quizResult.value = QuizResultUIModel(correctAnswersCount, questions.size, levelId)
         }
     }
 
