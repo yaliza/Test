@@ -57,7 +57,20 @@
     <string name="tab_following">FOLLOWING(%d)</string>
     <string name="tab_invite">INVITE</string>
 
+    <!--DIALOGS-->
     <string name="dialog_accept_ok_default">OK</string>
     <string name="dialog_accept_default">yes</string>
     <string name="dialog_decline_default">no</string>
+
+    <!--QUIZ-->
+    <string name="quiz_submit">submit</string>
+    <string name="quiz_next">next</string>
+    <string name="quiz_correct">Correct answer!</string>
+    <string name="quiz_incorrect">Incorrect answer!</string>
+    <string name="quiz_progress">Question %d/%d</string>
+    <string name="quiz_complete">Quiz complete</string>
+    <string name="quiz_view_profile">View profile</string>
+    <string name="quiz_correct_result">%d/%d Correct</string>
+    <string name="quiz_continue_learning">or continue learning</string>
+    <string name="quiz_ending_info">We have added an achievement to your profile - take a look!</string>
 </resources>

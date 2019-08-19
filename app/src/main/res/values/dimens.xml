@@ -26,6 +26,9 @@
     <dimen name="text_XXL">18sp</dimen>
     <dimen name="text_XXXL">19sp</dimen>
 
+    <!--CARD VIEW-->
+    <dimen name="card_corner_radius">8dp</dimen>
+
     <!-- Bottom Navigation View -->
     <dimen name="bnv_height">72dp</dimen>
     <dimen name="bnv_icon_size">@dimen/icon_M</dimen>
@@ -37,7 +40,6 @@
     <dimen name="bottom_sheet_peek_height">60dp</dimen>
 
     <!-- Swipeable card -->
-    <dimen name="swipeable_card_corner_radius">8dp</dimen>
     <dimen name="swipeable_card_image_height">300dp</dimen>
 
     <!-- LOGIN SCREEN -->
@@ -51,8 +53,6 @@
 
     <!--LEVEL SECTION -->
     <dimen name="section_height">180dp</dimen>
-    <dimen name="section_radius">10dp</dimen>
-    <dimen name="section_elevation">5dp</dimen>
 
     <!--LEVEL ITEM-->
     <dimen name="level_item_spacing">@dimen/S</dimen>
@@ -62,7 +62,6 @@
     <dimen name="certificate_width">300dp</dimen>
     <dimen name="certificate_divider_width">60dp</dimen>
     <dimen name="certificate_divider_height">2dp</dimen>
-    <dimen name="certificate_corner_radius">6dp</dimen>
 
     <!--SCORE ITEM-->
     <dimen name="score_height">100dp</dimen>
@@ -78,10 +77,14 @@
     <dimen name="profile_avatar_background_height">300dp</dimen>
     <dimen name="profile_sociable_height">250dp</dimen>
 
-    <!--DIALOGS-->
-    <dimen name="dialog_corner_radius">10dp</dimen>
-
     <!--PYRAMID-->
     <dimen name="pyramid_view_width">250dp</dimen>
     <dimen name="pyramid_view_height">270dp</dimen>
+
+    <!--QUIZ-->
+    <dimen name="quiz_translation_z_background">10dp</dimen>
+    <dimen name="quiz_translation_z_background_below">1dp</dimen>
+    <dimen name="quiz_translation_z_background_above">20dp</dimen>
+    <dimen name="quiz_answer_info_height">200dp</dimen>
+
 </resources>

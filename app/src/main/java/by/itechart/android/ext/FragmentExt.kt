@@ -8,16 +8,19 @@ import androidx.navigation.Navigation
 import by.itechart.android.R
 
 
-fun Fragment.navigate(actionID: Int, navHostID: Int = R.id.primaryNavHostFragment) {
+fun Fragment.navigateUp(navHostID: Int = R.id.primaryNavHostFragment) =
+    activity?.let { act: FragmentActivity ->
+        Navigation.findNavController(act, navHostID).navigateUp()
+    }
+
+fun Fragment.navigate(actionID: Int, navHostID: Int = R.id.primaryNavHostFragment) =
     activity?.let { act: FragmentActivity ->
         Navigation.findNavController(act, navHostID).navigate(actionID)
     }
-}
 
-fun Fragment.navigate(direction: NavDirections, navHostID: Int = R.id.primaryNavHostFragment) {
+fun Fragment.navigate(direction: NavDirections, navHostID: Int = R.id.primaryNavHostFragment) =
     activity?.let { act: FragmentActivity ->
         Navigation.findNavController(act, navHostID).navigate(direction)
     }
-}
 
 fun Fragment.showMessage(msg: String) = Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()

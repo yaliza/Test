@@ -11,6 +11,6 @@ import kotlinx.android.synthetic.main.fragment_events.*
 class EventsFragment : Fragment(R.layout.fragment_events) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        goToModularButton.setOnClickListener { navigate(R.id.action_bottomNavFragment_to_swipableFragment) }
+        goToModularButton.setOnClickListener { navigate(R.id.action_eventsFragment_to_modalFragment) }
     }
 }

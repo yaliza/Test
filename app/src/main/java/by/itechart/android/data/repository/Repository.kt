@@ -5,11 +5,13 @@ import androidx.core.util.forEach
 import androidx.core.util.set
 import by.itechart.android.data.api.FacebookApi
 import by.itechart.android.data.entity.*
+import by.itechart.android.ui.entity.QuizResultUIModel
 import com.facebook.AccessToken
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInStatusCodes
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
@@ -26,7 +28,7 @@ import java.util.concurrent.TimeUnit
 class Repository(
     private val facebookApi: FacebookApi,
     private val userHelper: UserHelper,
-    firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore
 ) {
 
     val user: User
@@ -42,7 +44,7 @@ class Repository(
     private val invitationsSubj: BehaviorSubject<List<Sociable>> = BehaviorSubject.create()
 
     init {
-        with(firestore){
+        with(firestore) {
             collection("followers").orderBy("name").addSnapshotListener { snap, exc ->
                 exc?.let { followersSubj.onError(it) }
                     ?: snap?.let { followersSubj.onNext(it.parseSociable(SociableType.FOLLOWER)) }
@@ -121,10 +123,19 @@ class Repository(
             }
         }.doOnSuccess { userHelper.user = User(it) }
 
+    fun getQuestions(levelId: String): Single<List<QuizQuestion>> =
+        Single.create { emitter ->
+            val snap = Tasks.await(firestore.collection("levels").document(levelId).collection("quiz").get())
+            emitter.onSuccess(snap.toObjects())
+        }
+
     fun getGoogleUser(user: GoogleSignInAccount): Single<GoogleSignInAccount> =
         Single.just(user)
             .doOnSuccess { userHelper.user = User(it) }
             .delay(1, TimeUnit.SECONDS)
+
+    fun getCertificate(quizResult: QuizResultUIModel) =
+        Single.just(Certificate("Test certificate", "Test name", "Test date", "orange"))
 
     private fun QuerySnapshot.parseSociable(sociableType: SociableType) =
         mutableListOf<Sociable>().apply {
@@ -142,11 +153,14 @@ class Repository(
             val level = (snap["level"] as Long).toInt()
             if (levels[level] == null) levels[level] = Level()
             when (snap["type"]) {
-                "section" -> snap.toObject<Section>()?.let { levels[level].sections.add(it) }
+                "section" -> snap.toObject<Section>()?.apply {
+                    id = snap.id
+                    levels[level].sections.add(this)
+                }
                 "level" ->
                     snap.toObject<Level>()?.apply {
                         sections = levels[level].sections
-                        levels[level] = this
+                        levels[level] = this.apply { id = snap.id }
                     }
             }
         }

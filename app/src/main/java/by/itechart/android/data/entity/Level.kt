@@ -3,6 +3,7 @@ package by.itechart.android.data.entity
 import com.google.gson.annotations.SerializedName
 
 class Level(
+    var id: String = "",
     var title: String = "",
     var color: String = "",
     var level: Int = 0,
