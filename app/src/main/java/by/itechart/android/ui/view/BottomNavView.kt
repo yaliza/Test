@@ -4,23 +4,32 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.forEach
-import androidx.navigation.NavController
-import androidx.navigation.ui.setupWithNavController
 import by.itechart.android.R
 import kotlinx.android.synthetic.main.view_bottom_nav.view.*
 
 class BottomNavView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-    private val menuIds = mutableListOf<Int>()
     private val menuItemMaxWidth: Int
     private var marginSet = false
+    var bottomNavListener: ((Int) -> Unit)? = null
+    val menuIds = mutableListOf<Int>()
+
+    var selected: Int = 0
+        set(value) {
+            if (navBottomBar.selectedItemId != value) {
+                navBottomBar.selectedItemId = value
+            }
+            field = value
+        }
 
     init {
         inflate(context, R.layout.view_bottom_nav, this)
         initAttributes(attrs)
-        menuItemMaxWidth = context.resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_max_width)
+        menuItemMaxWidth =
+            context.resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_max_width)
+        setupBottomNavBar()
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -52,15 +61,6 @@ class BottomNavView @JvmOverloads constructor(
         }
     }
 
-    fun setupWithNavController(navController: NavController) {
-        navBottomBar.apply {
-            menu.forEach { menuIds.add(it.itemId) }
-            setupWithNavController(navController)
-        }
-        navDotsIndicator.count = menuIds.size
-        navController.addOnDestinationChangedListener { _, destination, _ -> changeDotSelectedIndex(destination.id) }
-    }
-
     private fun changeDotSelectedIndex(itemId: Int): Boolean {
         val index = menuIds.indexOf(itemId)
         return if (index != -1) {
@@ -70,11 +70,21 @@ class BottomNavView @JvmOverloads constructor(
     }
 
     private fun initAttributes(attrs: AttributeSet?) =
-            context.theme.obtainStyledAttributes(attrs, R.styleable.BottomNavView, 0, 0).apply {
-                if (hasValue(R.styleable.BottomNavView_bnv_menu)) {
-                    navBottomBar.inflateMenu(getResourceId(R.styleable.BottomNavView_bnv_menu, 0))
-                }
-                recycle()
+        context.theme.obtainStyledAttributes(attrs, R.styleable.BottomNavView, 0, 0).apply {
+            if (hasValue(R.styleable.BottomNavView_bnv_menu)) {
+                navBottomBar.inflateMenu(getResourceId(R.styleable.BottomNavView_bnv_menu, 0))
             }
+            recycle()
+        }
 
+    private fun setupBottomNavBar() {
+        navBottomBar.apply {
+            menu.forEach { menuIds.add(it.itemId) }
+            setOnNavigationItemSelectedListener {
+                bottomNavListener?.invoke(it.itemId)
+                changeDotSelectedIndex(it.itemId)
+            }
+        }
+        navDotsIndicator.count = menuIds.size
+    }
 }

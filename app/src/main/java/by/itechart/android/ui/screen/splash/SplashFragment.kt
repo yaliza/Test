@@ -37,7 +37,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         if (user == null) {
             navigate(R.id.action_splashFragment_to_loginFragment)
         } else {
-            navigate(R.id.action_splashFragment_to_bottomNavFragment)
+            navigate(R.id.action_splashFragment_to_learningFragment)
         }
     }
 }

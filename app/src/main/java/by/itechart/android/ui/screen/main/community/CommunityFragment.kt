@@ -48,11 +48,10 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
         }
         viewModel.dialog.observe(viewLifecycleOwner, Observer { it?.let { showDialog(it) } })
 
-        goToModularButton.setOnClickListener { navigate(R.id.action_bottomNavFragment_to_swipableFragment) }
+        goToModularButton.setOnClickListener { navigate(R.id.action_communityFragment_to_modalFragment) }
     }
 
     private fun showDialog(dialogUIModel: DialogUIModel) = context?.let {
-
             dialog?.dismiss()
             var acceptListener = { dismissDialog() }
             var declineListener: (() -> Unit)? = null

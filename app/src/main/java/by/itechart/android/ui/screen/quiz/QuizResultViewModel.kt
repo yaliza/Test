@@ -18,7 +18,7 @@ class QuizResultViewModel(
     val result = MutableLiveData<QuizResultUIModel>()
     val certificate = MutableLiveData<CertificateUIModel>()
 
-    var quizEndingUIModel: QuizResultUIModel? = null
+    var quizResultUIModel: QuizResultUIModel? = null
         set(value) {
             if (value != field) {
                 result.value = value
@@ -28,7 +28,7 @@ class QuizResultViewModel(
         }
 
     private fun loadCertificate() =
-        quizEndingUIModel?.let {
+        quizResultUIModel?.let {
             repository.getCertificate(it)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

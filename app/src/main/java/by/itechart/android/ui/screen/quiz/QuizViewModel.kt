@@ -30,9 +30,11 @@ class QuizViewModel(private val repository: Repository) : BaseViewModel() {
 
     var selected: Int? = null
         set(value) {
-            field?.let { unselectOption.value = field }
-            field = value
-            field?.let { selectOption.value = field }
+            if(value != field){
+                field?.let { unselectOption.value = field }
+                field = value
+                field?.let { selectOption.value = field }
+            }
         }
 
     var levelId: String = ""

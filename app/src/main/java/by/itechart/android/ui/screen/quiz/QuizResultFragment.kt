@@ -4,9 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.itechart.android.R
+import by.itechart.android.ext.navigate
+import by.itechart.android.ext.navigateUp
 import kotlinx.android.synthetic.main.fragment_quiz_result.*
 import kotlinx.android.synthetic.main.item_certificate.*
 import kotlinx.android.synthetic.main.view_back_button.*
@@ -22,7 +23,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
         super.onViewCreated(view, savedInstanceState)
 
         with(viewModel) {
-            quizEndingUIModel = args.quizResult
+            quizResultUIModel = args.quizResult
             result.observe(viewLifecycleOwner, Observer {
                 resultTextView.text = getString(R.string.quiz_correct_result, it.correct, it.questions)
                 resultRatingBar.rating = it.rating.toFloat()
@@ -35,8 +36,9 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
             })
         }
 
-        backImageView.setOnClickListener { findNavController().navigateUp() }
-        learningButton.setOnClickListener { findNavController().navigateUp() }
+        backImageView.setOnClickListener { navigateUp() }
+        learningButton.setOnClickListener { navigateUp() }
+        profileButton.setOnClickListener { navigate(R.id.action_quizResultFragment_to_profileFragment) }
     }
 
 }

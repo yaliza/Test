@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
 import by.itechart.android.R
 import by.itechart.android.ext.hide
+import by.itechart.android.ext.navigateUp
 import by.itechart.android.ext.show
 import by.itechart.android.ui.base.CarouselPagerTransformer
 import by.itechart.android.ui.base.ResourceObserver
@@ -51,9 +51,7 @@ class ModalFragment : Fragment(R.layout.fragment_modal) {
             }
         })
 
-        backImageView.setOnClickListener {
-            activity?.let { Navigation.findNavController(it, R.id.primaryNavHostFragment).navigateUp() }
-        }
+        backImageView.setOnClickListener { navigateUp() }
     }
 
 }

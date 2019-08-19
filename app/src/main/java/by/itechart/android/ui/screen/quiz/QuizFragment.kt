@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import by.itechart.android.R
 import by.itechart.android.data.entity.QuizQuestion
@@ -25,9 +24,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        backImageView.setOnClickListener {
-            activity?.let { Navigation.findNavController(it, R.id.primaryNavHostFragment).navigateUp() }
-        }
+        backImageView.setOnClickListener { navigateUp() }
 
         val optionClickListener =
             View.OnClickListener { vi: View -> options.indexOfFirst { vi.id == it.id }.let { viewModel.selected = it } }
@@ -46,7 +43,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
             quizResult.observe(
                 viewLifecycleOwner,
-                Observer { navigate(QuizFragmentDirections.actionQuizFragmentToQuizEndingFragment(it)) })
+                Observer { navigate(QuizFragmentDirections.actionQuizFragmentToQuizResultFragment(it)) })
 
             selectOption.observe(viewLifecycleOwner, Observer { options[it].isBordered = true })
             unselectOption.observe(viewLifecycleOwner, Observer { options[it].isBordered = false })

@@ -12,7 +12,6 @@ import by.itechart.android.ext.showMessage
 import by.itechart.android.ui.base.ResourceObserver
 import by.itechart.android.ui.entity.LevelUIModel
 import by.itechart.android.ui.entity.LevelUIModel.Companion.TYPE_SECTION
-import by.itechart.android.ui.screen.main.BottomNavFragmentDirections
 import by.itechart.android.ui.screen.main.learning.recycler.LevelsAdapter
 import kotlinx.android.synthetic.main.fragment_learning.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
@@ -44,8 +43,8 @@ class LearningFragment : Fragment(R.layout.fragment_learning) {
     private fun setupLevelsRecyclerView() {
         levelsAdapter = LevelsAdapter()
         levelsAdapter.apply {
-            buttonClickListener = { navigate(BottomNavFragmentDirections.actionBottomNavFragmentToQuizFragment(it)) }
-            sectionClickListener = { navigate(BottomNavFragmentDirections.actionBottomNavFragmentToModuleFragment(it)) }
+            buttonClickListener = { navigate(LearningFragmentDirections.actionLearningFragmentToQuizFragment(it)) }
+            sectionClickListener = { navigate(LearningFragmentDirections.actionLearningFragmentToModuleFragment(it)) }
         }
 
         val gridLayoutManager = GridLayoutManager(activity, 2)

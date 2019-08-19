@@ -44,7 +44,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         viewModel.user.observe(viewLifecycleOwner, object : ResourceObserver<User?>() {
             override fun onSuccess(data: User?) {
                 progressBar.hide()
-                data?.let { navigate(R.id.action_loginFragment_to_bottomNavFragment) }
+                data?.let { navigate(R.id.action_loginFragment_to_learningFragment) }
             }
             override fun onError(message: String) {
                 progressBar.hide()
