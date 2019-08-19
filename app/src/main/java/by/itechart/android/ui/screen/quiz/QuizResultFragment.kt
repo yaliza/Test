@@ -38,7 +38,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
 
         backImageView.setOnClickListener { navigateUp() }
         learningButton.setOnClickListener { navigateUp() }
-        profileButton.setOnClickListener { navigate(R.id.action_quizResultFragment_to_profileFragment) }
+        profileButton.setOnClickListener { navigate(QuizResultFragmentDirections.actionQuizResultFragmentToProfileFragment()) }
     }
 
 }

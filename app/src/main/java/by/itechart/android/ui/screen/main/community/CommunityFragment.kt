@@ -88,7 +88,7 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
         googleSignInClient.signOut()
         unloadKoinModules(dataModule)
         loadKoinModules(dataModule)
-        navigate(R.id.action_toLoginFragment)
+        navigate(CommunityFragmentDirections.actionCommunityFragmentToLoginFragment())
     }
 
 }
