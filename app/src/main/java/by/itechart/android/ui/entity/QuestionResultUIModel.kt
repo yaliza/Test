@@ -1,7 +1,7 @@
 package by.itechart.android.ui.entity
 
 
-class QuestionResultUIModel(
+data class QuestionResultUIModel(
     val rightIndex: Int,
     val answerComment: String,
     val choosedIndex: Int

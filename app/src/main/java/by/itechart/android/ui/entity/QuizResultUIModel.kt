@@ -6,7 +6,7 @@ import kotlin.math.roundToInt
 
 
 @Parcelize
-class QuizResultUIModel(
+data class QuizResultUIModel(
     var correct: Int,
     var questions: Int,
     var levelId: String
