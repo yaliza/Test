@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/grey90"
-            android:stateListAnimator="@drawable/states_background_quiz"
+            android:stateListAnimator="@animator/states_background_quiz"
             android:translationZ="@dimen/quiz_translation_z_background"
             android:visibility="gone" />
 
