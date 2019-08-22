@@ -3,10 +3,7 @@ package by.itechart.android.di
 import by.itechart.android.data.api.FacebookApi
 import by.itechart.android.data.repository.Repository
 import by.itechart.android.data.repository.UserHelper
-import by.itechart.android.ui.mapper.CertificateMapper
-import by.itechart.android.ui.mapper.LevelMapper
-import by.itechart.android.ui.mapper.ModalCardMapper
-import by.itechart.android.ui.mapper.SociableMapper
+import by.itechart.android.ui.mapper.*
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -17,6 +14,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
+
 
 val dataModule = module {
 
@@ -51,4 +49,5 @@ val dataModule = module {
     single { SociableMapper() }
     single { CertificateMapper() }
     single { ModalCardMapper() }
+    single { LevelStatMapper(get()) }
 }

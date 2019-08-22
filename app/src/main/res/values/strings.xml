@@ -36,16 +36,23 @@
     <string name="community_level">LEVEL</string>
     <string name="community_progress">Progress</string>
     <string name="community_where_you_are">See where you are compared to other FXTM users </string>
+    <string name="community_activity">ACTIVITY</string>
+    <string name="community_stats">STATS</string>
+    <string name="community_level_title">LEVEL %d</string>
+    <string name="community_congratulate">CONGRATULATE</string>
 
     <!--MODULE-->
     <string name="take_quiz">TAKE QUIZ</string>
     <string name="section_title">In this section you will learn to…</string>
 
-    <string name="certificates">CERTIFICATES</string>
-    <string name="scores">SCORES</string>
+    <!--PROFILE-->
+    <string name="profile_certificates">CERTIFICATES</string>
+    <string name="profile_scores">SCORES</string>
+
     <string name="see_all">SEE ALL</string>
     <string name="accept">accept</string>
     <string name="decline">decline</string>
+    <string name="view_all">VIEW ALL</string>
 
     <!--CERTIFICATE-->
     <string name="certificate_date">DATE</string>

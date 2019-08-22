@@ -78,16 +78,17 @@
         <item name="android:textColor">@color/blue90</item>
     </style>
 
-    <style name="AppTheme.Text.Profile">
+    <style name="AppTheme.Text.Section.Profile">
+        <item name="android:textColor">@color/grey90</item>
+        <item name="android:textSize">@dimen/text_L</item>
+    </style>
+
+    <style name="AppTheme.Text.Section">
         <item name="android:textStyle">bold</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/M</item>
         <item name="android:layout_marginEnd">@dimen/M</item>
-        <item name="android:textSize">@dimen/text_L</item>
-    </style>
-
-    <style name="AppTheme.Text.Profile.Section">
         <item name="android:textColor">@color/grey50</item>
         <item name="android:textSize">@dimen/text_S</item>
     </style>

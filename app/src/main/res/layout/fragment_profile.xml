@@ -20,7 +20,7 @@
 
             <TextView
                     android:id="@+id/userNameTextView"
-                    style="@style/AppTheme.Text.Profile"
+                    style="@style/AppTheme.Text.Section.Profile"
                     android:textSize="@dimen/text_XL"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +28,7 @@
 
             <TextView
                     android:id="@+id/userNicknameTextView"
-                    style="@style/AppTheme.Text.Profile"
+                    style="@style/AppTheme.Text.Section.Profile"
                     android:text="nickname"
                     app:layout_constraintBottom_toBottomOf="@id/achievementImageView"
                     app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
 
             <TextView
                     android:id="@+id/achievementTextView"
-                    style="@style/AppTheme.Text.Profile"
+                    style="@style/AppTheme.Text.Section.Profile"
                     android:layout_marginStart="@dimen/XS"
                     android:text="3 days streak"
                     android:textStyle="normal"
@@ -55,9 +55,9 @@
 
             <TextView
                     android:id="@+id/certificatesTextView"
-                    style="@style/AppTheme.Text.Profile.Section"
+                    style="@style/AppTheme.Text.Section"
                     android:layout_marginTop="@dimen/L"
-                    android:text="@string/certificates"
+                    android:text="@string/profile_certificates"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/userNicknameTextView" />
 
@@ -79,9 +79,9 @@
 
             <TextView
                     android:id="@+id/scoresTextView"
-                    style="@style/AppTheme.Text.Profile.Section"
+                    style="@style/AppTheme.Text.Section"
                     android:layout_marginTop="@dimen/M"
-                    android:text="@string/scores"
+                    android:text="@string/profile_scores"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/seeAllButton" />
 

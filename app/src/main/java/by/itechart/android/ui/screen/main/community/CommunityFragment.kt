@@ -5,90 +5,82 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import by.itechart.android.R
-import by.itechart.android.di.dataModule
-import by.itechart.android.ext.navigate
+import by.itechart.android.data.entity.Activity
+import by.itechart.android.data.entity.Stat
 import by.itechart.android.ext.showMessage
-import by.itechart.android.ui.dialog.Dialog
-import by.itechart.android.ui.dialog.dialog
-import by.itechart.android.ui.entity.DialogType.*
-import by.itechart.android.ui.entity.DialogUIModel
-import com.facebook.login.LoginManager
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import by.itechart.android.ui.base.DividerItemDecoration
+import by.itechart.android.ui.base.ResourceObserver
+import by.itechart.android.ui.entity.LevelStatUIModel
+import by.itechart.android.ui.screen.main.community.recyler.ActivitiesAdapter
+import by.itechart.android.ui.screen.main.community.recyler.LevelStatsAdapter
+import by.itechart.android.ui.screen.main.community.recyler.StatsAdapter
 import kotlinx.android.synthetic.main.fragment_community.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.context.loadKoinModules
-import org.koin.core.context.unloadKoinModules
 
 
 class CommunityFragment : Fragment(R.layout.fragment_community) {
 
-    private val googleSignInClient by inject<GoogleSignInClient>()
-    private val facebookLoginManager by inject<LoginManager>()
     private val viewModel by viewModel<CommunityViewModel>()
-    private var dialog: Dialog? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        logoutButton.setOnClickListener {
-            viewModel.setupDialog(DialogUIModel(ACCEPT, "Do you really want to logout?"))
-        }
-        infoDialogButton.setOnClickListener {
-            viewModel.setupDialog(DialogUIModel(INFO, "Info dialog message", "You have opened info dialog"))
-        }
-        bottomInfoDialogButton.setOnClickListener {
-            viewModel.setupDialog(
-                DialogUIModel(
-                    dialogType = BOTTOM,
-                    message = "You have opened bottom info dialog",
-                    icon = R.drawable.ic_award
-                )
-            )
-        }
-        viewModel.dialog.observe(viewLifecycleOwner, Observer { it?.let { showDialog(it) } })
-
-        goToModularButton.setOnClickListener { navigate(R.id.action_communityFragment_to_modalFragment) }
-    }
-
-    private fun showDialog(dialogUIModel: DialogUIModel) = context?.let {
-            dialog?.dismiss()
-            var acceptListener = { dismissDialog() }
-            var declineListener: (() -> Unit)? = null
-            var anim: Dialog.Animation? = null
-
-            when (dialogUIModel.dialogType) {
-                ACCEPT -> {
-                    acceptListener = { dismissDialog(); logout() }
-                    declineListener = { dismissDialog() }
-                }
-                INFO -> anim = Dialog.Animation.RIGHT
-                BOTTOM -> anim = Dialog.Animation.BOTTOM
+        upButton.setOnClickListener {
+            if (pyramidView.userLevel != 6) {
+                pyramidView.userLevel++
             }
-
-            dialog = dialog {
-                context = it
-                uiModel = dialogUIModel
-                acceptClickListener = acceptListener
-                declineClickListener = declineListener
-                dismissListener = { viewModel.setupDialog(null); dialog = null }
-                animation = anim
+        }
+        downButton.setOnClickListener {
+            if (pyramidView.userLevel != 1) {
+                pyramidView.userLevel--
             }
-
-            dialog?.show()
         }
 
-    private fun dismissDialog() {
-        showMessage("dismissDialog")
-        dialog?.dismiss()
-    }
+        val levelStatsAdapter = LevelStatsAdapter(
+            resources.getIntArray(R.array.pyramidColors),
+            -resources.getDimension(R.dimen.level_stat_image_overlapping)
+        )
+        with(levelStatRecyclerView) {
+            adapter = levelStatsAdapter
+            addItemDecoration(DividerItemDecoration(context))
+        }
 
-    private fun logout() {
-        facebookLoginManager.logOut()
-        googleSignInClient.signOut()
-        unloadKoinModules(dataModule)
-        loadKoinModules(dataModule)
-        navigate(CommunityFragmentDirections.actionCommunityFragmentToLoginFragment())
-    }
+        val activityAdapter = ActivitiesAdapter()
+        with(activityRecyclerView) {
+            adapter = activityAdapter
+            addItemDecoration(DividerItemDecoration(context))
+        }
 
+        val statsAdapter = StatsAdapter().apply {
+            statRecyclerView.adapter = this
+            statClickListener = { showMessage(it) }
+        }
+
+        activitySeeAllButton.setOnClickListener { showMessage("See all community") }
+        statSeeAllButton.setOnClickListener { showMessage("View all stats") }
+
+        with(viewModel) {
+            profile.observe(viewLifecycleOwner, Observer { pyramidView.photoUrl = it.photoUrl })
+            stats.observe(viewLifecycleOwner, object : ResourceObserver<List<Stat>>() {
+                override fun onError(message: String) = showMessage(message)
+                override fun onLoading() {}
+                override fun onSuccess(data: List<Stat>?) =
+                    data?.let { statsAdapter.items = it }
+            })
+            levelStats.observe(
+                viewLifecycleOwner,
+                object : ResourceObserver<List<LevelStatUIModel>>() {
+                    override fun onError(message: String) = showMessage(message)
+                    override fun onLoading() {}
+                    override fun onSuccess(data: List<LevelStatUIModel>?) =
+                        data?.let { levelStatsAdapter.items = it }
+                })
+            activities.observe(viewLifecycleOwner, object : ResourceObserver<List<Activity>>() {
+                override fun onLoading() {}
+                override fun onError(message: String) = showMessage(message)
+                override fun onSuccess(data: List<Activity>?) =
+                    data?.let { activityAdapter.items = it }
+            })
+        }
+    }
 }
