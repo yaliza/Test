@@ -87,4 +87,24 @@
     <dimen name="quiz_translation_z_background_above">20dp</dimen>
     <dimen name="quiz_answer_info_height">200dp</dimen>
 
+    <!--COMMUNITY-->
+    <dimen name="community_activities_height">200dp</dimen>
+
+    <!--ACTIVITY ITEM-->
+    <dimen name="activity_avatar_width">90dp</dimen>
+    <dimen name="activity_avatar_height">70dp</dimen>
+    <dimen name="activity_country_width">30dp</dimen>
+    <dimen name="activity_country_height">20dp</dimen>
+
+    <!--LEVEL STAT ITEM-->
+    <dimen name="level_stat_colored_size">30dp</dimen>
+
+    <!--LEVEL STAT IMAGE ITEM-->
+    <dimen name="level_stat_image_size">35dp</dimen>
+    <dimen name="level_stat_image_overlapping">10dp</dimen>
+
+    <!--STAT ITEM-->
+    <dimen name="stat_size">170dp</dimen>
+    <dimen name="stat_image_size">30dp</dimen>
+
 </resources>

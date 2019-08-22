@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
@@ -42,40 +43,58 @@ class Repository(
     private val followersSubj: BehaviorSubject<List<Sociable>> = BehaviorSubject.create()
     private val followingSubj: BehaviorSubject<List<Sociable>> = BehaviorSubject.create()
     private val invitationsSubj: BehaviorSubject<List<Sociable>> = BehaviorSubject.create()
+    private val statSubj: BehaviorSubject<List<Stat>> = BehaviorSubject.create()
+    private val levelStatSubj: BehaviorSubject<List<LevelStat>> = BehaviorSubject.create()
+    private val activitiesSubj: BehaviorSubject<List<Activity>> = BehaviorSubject.create()
 
     init {
         with(firestore) {
-            collection("followers").orderBy("name").addSnapshotListener { snap, exc ->
-                exc?.let { followersSubj.onError(it) }
-                    ?: snap?.let { followersSubj.onNext(it.parseSociable(SociableType.FOLLOWER)) }
-            }
-            collection("following").orderBy("name").addSnapshotListener { snap, exc ->
-                exc?.let { followersSubj.onError(it) }
-                    ?: snap?.let { followingSubj.onNext(it.parseSociable(SociableType.FOLLOWING)) }
-            }
-            collection("invites").orderBy("name").addSnapshotListener { snap, exc ->
-                exc?.let { followersSubj.onError(it) }
-                    ?: snap?.let { invitationsSubj.onNext(it.parseSociable(SociableType.INVITE)) }
-            }
+            collection("sociable").whereEqualTo("type", "FOLLOWER")
+                .orderBy("name").addSnapshotListener { snap, exc ->
+                    exc?.let { followersSubj.onError(it) }
+                        ?: snap?.let { followersSubj.onNext(it.parseSociable(SociableType.FOLLOWER)) }
+                }
+            collection("sociable").whereEqualTo("type", "FOLLOWING")
+                .orderBy("name").addSnapshotListener { snap, exc ->
+                    exc?.let { followingSubj.onError(it) }
+                        ?: snap?.let { followingSubj.onNext(it.parseSociable(SociableType.FOLLOWING)) }
+                }
+            collection("sociable").whereEqualTo("type", "INVITE")
+                .orderBy("name").addSnapshotListener { snap, exc ->
+                    exc?.let { invitationsSubj.onError(it) }
+                        ?: snap?.let { invitationsSubj.onNext(it.parseSociable(SociableType.INVITE)) }
+                }
 
             collection("levels").orderBy("level").addSnapshotListener { snap, exc ->
-                exc?.let { followersSubj.onError(it) } ?: snap?.let { levelsSubj.onNext(it.parseLevels()) }
+                exc?.let { levelsSubj.onError(it) } ?: snap?.let { levelsSubj.onNext(it.parseLevels()) }
             }
 
             collection("certificates").addSnapshotListener { snap, exc ->
-                exc?.let { followersSubj.onError(it) } ?: snap?.let { certificatesSubj.onNext(it.toObjects()) }
+                exc?.let { certificatesSubj.onError(it) } ?: snap?.let { certificatesSubj.onNext(it.toObjects()) }
             }
 
             collection("scores").addSnapshotListener { snap, exc ->
-                exc?.let { followersSubj.onError(it) } ?: snap?.let { scoresSubj.onNext(it.toObjects()) }
+                exc?.let { scoresSubj.onError(it) } ?: snap?.let { scoresSubj.onNext(it.toObjects()) }
             }
 
             collection("modal").addSnapshotListener { snap, exc ->
-                exc?.let { followersSubj.onError(it) } ?: snap?.let { modalCardsSubj.onNext(it.toObjects()) }
+                exc?.let { modalCardsSubj.onError(it) } ?: snap?.let { modalCardsSubj.onNext(it.toObjects()) }
             }
 
             collection("topics").orderBy("order").addSnapshotListener { snap, exc ->
-                exc?.let { followersSubj.onError(it) } ?: snap?.let { topicsSubj.onNext(it.toObjects()) }
+                exc?.let { topicsSubj.onError(it) } ?: snap?.let { topicsSubj.onNext(it.toObjects()) }
+            }
+
+            collection("stats").orderBy("title").addSnapshotListener { snap, exc ->
+                exc?.let { statSubj.onError(it) } ?: snap?.let { statSubj.onNext(it.toObjects()) }
+            }
+
+            collection("levelsStat").orderBy("level", Query.Direction.DESCENDING).addSnapshotListener { snap, exc ->
+                exc?.let { levelStatSubj.onError(it) } ?: snap?.let { levelStatSubj.onNext(it.toObjects()) }
+            }
+
+            collection("activity").addSnapshotListener { snap, exc ->
+                exc?.let { activitiesSubj.onError(it) } ?: snap?.let { activitiesSubj.onNext(it.toObjects()) }
             }
         }
     }
@@ -105,6 +124,15 @@ class Repository(
         .toFlowable(BackpressureStrategy.LATEST)
 
     fun getInvitations(): Flowable<List<Sociable>> = invitationsSubj.hide()
+        .toFlowable(BackpressureStrategy.LATEST)
+
+    fun getStats(): Flowable<List<Stat>> = statSubj.hide()
+        .toFlowable(BackpressureStrategy.LATEST)
+
+    fun getLevelStats(): Flowable<List<LevelStat>> = levelStatSubj.hide()
+        .toFlowable(BackpressureStrategy.LATEST)
+
+    fun getActivities(): Flowable<List<Activity>> = activitiesSubj.hide()
         .toFlowable(BackpressureStrategy.LATEST)
 
     fun getFacebookUser(accessToken: AccessToken): Single<Response<FacebookResponseUser>> =

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:id="@+id/levelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/S"
+            android:textColor="@color/grey50"
+            android:textSize="@dimen/text_M"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/coloredView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="LEVEL 1" />
+
+    <TextView
+            android:id="@+id/levelDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/M"
+            android:textColor="@color/grey90"
+            android:textSize="@dimen/text_L"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/levelTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Now on trading" />
+
+    <View
+            android:id="@+id/coloredView"
+            android:layout_width="@dimen/level_stat_colored_size"
+            android:layout_height="@dimen/level_stat_colored_size"
+            android:layout_marginTop="@dimen/M"
+            android:layout_marginBottom="@dimen/M"
+            android:background="@drawable/bg_level_rating"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:backgroundTint="@color/orange60" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/levelStatImagesRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/M"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/levelDescriptionTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_level_stat_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

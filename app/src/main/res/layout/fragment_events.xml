@@ -16,4 +16,25 @@
             android:text="open swipable"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
+    <Button
+            android:id="@+id/infoDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="info dialog"
+            app:layout_constraintTop_toBottomOf="@id/goToModularButton" />
+
+    <Button
+            android:id="@+id/bottomInfoDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="bottom info dialog"
+            app:layout_constraintTop_toBottomOf="@id/infoDialogButton" />
+
+    <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="logout"
+            app:layout_constraintTop_toBottomOf="@id/bottomInfoDialogButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

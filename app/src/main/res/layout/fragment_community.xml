@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,41 +16,64 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <Button
-                    android:id="@+id/goToModularButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="open swipable"
+                    android:id="@+id/activitySeeAllButton"
+                    style="@style/AppTheme.Button.Text"
+                    android:text="@string/see_all"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activityRecyclerView" />
+
+            <Button
+                    android:id="@+id/statSeeAllButton"
+                    style="@style/AppTheme.Button.Text"
+                    android:text="@string/view_all"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/statRecyclerView" />
+
+            <TextView
+                    android:id="@+id/statsTextView"
+                    style="@style/AppTheme.Text.Section"
+                    android:layout_marginTop="@dimen/L"
+                    android:text="@string/community_stats"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/levelStatRecyclerView" />
+
+            <TextView
+                    android:id="@+id/activityTextView"
+                    style="@style/AppTheme.Text.Section"
+                    android:text="@string/community_activity"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                    android:id="@+id/infoDialogButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="info dialog"
-                    app:layout_constraintTop_toBottomOf="@id/goToModularButton" />
-
-            <Button
-                    android:id="@+id/bottomInfoDialogButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="bottom info dialog"
-                    app:layout_constraintTop_toBottomOf="@id/infoDialogButton" />
-
-            <Button
-                    android:id="@+id/logoutButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="logout"
-                    app:layout_constraintTop_toBottomOf="@id/bottomInfoDialogButton" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/pyramidConstraintLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/blue70"
-                    app:layout_constraintTop_toBottomOf="@id/logoutButton">
+                    app:layout_constraintTop_toBottomOf="@id/activitySeeAllButton">
+
+                <Button
+                        android:id="@+id/upButton"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="up"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/progressDescriptionTextView" />
+
+                <Button
+                        android:id="@+id/downButton"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="down"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintStart_toEndOf="@id/upButton"
+                        app:layout_constraintTop_toBottomOf="@id/progressDescriptionTextView" />
 
                 <TextView
                         android:id="@+id/progressTextView"
@@ -64,6 +88,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                        android:id="@+id/progressDescriptionTextView"
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/M"
@@ -87,6 +112,41 @@
                         app:pv_text_size="@dimen/text_M" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/activityRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/community_activities_height"
+                    android:layout_margin="@dimen/M"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/activityTextView"
+                    tools:layout_editor_absoluteX="-524dp"
+                    tools:listitem="@layout/item_activity" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/statRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/M"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/S"
+                    android:paddingRight="@dimen/S"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/statsTextView"
+                    tools:listitem="@layout/item_stat" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/levelStatRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/M"
+                    android:layout_marginRight="@dimen/M"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/pyramidConstraintLayout"
+                    tools:itemCount="6"
+                    tools:listitem="@layout/item_level_stat" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

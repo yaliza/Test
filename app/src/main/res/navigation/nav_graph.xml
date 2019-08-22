@@ -108,9 +108,6 @@
             tools:layout="@layout/fragment_community">
 
         <action
-                android:id="@+id/action_communityFragment_to_modalFragment"
-                app:destination="@id/modalFragment" />
-        <action
                 android:id="@+id/action_communityFragment_to_loginFragment"
                 app:destination="@id/loginFragment"
                 app:popUpTo="@id/communityFragment"

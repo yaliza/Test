@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="@dimen/activity_avatar_width"
+            android:layout_height="@dimen/activity_avatar_height"
+            android:layout_marginTop="@dimen/M"
+            android:layout_marginBottom="@dimen/M"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/avatar_circle" />
+
+    <ImageView
+            android:id="@+id/countryImageView"
+            android:layout_width="@dimen/activity_country_width"
+            android:layout_height="@dimen/activity_country_height"
+            android:layout_marginStart="@dimen/M"
+            app:layout_constraintBottom_toBottomOf="@id/nameTextView"
+            app:layout_constraintStart_toEndOf="@id/nameTextView"
+            app:layout_constraintTop_toTopOf="@id/nameTextView" />
+
+    <ImageView
+            android:id="@+id/clapsImageView"
+            style="@style/AppTheme.Icon.Circle"
+            android:layout_width="@dimen/icon_M"
+            android:layout_height="@dimen/icon_M"
+            android:layout_marginEnd="@dimen/L"
+            android:backgroundTint="@color/orange60"
+            android:src="@drawable/ic_claps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/congratulateImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/M"
+            android:layout_marginTop="@dimen/S"
+            android:text="@string/community_congratulate"
+            android:textSize="@dimen/text_M"
+            app:layout_constraintBottom_toBottomOf="@id/avatarImageView"
+            app:layout_constraintStart_toEndOf="@id/avatarImageView" />
+
+    <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/M"
+            android:textColor="@color/grey90"
+            android:textSize="@dimen/text_M"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/avatarImageView"
+            app:layout_constraintTop_toTopOf="@id/avatarImageView"
+            tools:text="Nick Stanley" />
+
+    <TextView
+            android:id="@+id/achievementTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/M"
+            android:textSize="@dimen/text_M"
+            app:layout_constraintBottom_toTopOf="@id/congratulateImageView"
+            app:layout_constraintStart_toEndOf="@id/avatarImageView"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            tools:text="Passed module 2!" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

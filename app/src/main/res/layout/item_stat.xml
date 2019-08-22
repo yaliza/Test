@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="@dimen/stat_size"
+        android:layout_height="@dimen/stat_size"
+        android:layout_marginLeft="@dimen/S"
+        android:layout_marginTop="@dimen/S"
+        android:layout_marginRight="@dimen/S"
+        android:layout_marginBottom="@dimen/M"
+        android:foreground="?attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/statImageView"
+                android:layout_width="@dimen/stat_image_size"
+                android:layout_height="@dimen/stat_image_size"
+                android:layout_margin="@dimen/M"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_claps" />
+
+        <TextView
+                android:id="@+id/statTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/M"
+                android:textColor="@color/blue90"
+                android:textSize="@dimen/text_XXXL"
+                app:layout_constraintBottom_toTopOf="@id/statView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="7th" />
+
+        <TextView
+                android:id="@+id/statDescriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/S"
+                android:textSize="@dimen/text_M"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/statView"
+                tools:text="Some description" />
+
+        <View
+                android:id="@+id/statView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
